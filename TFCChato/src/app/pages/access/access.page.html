@@ -1,0 +1,10 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-log-in-form *ngIf="login"></app-log-in-form>
+
+  <app-register-form *ngIf="!login"></app-register-form>
+  
+  <button (click)="toRegister()">Registro</button>
+</ion-content>

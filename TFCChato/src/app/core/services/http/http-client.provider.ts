@@ -15,7 +15,7 @@ export abstract class HttpClientProvider {
      * @param options http request options
      * @returns observable with http response
      */
-     public abstract getImage(
+    public abstract getImage(
         url: string
     ): Observable<Blob>;
 

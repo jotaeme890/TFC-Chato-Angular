@@ -1,0 +1,13 @@
+{
+    "forms": {
+        "name": "Name",
+        "firstSurname": "First Surname",
+        "secondSurname": "Second Surname",
+        "email": "Email",
+        "password": "Password",
+        "repPassword": "Repeat the Password"
+    },
+    "errors": {
+        "valid": "This field is required"
+    }
+}

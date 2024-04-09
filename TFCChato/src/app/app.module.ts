@@ -6,10 +6,11 @@ import { IonicModule, IonicRouteStrategy, Platform } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { createTranslateLoader } from './core/translate/translate';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FirebaseAuthService } from './core/services/firebase/api/firebase-auth.service';
 import { FirebaseService } from './core/services/firebase/firebase.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FirebaseMediaService } from './core/services/firebase/api/firebase-media.service';
 import { HttpClientWebProvider } from './core/services/http/http-client-web.provider';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -31,8 +32,7 @@ export function MediaServiceFactory(
 }
 
 export function httpProviderFactory(
-  http:HttpClient,
-  platform:Platform) {
+  http:HttpClient) {
   return new HttpClientWebProvider(http);
 }
 
@@ -54,13 +54,14 @@ export function AuthServiceFactory(
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    /* TranslateModule.forRoot({
+    HttpClientModule,
+    TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    }) */],
+    })],
     providers: [
       {
         provide: 'firebase-config',

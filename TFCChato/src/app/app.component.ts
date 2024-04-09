@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { LocalService } from './core/services/translate/local.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +6,5 @@ import { LocalService } from './core/services/translate/local.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(
-    private localLang: LocalService
-  ) {}
+  constructor() {}
 }

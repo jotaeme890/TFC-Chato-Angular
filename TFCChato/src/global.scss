@@ -62,5 +62,7 @@ $app-theme: mat.define-light-theme((
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

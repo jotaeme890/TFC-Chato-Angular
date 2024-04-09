@@ -91,6 +91,7 @@ export function AuthServiceFactory(
         deps: ['backend', FirebaseService],
         useFactory: MediaServiceFactory,  
       },
+      provideAnimationsAsync(),
     ],
   bootstrap: [AppComponent],
 })

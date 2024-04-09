@@ -1,0 +1,10 @@
+{
+    "forms": {
+        "name": "Nombre",
+        "firstSurname": "Primer Apellido",
+        "secondSurname": "Segundo Apellido",
+        "email": "Correo Electrónico",
+        "password": "Contraseña",
+        "repPassword": "Repita la Contraseña"
+    }
+}

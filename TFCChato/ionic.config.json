@@ -1,0 +1,7 @@
+{
+  "name": "TFCChato",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

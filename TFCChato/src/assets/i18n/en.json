@@ -7,7 +7,14 @@
         "password": "Password",
         "repPassword": "Repeat the Password"
     },
+    "access": {
+        "toLogin": "I currently have an account.",
+        "toRegister": "I don´t have an account."
+    },
     "errors": {
-        "valid": "This field is required"
+        "valid": "This field is required.",
+        "emailError": "Invalid email",
+        "passwordError": "Password does not meet the requirements (8 letters, 1 uppercase and 1 number).",
+        "repeatError": "Passwords do not match."
     }
 }

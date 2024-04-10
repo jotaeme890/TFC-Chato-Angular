@@ -6,5 +6,15 @@
         "email": "Correo Electrónico",
         "password": "Contraseña",
         "repPassword": "Repita la Contraseña"
+    },
+    "access": {
+        "toLogin": "Actualmente ya tengo cuenta.",
+        "toRegister": "No tengo cuenta."
+    },
+    "errors": {
+        "valid": "Este campo es requrido.",
+        "emailError": "Correo inválido.",
+        "passwordError": "La contraseña no cumple los requisitos (8 letras, 1 mayúscula y 1 número).",
+        "repeatError": "Las contraseñas no coinciden."
     }
 }

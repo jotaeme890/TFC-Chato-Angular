@@ -2,9 +2,22 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <app-login-form *ngIf="login"></app-login-form>
 
-  <app-register-form *ngIf="!login"></app-register-form>
+  <div class="access">
+
+    <div class="access__forms">
+      <app-login-form *ngIf="login"></app-login-form>
+
+      <app-register-form *ngIf="!login"></app-register-form>
+      
+      <button *ngIf="login" (click)="toRegister()">{{'access.toRegister' | translate}}</button>
+    
+      <button *ngIf="!login" (click)="toRegister()">{{'access.toLogin' | translate}}</button>
+    </div>
+
+    <div class="access__image"></div>
+
+  </div>
+
   
-  <button (click)="toRegister()">Registro</button>
 </ion-content>

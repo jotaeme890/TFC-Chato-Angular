@@ -6,9 +6,9 @@
   <div class="access">
 
     <div class="access__forms">
-      <app-login-form *ngIf="login"></app-login-form>
+      <app-login-form (onsubmit)="loginUser($event)" *ngIf="login"></app-login-form>
 
-      <app-register-form *ngIf="!login"></app-register-form>
+      <app-register-form (onsubmit)="registerUser($event)" *ngIf="!login"></app-register-form>
       
       <button *ngIf="login" (click)="toRegister()">{{'access.toRegister' | translate}}</button>
     

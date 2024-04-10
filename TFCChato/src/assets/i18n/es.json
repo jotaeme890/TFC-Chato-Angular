@@ -5,7 +5,9 @@
         "secondSurname": "Segundo Apellido",
         "email": "Correo Electrónico",
         "password": "Contraseña",
-        "repPassword": "Repita la Contraseña"
+        "repPassword": "Repita la Contraseña",
+        "logIn": "Iniciar sesión",
+        "register": "Registrarse"
     },
     "access": {
         "toLogin": "Actualmente ya tengo cuenta.",

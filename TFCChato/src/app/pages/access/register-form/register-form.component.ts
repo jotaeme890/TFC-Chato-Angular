@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { UserRegisterInfo } from 'src/app/core/interfaces/user-info';
+import { EmailValidation } from 'src/app/core/validators/email';
 import { PasswordValidation } from 'src/app/core/validators/password';
 
 @Component({
@@ -11,6 +13,8 @@ export class RegisterFormComponent  implements OnInit {
   form:FormGroup;
   hide = true;
 
+  @Output() onsubmit = new EventEmitter<UserRegisterInfo>();
+
   constructor(
     private formBuilder:FormBuilder
   ) {
@@ -18,14 +22,17 @@ export class RegisterFormComponent  implements OnInit {
       name:['', [Validators.required]],
       firstSurname:['', [Validators.required]],
       secondSurname:['', [Validators.required]],
-      email:['', [Validators.required, Validators.email]],
+      email:['', [Validators.required, EmailValidation.email()]],
       password:['', [Validators.required, PasswordValidation.passwordProto()]],
       repPassword:['', [Validators.required, PasswordValidation.passwordProto()]]
-    }, {validators: [PasswordValidation.passwordMatch('password', ' repPassword')]});
+    }, {validators: [PasswordValidation.passwordMatch('password', 'repPassword')]});
   }
 
   ngOnInit() {}
 
-  onSub(){}
+  onSub(){
+    this.onsubmit.emit(this.form?.value);
+    this.form.reset();
+  }
 
 }

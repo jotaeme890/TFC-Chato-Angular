@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserCredentials } from 'src/app/core/interfaces/user-info';
 
 @Component({
   selector: 'app-login-form',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent  implements OnInit {
   form:FormGroup;
+  @Output() onsubmit = new EventEmitter<UserCredentials>();
 
   constructor(
     private formBuilder:FormBuilder
@@ -21,5 +23,8 @@ export class LoginFormComponent  implements OnInit {
 
   ngOnInit() {}
 
-  onSub(){}
+  onSub(){
+    this.onsubmit.emit(this.form?.value);
+    this.form.reset();
+  }
 }

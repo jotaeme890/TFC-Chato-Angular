@@ -5,7 +5,9 @@
         "secondSurname": "Second Surname",
         "email": "Email",
         "password": "Password",
-        "repPassword": "Repeat the Password"
+        "repPassword": "Repeat the Password",
+        "logIn": "Log In",
+        "register": "Register"
     },
     "access": {
         "toLogin": "I currently have an account.",

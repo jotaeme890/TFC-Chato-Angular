@@ -13,7 +13,7 @@
       <mat-error *ngIf="form.controls['password'].invalid">{{'errors.valid' | translate}}</mat-error>
     </mat-form-field>
   
-    <button>Iniciar sesión</button>
+    <button [disabled]="form.invalid">{{"forms.logIn" | translate}}</button>
   
   </form>
 </div>

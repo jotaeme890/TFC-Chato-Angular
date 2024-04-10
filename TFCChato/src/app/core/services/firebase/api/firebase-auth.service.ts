@@ -1,6 +1,5 @@
 import { Observable, from, map, switchMap, tap } from 'rxjs';
-import { User, UserCredentials } from '../../../interfaces/user-credentials';
-import { UserRegisterInfo } from '../../../interfaces/user-register-info';
+import { User, UserCredentials, UserRegisterInfo } from '../../../interfaces/user-info';
 import { FirebaseService, FirebaseUserCredential } from '../firebase.service';
 import { AuthService } from '../../auth.service';
 
@@ -32,7 +31,7 @@ export class FirebaseAuthService extends AuthService{
 
   public login(credentials:UserCredentials):Observable<any>{
       return new Observable<any>(subscr=>{
-        this.firebaseSvc.connectUserWithEmailAndPassword(credentials.username, credentials.password).then((credentials:FirebaseUserCredential|null)=>{
+        this.firebaseSvc.connectUserWithEmailAndPassword(credentials.email, credentials.password).then((credentials:FirebaseUserCredential|null)=>{
           if(!credentials || !credentials.user || !credentials.user.user || !credentials.user.user.uid){
             subscr.error('Cannot login');
           }
@@ -55,6 +54,7 @@ export class FirebaseAuthService extends AuthService{
           subscr.error('Cannot register');
         if(credentials){
           var _info:User = {...info};
+          _info.role = 'user'
           console.log(_info);
           _info.uuid = this.firebaseSvc.user?.uid;
           this.postRegister(_info).subscribe(data=>{
@@ -69,25 +69,29 @@ export class FirebaseAuthService extends AuthService{
   }
 
   private postRegister(info:User):Observable<any>{
-    if(info.uuid)
-      return from(this.firebaseSvc.createDocumentWithId('users',{
+    if(info.uuid){
+      console.log(info);
+      return from(this.firebaseSvc.createDocumentWithId('userInfo',{
         name:info.name,
-        firtsSurname: info.firtsSurname,
+        firstSurname: info.firstSurname,
         secondSurname: info.secondSurname,
+        role: info.role,
         email:info.email,
-    }, info.uuid))
+      }, info.uuid))
+    }
     throw new Error('Error inesperado');
   }
 
   public me():Observable<User>{
     if(this.firebaseSvc.user?.uid)
-    return from(this.firebaseSvc.getDocument('users', this.firebaseSvc.user.uid)).pipe(map(data=>{
+    return from(this.firebaseSvc.getDocument('userInfo', this.firebaseSvc.user.uid)).pipe(map(data=>{
       return {
         name:data.data['name'],
-        firtsSurname:data.data['firtsSurname'],
+        firstSurname:data.data['firstSurname'],
         secondSurname:data.data['secondSurname'],
         picture:data.data['photo']??"",
         email: data.data['email'],
+        role: data.data['role'],
         uuid:data.id
       }
     }));

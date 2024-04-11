@@ -32,7 +32,14 @@ export class RegisterFormComponent  implements OnInit {
 
   onSub(){
     this.onsubmit.emit(this.form?.value);
-    this.form.reset();
+    this.form.reset({
+      name: '',
+      surname: '',
+      email: '',
+      username: '',
+      password: '',
+      repPassword: ''
+    });
   }
 
 }

@@ -1,9 +1,9 @@
 {
     "forms": {
         "name": "Nombre",
-        "firstSurname": "Primer Apellido",
-        "secondSurname": "Segundo Apellido",
+        "surname": "Apellidos",
         "email": "Correo Electrónico",
+        "username": "Nombre de usuario",
         "password": "Contraseña",
         "repPassword": "Repita la Contraseña",
         "logIn": "Iniciar sesión",

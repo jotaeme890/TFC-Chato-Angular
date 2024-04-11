@@ -54,14 +54,16 @@ export class FirebaseAuthService extends AuthService{
           subscr.error('Cannot register');
         if(credentials){
           var _info:User = {...info};
-          _info.role = 'user'
-          console.log(_info);
           _info.uuid = this.firebaseSvc.user?.uid;
           this.postRegister(_info).subscribe(data=>{
+            /*
+            I don´t want to go /home, because you can register like a user, not admin
             this._user.next(_info);
-            this._logged.next(true);
+            this._logged.next(true); 
+            
             subscr.next(_info);
             subscr.complete();
+            */
           });
         }
       })
@@ -73,9 +75,9 @@ export class FirebaseAuthService extends AuthService{
       console.log(info);
       return from(this.firebaseSvc.createDocumentWithId('userInfo',{
         name:info.name,
-        firstSurname: info.firstSurname,
-        secondSurname: info.secondSurname,
+        surname: info.surname,
         role: info.role,
+        username: info.username,
         email:info.email,
       }, info.uuid))
     }
@@ -87,11 +89,11 @@ export class FirebaseAuthService extends AuthService{
     return from(this.firebaseSvc.getDocument('userInfo', this.firebaseSvc.user.uid)).pipe(map(data=>{
       return {
         name:data.data['name'],
-        firstSurname:data.data['firstSurname'],
-        secondSurname:data.data['secondSurname'],
+        surname:data.data['surname'],
         picture:data.data['photo']??"",
         email: data.data['email'],
         role: data.data['role'],
+        username: data.data['username'],
         uuid:data.id
       }
     }));

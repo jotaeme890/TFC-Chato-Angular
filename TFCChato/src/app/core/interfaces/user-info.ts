@@ -7,19 +7,19 @@ export interface UserCredentials{
 
 export interface User {
     name: string;
-    firstSurname: string,
-    secondSurname: string,
+    surname: string;
     picture?: Photo;
-    email?: string;
+    email: string;
+    role: string;
+    username: string;
     uuid?: string;
-    role: string
 }
 
 export interface UserRegisterInfo{
-    name: string,
-    firstSurname: string,
-    secondSurname: string,
-    email: string,
-    password:string,
-    role: string
+    name: string;
+    surname: string;
+    username: string;
+    email: string;
+    password:string;
+    role: string;
 }

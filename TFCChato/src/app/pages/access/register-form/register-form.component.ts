@@ -20,9 +20,9 @@ export class RegisterFormComponent  implements OnInit {
   ) {
     this.form = this.formBuilder.group({
       name:['', [Validators.required]],
-      firstSurname:['', [Validators.required]],
-      secondSurname:['', [Validators.required]],
+      surname:['', [Validators.required]],
       email:['', [Validators.required, EmailValidation.email()]],
+      username:['', [Validators.required]],
       password:['', [Validators.required, PasswordValidation.passwordProto()]],
       repPassword:['', [Validators.required, PasswordValidation.passwordProto()]]
     }, {validators: [PasswordValidation.passwordMatch('password', 'repPassword')]});

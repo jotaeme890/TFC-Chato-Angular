@@ -1,9 +1,9 @@
 {
     "forms": {
         "name": "Name",
-        "firstSurname": "First Surname",
-        "secondSurname": "Second Surname",
+        "surname": "Surname",
         "email": "Email",
+        "username": "Username",
         "password": "Password",
         "repPassword": "Repeat the Password",
         "logIn": "Log In",

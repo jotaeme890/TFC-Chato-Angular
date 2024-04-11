@@ -1,47 +1,45 @@
-<div>
-  <form [formGroup]="form" (ngSubmit)="onSub()" (keyup.enter)="onSub()">
-    <mat-form-field appearance="outline">
-      <mat-label>{{'forms.name' | translate}}</mat-label>
-      <input type="text" placeholder="John" matInput formControlName="name">
-      <mat-error *ngIf="form.controls['name'].invalid">{{'errors.valid' | translate}}</mat-error>
-    </mat-form-field>
+<form [formGroup]="form" (ngSubmit)="onSub()" (keyup.enter)="onSub()">
+  <mat-form-field appearance="outline">
+    <mat-label>{{'forms.name' | translate}}</mat-label>
+    <input type="text" placeholder="John" matInput formControlName="name">
+    <mat-error *ngIf="form.controls['name'].invalid">{{'errors.valid' | translate}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>{{'forms.surname' | translate}}</mat-label>
+    <input type="text" matInput formControlName="surname">
+    <mat-error *ngIf="form.controls['surname'].invalid">{{'errors.valid' | translate}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>{{'forms.email' | translate}}</mat-label>
+    <input type="email" matInput formControlName="email">
+    <mat-error *ngIf="form.get('email')!.hasError('required') && form.get('email')!.touched">{{'errors.valid' | translate}}</mat-error>
+    <mat-error *ngIf="form.controls['email'].errors?.['email'] && form.controls['email'].touched">{{'errors.emailError' | translate}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>{{'forms.username' | translate}}</mat-label>
+    <input type="text" matInput formControlName="username">
+    <mat-error *ngIf="form.get('username')!.hasError('required') && form.get('email')!.touched">{{'errors.valid' | translate}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>{{'forms.password' | translate}}</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+    <mat-error *ngIf="form.get('password')!.hasError('required') && form.get('password')!.touched">{{'errors.valid' | translate}}</mat-error>
+    <mat-error *ngIf="form.get('password')!.hasError('passwordProto') && form.get('password')!.touched">{{ 'errors.passwordError' | translate }}</mat-error>
+  </mat-form-field>
   
-    <mat-form-field appearance="outline">
-      <mat-label>{{'forms.firstSurname' | translate}}</mat-label>
-      <input type="text" matInput formControlName="firstSurname">
-      <mat-error *ngIf="form.controls['firstSurname'].invalid">{{'errors.valid' | translate}}</mat-error>
-    </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>{{'forms.repPassword' | translate}}</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" formControlName="repPassword">
+    <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error *ngIf="form.hasError('passwordMatch') && form.get('password')!.touched || form.get('repPassword')!.touched">{{ 'errors.repeatError' | translate }}</mat-error>
+  </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>{{'forms.secondSurname' | translate}}</mat-label>
-      <input type="text" matInput formControlName="secondSurname">
-      <mat-error *ngIf="form.controls['secondSurname'].invalid">{{'errors.valid' | translate}}</mat-error>
-    </mat-form-field>
+  <button [disabled]="form.invalid" class="register">{{"forms.register" | translate}}</button>
 
-    <mat-form-field appearance="outline">
-      <mat-label>{{'forms.email' | translate}}</mat-label>
-      <input type="email" matInput formControlName="email">
-      <mat-error *ngIf="form.get('email')!.hasError('required') && form.get('email')!.touched">{{'errors.valid' | translate}}</mat-error>
-      <mat-error *ngIf="form.controls['email'].errors?.['email'] && form.controls['email'].touched">{{'errors.emailError' | translate}}</mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>{{'forms.password' | translate}}</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-      <mat-error *ngIf="form.get('password')!.hasError('required') && form.get('password')!.touched">{{'errors.valid' | translate}}</mat-error>
-      <mat-error *ngIf="form.get('password')!.hasError('passwordProto') && form.get('password')!.touched">{{ 'errors.passwordError' | translate }}</mat-error>
-    </mat-form-field>
-    
-    <mat-form-field appearance="outline">
-      <mat-label>{{'forms.repPassword' | translate}}</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'" formControlName="repPassword">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-      <mat-error *ngIf="form.hasError('passwordMatch') && form.get('password')!.touched || form.get('repPassword')!.touched">{{ 'errors.repeatError' | translate }}</mat-error>
-    </mat-form-field>
-
-    <button [disabled]="form.invalid" class="register">{{"forms.register" | translate}}</button>
-  
-  </form>
-</div>
+</form>

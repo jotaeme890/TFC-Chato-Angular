@@ -33,23 +33,20 @@ export class AccessPage implements OnInit {
     _data.role = 'user';
     this.auth.register( _data ).subscribe({
       next:( data )=>{
-        console.log("REGISTRADO");
-        // PONER NAVEGACIÓN HACIA PERFIL
+        console.log("ALL WAS GOOD");
       },
       error:(err)=>{}
     });
   }
 
   /**
-   * Get data from the Login Component and log a new user.
+   * Get data from the Login Component and register a new user.
    */
   loginUser( data:UserCredentials ){
     let _data:UserCredentials = { ...data };
-
     this.auth.login( _data ).subscribe({
       next:( data )=>{
-        console.log("LOGUEADO");
-        // PONER NAVEGACIÓN HACIA PERFIL
+        console.log("ALL WAS GOOD");
       },
       error:(err)=>{}
     })

@@ -56,14 +56,10 @@ export class FirebaseAuthService extends AuthService{
           var _info:User = {...info};
           _info.uuid = this.firebaseSvc.user?.uid;
           this.postRegister(_info).subscribe(data=>{
-            /*
-            I don´t want to go /home, because you can register like a user, not admin
-            this._user.next(_info);
-            this._logged.next(true); 
-            
+            this._user.next(null);
+            this._logged.next(false);
             subscr.next(_info);
             subscr.complete();
-            */
           });
         }
       })
@@ -72,7 +68,6 @@ export class FirebaseAuthService extends AuthService{
 
   private postRegister(info:User):Observable<any>{
     if(info.uuid){
-      console.log(info);
       return from(this.firebaseSvc.createDocumentWithId('userInfo',{
         name:info.name,
         surname: info.surname,

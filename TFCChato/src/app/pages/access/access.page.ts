@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { UserCredentials, UserRegisterInfo } from 'src/app/core/interfaces/user-info';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { CustomTranslateService } from 'src/app/core/services/translate/translate.service';
 
 @Component({
   selector: 'app-access',
   templateUrl: './access.page.html',
   styleUrls: ['./access.page.scss'],
+  providers: [MessageService]
 })
 export class AccessPage implements OnInit {
 
   login = true;
 
   constructor(
-    private auth: AuthService
+    private auth: AuthService,
+    private translate: CustomTranslateService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
@@ -34,6 +39,7 @@ export class AccessPage implements OnInit {
     this.auth.register( _data ).subscribe({
       next:( data )=>{
         console.log("ALL WAS GOOD");
+        this.showSuccess('waitAdmin');
       },
       error:(err)=>{}
     });
@@ -50,6 +56,16 @@ export class AccessPage implements OnInit {
       },
       error:(err)=>{}
     })
+  }
+
+  showSuccess(text: string) {
+    let message = `toast.${text}`
+    this.translate.get( message ).subscribe({
+      next: ( text: string ) => {
+        this.messageService.add({ key: 'tl', severity: 'info', summary: 'Success', detail: text });
+        this.login = true;
+      }
+    });
   }
 
 }

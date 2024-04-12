@@ -18,5 +18,9 @@
         "emailError": "Invalid email",
         "passwordError": "Password does not meet the requirements (8 letters, 1 uppercase and 1 number).",
         "repeatError": "Passwords do not match."
+    },
+    "toast": {
+        "waitAdmin": "Wait for the admin to give you permissions.",
+        "error": "Something went wrong."
     }
 }

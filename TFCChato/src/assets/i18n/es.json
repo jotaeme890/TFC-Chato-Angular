@@ -18,5 +18,9 @@
         "emailError": "Correo inválido.",
         "passwordError": "La contraseña no cumple los requisitos (8 letras, 1 mayúscula y 1 número).",
         "repeatError": "Las contraseñas no coinciden."
+    },
+    "toast": {
+        "waitAdmin": "Espere a que el administrador le de permisos.",
+        "error": "Algo ha ido mal."
     }
 }

@@ -21,6 +21,7 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from './core/services/auth.service';
 import { DataService } from './core/services/data.service';
 import { HttpClientProvider } from './core/services/http/http-client.provider';
+import { ToastModule } from 'primeng/toast';
 
 export function MediaServiceFactory(
   backend:string,
@@ -64,37 +65,39 @@ export function AuthServiceFactory(
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })],
-    providers: [
-      {
-        provide: 'firebase-config',
-        useValue: environment.firebaseConfig
-      },
-      {
-        provide: 'backend',
-        useValue:'Firebase'
-      },
-      { 
-        provide: RouteReuseStrategy, 
-        useClass: IonicRouteStrategy 
-      },
-      // Factories
-      {
-        provide: HttpClientProvider,
-        deps: [HttpClient, Platform],
-        useFactory: httpProviderFactory,  
-      },
-      {
-        provide: AuthService,
-        deps: ['backend', FirebaseService],
-        useFactory: AuthServiceFactory,  
-      },
-      {
-        provide: MediaService,
-        deps: ['backend', FirebaseService],
-        useFactory: MediaServiceFactory,  
-      },
-    ],
+    }),
+    ToastModule
+  ],
+  providers: [
+    {
+      provide: 'firebase-config',
+      useValue: environment.firebaseConfig
+    },
+    {
+      provide: 'backend',
+      useValue:'Firebase'
+    },
+    { 
+      provide: RouteReuseStrategy, 
+      useClass: IonicRouteStrategy 
+    },
+    // Factories
+    {
+      provide: HttpClientProvider,
+      deps: [HttpClient, Platform],
+      useFactory: httpProviderFactory,  
+    },
+    {
+      provide: AuthService,
+      deps: ['backend', FirebaseService],
+      useFactory: AuthServiceFactory,  
+    },
+    {
+      provide: MediaService,
+      deps: ['backend', FirebaseService],
+      useFactory: MediaServiceFactory,  
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

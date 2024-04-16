@@ -29,14 +29,15 @@ export class FirebaseAuthService extends AuthService{
     })
   }
 
-  public login(credentials:UserCredentials):Observable<any>{
-      return new Observable<any>(subscr=>{
-        this.firebaseSvc.connectUserWithEmailAndPassword(credentials.email, credentials.password).then((credentials:FirebaseUserCredential|null)=>{
-          if(!credentials || !credentials.user || !credentials.user.user || !credentials.user.user.uid){
+  public login(credentials: UserCredentials): Observable<any> {
+    return new Observable<any>(subscr => {
+      this.firebaseSvc.connectUserWithEmailAndPassword(credentials.email, credentials.password)
+        .then((credentials: FirebaseUserCredential | null) => {
+          if (!credentials || !credentials.user || !credentials.user.user || !credentials.user.user.uid) {
             subscr.error('Cannot login');
           }
-          if(credentials){
-            this.me().subscribe(data=>{
+          if (credentials) {
+            this.me().subscribe(data => {
               this._user.next(data);
               this._logged.next(true);
               subscr.next(data);
@@ -44,8 +45,11 @@ export class FirebaseAuthService extends AuthService{
             });
           }
         })
-      });
-  } 
+        .catch(err => {
+          subscr.error(err);
+        });
+    });
+  }
 
   public register(info:UserRegisterInfo):Observable<any|null>{
     return new Observable<any>(subscr=>{
@@ -63,6 +67,9 @@ export class FirebaseAuthService extends AuthService{
           });
         }
       })
+      .catch(err => {
+        subscr.error(err);
+      });
     });
   }
 

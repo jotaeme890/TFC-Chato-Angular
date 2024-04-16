@@ -38,10 +38,26 @@ export class AccessPage implements OnInit {
     _data.role = 'user';
     this.auth.register( _data ).subscribe({
       next:( data )=>{
-        console.log("ALL WAS GOOD");
-        this.showSuccess('waitAdmin');
+        console.log( 'ALL WAS GOOD' );
+        this.showSuccess( 'waitAdmin' );
       },
-      error:(err)=>{}
+      error:(err)=>{
+        if ( err.code ) {
+          switch ( err.code ) {
+            case 'auth/email-already-in-use':
+              this.showError( 'emailUser' );
+              break;
+            case 'post-registration-error':
+              this.showError( 'failRegister' );
+              break;
+            default:
+              this.showError( 'error' );
+            break;
+          }
+        } else {
+          this.showError( 'Unknown registration error' );
+        }
+      }
     });
   }
 
@@ -52,9 +68,12 @@ export class AccessPage implements OnInit {
     let _data:UserCredentials = { ...data };
     this.auth.login( _data ).subscribe({
       next:( data )=>{
-        console.log("ALL WAS GOOD");
+        console.log( 'ALL WAS GOOD' );
       },
-      error:(err)=>{}
+      error:(err)=>{
+        console.log( err );
+        this.showError( 'loginError' )
+      }
     })
   }
 
@@ -62,7 +81,17 @@ export class AccessPage implements OnInit {
     let message = `toast.${text}`
     this.translate.get( message ).subscribe({
       next: ( text: string ) => {
-        this.messageService.add({ key: 'tl', severity: 'info', summary: 'Success', detail: text });
+        this.messageService.add({ key: 'tl', severity: 'info', detail: text });
+        this.login = true;
+      }
+    });
+  }
+
+  showError(text: string) {
+    let message = `toast.${text}`
+    this.translate.get( message ).subscribe({
+      next: ( text: string ) => {
+        this.messageService.add({ key: 'tl', severity: 'error', detail: text, life: 6000 });
         this.login = true;
       }
     });

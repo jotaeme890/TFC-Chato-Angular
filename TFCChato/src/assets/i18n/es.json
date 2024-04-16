@@ -21,6 +21,10 @@
     },
     "toast": {
         "waitAdmin": "Espere a que el administrador le de permisos.",
+        "loginError": "Usuario o contraseña incorrectos.",
+        "registerError": "Usuario o contraseña incorrectos.",
+        "failRegister": "Fallo en el registro.",
+        "emailUser": "Este correo ya está en uso.",
         "error": "Algo ha ido mal."
     }
 }

@@ -21,6 +21,10 @@
     },
     "toast": {
         "waitAdmin": "Wait for the admin to give you permissions.",
+        "loginError": "Incorrect username or password.",
+        "registerError": "Incorrect username or password.",
+        "failRegister": "Failed to complete registration process.",
+        "emailUser": "Email already in use.",
         "error": "Something went wrong."
     }
 }

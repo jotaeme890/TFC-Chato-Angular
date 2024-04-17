@@ -50,9 +50,6 @@ export class AccessPage implements OnInit {
             case 'post-registration-error':
               this.showError( 'failRegister' );
               break;
-            default:
-              this.showError( 'error' );
-            break;
           }
         } else {
           this.showError( 'Unknown registration error' );
@@ -71,8 +68,9 @@ export class AccessPage implements OnInit {
         console.log( 'ALL WAS GOOD' );
       },
       error:(err)=>{
-        console.log( err );
-        this.showError( 'loginError' )
+        console.log( 'BAD', err );
+        if( err.code === 'auth/invalid-email' )
+          this.showError( 'loginError' )
       }
     })
   }

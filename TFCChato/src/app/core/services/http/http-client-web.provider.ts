@@ -57,8 +57,6 @@ export class HttpClientWebProvider extends HttpClientProvider {
             headers: this.createHeaders(headers)
         });
     }
-
-
     
     /**
      * post

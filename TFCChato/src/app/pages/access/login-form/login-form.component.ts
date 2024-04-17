@@ -12,6 +12,10 @@ export class LoginFormComponent  implements OnInit {
   form:FormGroup;
   @Output() onsubmit = new EventEmitter<UserCredentials>();
 
+  /**
+  * Constructs the LoginFormComponent.
+  * @param {FormBuilder} formBuilder - FormBuilder service for building the form.
+  */
   constructor(
     private formBuilder:FormBuilder
   ) {
@@ -23,6 +27,11 @@ export class LoginFormComponent  implements OnInit {
 
   ngOnInit() {}
 
+  /**
+  * Event handler for form submission.
+  * Emits the user credentials through the onsubmit event emitter.
+  * Resets the form after submission.
+  */
   onSub(){
     this.onsubmit.emit(this.form?.value);
     this.form.reset();

@@ -2,6 +2,11 @@ import { AbstractControl, FormControl, ValidationErrors, ValidatorFn } from "@an
 
 export class EmailValidation {
     
+    /**
+    * Validates an email control.
+    * @param {string} controlName - The name of the control to validate.
+    * @returns {ValidatorFn} Validator function for email validation.
+    */
     public static email(controlName:string=''): ValidatorFn {
         return (control: AbstractControl): ValidationErrors | null => {
             let email = '';

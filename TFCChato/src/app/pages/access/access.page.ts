@@ -15,6 +15,26 @@ export class AccessPage implements OnInit {
 
   login = true;
 
+  /**
+  * The constructor function subscribes to query parameters and displays an error message if the
+  * 'error' parameter is 'notAdmin'.
+  * 
+  * @param auth AuthService - a service for handling authentication and user authorization.
+  * @param translate The `translate` parameter in the constructor is of type `CustomTranslateService`.
+  * It is used for handling translation services within the component or service where it is injected.
+  * This service likely provides methods for translating text or messages into different languages or
+  * for managing localization in the application.
+  * @param messageService The `messageService` parameter in the constructor is of type
+  * `MessageService`. It is likely used for displaying messages or notifications to the user within
+  * the application.
+  * @param route The `route` parameter in the constructor is of type `ActivatedRoute`, which is a
+  * service provided by Angular that gives access to information about a route associated with a
+  * component loaded in an outlet. It allows you to access route parameters, query parameters, and
+  * other information related to the current route.
+  * @param router The `router` parameter in the constructor is an instance of the Angular Router
+  * service. It is used for navigating between different components in your Angular application based
+  * on the defined routes.
+  */
   constructor(
     private auth: AuthService,
     private translate: CustomTranslateService,
@@ -27,20 +47,25 @@ export class AccessPage implements OnInit {
         this.showError( 'waitAdmin' );
       }
     });
-   }
+  }
 
   ngOnInit() {
   }
 
-  /** 
-   * This method changes the componenet, and set the login or register componenent.
+  /**
+  * The `toRegister` function toggles the value of the `login` property.
   */
   toRegister(){
     this.login = !this.login
   }
 
   /**
-   * Get data from the Register Component and register a new user.
+  * The function `registerUser` registers a user with the role 'user' and handles different error
+  * cases during the registration process.
+  * 
+  * @param data The `registerUser` function takes in a parameter `data` of type `UserRegisterInfo`.
+  * This parameter likely contains information about a user that is being registered, such as their
+  * email, password, and any other relevant details.
   */
   registerUser( data:UserRegisterInfo ){
     let _data:UserRegisterInfo = { ...data };
@@ -68,8 +93,11 @@ export class AccessPage implements OnInit {
   }
 
   /**
-   * Get data from the Login Component and register a new user.
-   */
+  * The `loginUser` function in TypeScript logs in a user with provided credentials and handles
+  * errors, displaying a specific error message for invalid email.
+  * 
+  * @param data UserCredentials object containing user login information, such as email and password
+  */
   loginUser( data:UserCredentials ){
     let _data:UserCredentials = { ...data };
     this.auth.login( _data ).subscribe({
@@ -84,6 +112,12 @@ export class AccessPage implements OnInit {
     })
   }
 
+  /**
+  * The function `showSuccess` displays a success message after translating the input text.
+  * 
+  * @param text The `text` parameter in the `showSuccess` function is a string that represents the
+  * message to be displayed as a success toast notification.
+  */
   showSuccess(text: string) {
     let message = `toast.${text}`
     this.translate.get( message ).subscribe({
@@ -94,6 +128,13 @@ export class AccessPage implements OnInit {
     });
   }
 
+  /**
+  * The function `showError` displays an error message using a translation service and a message
+  * service.
+  * 
+  * @param text The `text` parameter in the `showError` function is a string that represents the error
+  * message to be displayed.
+  */
   showError(text: string) {
     let message = `toast.${text}`
     this.translate.get( message ).subscribe({
@@ -103,5 +144,4 @@ export class AccessPage implements OnInit {
       }
     });
   }
-
 }

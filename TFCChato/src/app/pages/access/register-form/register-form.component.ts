@@ -15,6 +15,11 @@ export class RegisterFormComponent  implements OnInit {
 
   @Output() onsubmit = new EventEmitter<UserRegisterInfo>();
 
+  /**
+  * Constructs the RegisterFormComponent.
+  * Initializes the form with form controls and validators.
+  * @param {FormBuilder} formBuilder - FormBuilder service for building the form.
+  */
   constructor(
     private formBuilder:FormBuilder
   ) {
@@ -30,6 +35,11 @@ export class RegisterFormComponent  implements OnInit {
 
   ngOnInit() {}
 
+  /**
+  * Event handler for form submission.
+  * Emits the user registration information through the onsubmit event emitter.
+  * Resets the form after submission.
+  */
   onSub(){
     this.onsubmit.emit(this.form?.value);
     this.form.reset({

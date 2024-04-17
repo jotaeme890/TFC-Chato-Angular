@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 @Injectable({providedIn:'root'})
 export abstract class HttpClientProvider {
 
-
     /**
      * getImage
      *

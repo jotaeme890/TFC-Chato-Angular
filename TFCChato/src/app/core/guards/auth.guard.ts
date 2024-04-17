@@ -14,6 +14,17 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
+  
+  /**
+   * The constructor function takes AuthService and Router as parameters and assigns them to private
+   * properties.
+   * 
+   * @param auth The `auth` parameter is an instance of the `AuthService` class, which is likely used
+   * for handling authentication-related functionality in the application.
+   * @param router The `router` parameter is an instance of the Angular Router service. It is used for
+   * navigating between different components in an Angular application by manipulating the browser's
+   * URL.
+   */
   constructor(
     private auth:AuthService,
     private router: Router
@@ -41,7 +52,6 @@ export class AuthGuard implements CanActivate {
     | boolean
     | UrlTree {
     return this.auth.isLogged$.pipe(tap((logged) => {
-        console.log(logged);
         if (!logged) this.router.navigate(['/access']);
       })
     );

@@ -15,6 +15,15 @@ import { AuthService } from '../services/auth.service';
 })
 export class AdminGuard implements CanActivate {
 
+  /**
+   * The constructor function takes AuthService and Router as parameters.
+   * 
+   * @param auth The `auth` parameter is an instance of the `AuthService` class, which is used for
+   * handling authentication-related functionalities in the application.
+   * @param router The `router` parameter is an instance of the Angular Router service. It is used for
+   * navigating between different components in an Angular application by manipulating the browser's
+   * URL.
+   */
   constructor(
     private auth: AuthService, 
     private router: Router

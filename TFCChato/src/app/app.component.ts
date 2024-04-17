@@ -23,7 +23,7 @@ export class AppComponent {
   * likely used for handling localization or language-related functionalities in the application.
   */
   constructor(
-    private auth:AuthService,
+    protected auth:AuthService,
     private router:Router,
     private localLang: LocalService
   ) {
@@ -33,5 +33,9 @@ export class AppComponent {
       else
         this.router.navigate(['/access']); 
     });
+  }
+
+  logOut(){
+    this.auth.logout();
   }
 }

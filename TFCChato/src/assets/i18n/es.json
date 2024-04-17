@@ -26,5 +26,8 @@
         "failRegister": "Fallo en el registro.",
         "emailUser": "Este correo ya está en uso.",
         "error": "Algo ha ido mal."
+    },
+    "pages": {
+        "logOut": "Cerrar sesión"
     }
 }

@@ -12,8 +12,4 @@ export class HomePage {
     private _auth: AuthService
   ) {}
 
-  logOut(){
-    this._auth.logout()
-  }
-
 }

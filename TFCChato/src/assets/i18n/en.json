@@ -26,5 +26,8 @@
         "failRegister": "Failed to complete registration process.",
         "emailUser": "Email already in use.",
         "error": "Something went wrong."
+    },
+    "pages": {
+        "logOut": "Log out"
     }
 }

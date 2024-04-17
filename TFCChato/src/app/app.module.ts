@@ -22,6 +22,7 @@ import { AuthService } from './core/services/auth.service';
 import { DataService } from './core/services/data.service';
 import { HttpClientProvider } from './core/services/http/http-client.provider';
 import { ToastModule } from 'primeng/toast';
+import { SharedModule } from './shared/shared.module';
 
 export function MediaServiceFactory(
   backend:string,
@@ -66,7 +67,8 @@ export function AuthServiceFactory(
         deps: [HttpClient]
       }
     }),
-    ToastModule
+    ToastModule,
+    SharedModule
   ],
   providers: [
     {

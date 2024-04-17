@@ -28,6 +28,7 @@
         "error": "Algo ha ido mal."
     },
     "pages": {
-        "logOut": "Cerrar sesión"
+        "logOut": "Cerrar sesión",
+        "loading": "Cargando..."
     }
 }

@@ -24,6 +24,9 @@ import { HttpClientProvider } from './core/services/http/http-client.provider';
 import { ToastModule } from 'primeng/toast';
 import { SharedModule } from './shared/shared.module';
 
+import { provideLottieOptions } from 'ngx-lottie';
+import player from 'lottie-web';
+
 export function MediaServiceFactory(
   backend:string,
   firebase:FirebaseService){
@@ -71,6 +74,9 @@ export function AuthServiceFactory(
     SharedModule
   ],
   providers: [
+    provideLottieOptions({
+      player: () => player,
+    }),
     {
       provide: 'firebase-config',
       useValue: environment.firebaseConfig

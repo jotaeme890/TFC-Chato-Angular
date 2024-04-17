@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { UserCredentials, UserRegisterInfo } from 'src/app/core/interfaces/user-info';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -17,8 +18,16 @@ export class AccessPage implements OnInit {
   constructor(
     private auth: AuthService,
     private translate: CustomTranslateService,
-    private messageService: MessageService
-  ) { }
+    private messageService: MessageService,
+    private route: ActivatedRoute, 
+    private router: Router
+  ) {
+    this.route.queryParams.subscribe(params => {
+      if (params['error'] === 'notAdmin') {
+        this.showError( 'waitAdmin' );
+      }
+    });
+   }
 
   ngOnInit() {
   }
@@ -41,7 +50,7 @@ export class AccessPage implements OnInit {
         console.log( 'ALL WAS GOOD' );
         this.showSuccess( 'waitAdmin' );
       },
-      error:(err)=>{
+      error:( err )=>{
         if ( err.code ) {
           switch ( err.code ) {
             case 'auth/email-already-in-use':
@@ -67,7 +76,7 @@ export class AccessPage implements OnInit {
       next:( data )=>{
         console.log( 'ALL WAS GOOD' );
       },
-      error:(err)=>{
+      error:( err )=>{
         console.log( 'BAD', err );
         if( err.code === 'auth/invalid-email' )
           this.showError( 'loginError' )

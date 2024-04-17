@@ -1,4 +1,3 @@
-// auth.guard.ts
 import { Injectable } from '@angular/core';
 import {
   CanActivate,
@@ -18,7 +17,8 @@ export class AdminGuard implements CanActivate {
 
   constructor(
     private auth: AuthService, 
-    private router: Router) {}
+    private router: Router
+  ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -26,10 +26,13 @@ export class AdminGuard implements CanActivate {
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.auth.user$.pipe(
       map(user => {
-        if (user && user.role === 'admin') {
+        console.log(user);
+        if ( user && user.role === 'admin' ) {
           return true;
         }
-        this.router.navigate(['/access']);
+        if( user )
+          this.auth.logout();
+        this.router.navigate(['/access'], { queryParams: { error: 'notAdmin' } });
         return false;
       })
     );

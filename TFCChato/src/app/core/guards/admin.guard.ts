@@ -26,7 +26,6 @@ export class AdminGuard implements CanActivate {
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.auth.user$.pipe(
       map(user => {
-        console.log(user);
         if ( user && user.role === 'admin' ) {
           return true;
         }

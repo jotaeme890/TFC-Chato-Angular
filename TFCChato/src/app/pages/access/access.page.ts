@@ -53,9 +53,9 @@ export class AccessPage implements OnInit {
   }
 
   /**
-  * The `toRegister` function toggles the value of the `login` property.
+  * The function toggles the value of the `login` property.
   */
-  toRegister(){
+  changeForm(){
     this.login = !this.login
   }
 

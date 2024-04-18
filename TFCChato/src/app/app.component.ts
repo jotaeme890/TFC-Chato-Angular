@@ -3,6 +3,7 @@ import { LocalService } from './core/services/translate/local.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from './core/services/auth.service';
 import { filter } from 'rxjs';
+import { IonMenu } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -37,13 +38,7 @@ export class AppComponent {
       if (logged)
         this.router.navigate(['/home']);
       else
-        this.router.navigate(['/splash']);
-    });
-
-    this.router.events.pipe(
-      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
-    ).subscribe((event: NavigationEnd) => {
-      this.isSplash = event.urlAfterRedirects === '/splash';
+        this.router.navigate(['/access']);
     });
   }
 
@@ -51,6 +46,8 @@ export class AppComponent {
    * The `logOut` function calls the `logout` method of the `auth` object.
    */
   logOut(){
-    this.auth.logout();
+    this.auth.logout().subscribe(async _=>{
+      await this.router.navigate(['/login']);
+    });
   }
 }

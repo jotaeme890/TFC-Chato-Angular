@@ -26,6 +26,7 @@ import { SharedModule } from './shared/shared.module';
 
 import { provideLottieOptions } from 'ngx-lottie';
 import player from 'lottie-web';
+import { CapitalizeInitialPipe } from './core/pipes/capitalize-initial.pipe';
 
 export function MediaServiceFactory(
   backend:string,
@@ -56,7 +57,10 @@ export function AuthServiceFactory(
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    CapitalizeInitialPipe
+  ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule, 

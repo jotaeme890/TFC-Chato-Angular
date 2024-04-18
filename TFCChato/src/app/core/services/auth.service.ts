@@ -29,7 +29,7 @@ export abstract class AuthService {
   /**
   * Logs out the current user.
   */
-  public abstract logout():void;
+  public abstract logout():Observable<void>;
 
   /**
   * Retrieves information about the current user.

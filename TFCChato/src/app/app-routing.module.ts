@@ -17,11 +17,7 @@ const routes: Routes = [
   {
     path: 'access',
     loadChildren: () => import('./pages/access/access.module').then( m => m.AccessPageModule)
-  },
-  {
-    path: 'splash',
-    loadChildren: () => import('./pages/splash/splash.module').then( m => m.SplashPageModule)
-  },
+  }
 ];
 
 @NgModule({

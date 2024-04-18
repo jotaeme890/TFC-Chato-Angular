@@ -42,6 +42,18 @@ export class AppComponent {
     });
   }
 
+  toHome() {
+    this.router.navigate(['/home'])
+  }
+
+  toSettings() {
+    this.router.navigate(['/settings'])
+  }
+
+  toData() {
+    this.router.navigate(['/data  '])
+  }
+
   /**
    * The `logOut` function calls the `logout` method of the `auth` object.
    */

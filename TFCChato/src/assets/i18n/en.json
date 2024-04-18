@@ -28,6 +28,7 @@
         "error": "Something went wrong."
     },
     "menu": {
+        "home": "Home",
         "logOut": "Log out",
         "loading": "Loading...",
         "settings": "Settings",

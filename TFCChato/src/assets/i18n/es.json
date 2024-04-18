@@ -28,6 +28,7 @@
         "error": "Algo ha ido mal."
     },
     "menu": {
+        "home": "Inicio",
         "logOut": "Cerrar sesión",
         "loading": "Cargando...",
         "settings": "Ajustes",

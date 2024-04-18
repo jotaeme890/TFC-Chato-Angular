@@ -10,30 +10,34 @@
   
   <ion-menu #menu contentId="main-content" side="start">
     
-    <ion-header class="menu--header">
-      <ion-toolbar>
-        <div class="menu--header__toolbar">
-          <ion-avatar>
-            <img [src]="(auth.user$|async)?.name" alt="{{'menu.avatar' | translate}}"/>
-          </ion-avatar>
-          <ion-label>
-            <span>{{ (auth.user$ | async)?.name }} {{ (auth.user$ | async)?.surname | capitalizeInitial}}</span>
-          </ion-label>
-        </div>
-      </ion-toolbar>
-    </ion-header>
+    <ion-toolbar>
+      <div class="menu--header__toolbar">
+        <ion-avatar>
+          <img [src]="(auth.user$|async)?.name" alt="{{'menu.avatar' | translate}}"/>
+        </ion-avatar>
+        <ion-label>
+          <span>{{ (auth.user$ | async)?.name }} {{ (auth.user$ | async)?.surname | capitalizeInitial}}</span>
+        </ion-label>
+      </div>
+    </ion-toolbar>
   
-  
+    <p-divider></p-divider>
+
     <ion-content>
       <ion-list>
         <ion-menu-toggle>
 
-          <ion-item>
+          <ion-item (click)="toHome()">
+            <ion-icon name="home-outline"></ion-icon>
+            <ion-label>{{'menu.home' | translate}}</ion-label>
+          </ion-item>
+
+          <ion-item (click)="toSettings()">
             <ion-icon name="settings-outline"></ion-icon>
             <ion-label>{{'menu.settings' | translate}}</ion-label>
           </ion-item>
           
-          <ion-item>
+          <ion-item (click)="toData()">
             <ion-icon name="cellular-outline"></ion-icon>
             <ion-label>{{'menu.graphics' | translate}}</ion-label>
           </ion-item>
@@ -47,5 +51,7 @@
       </ion-list>
     </ion-content>
   </ion-menu>
+  <ion-content>
     <ion-router-outlet  id="main-content"></ion-router-outlet>
+  </ion-content>
 </ion-app>

@@ -17,6 +17,16 @@ const routes: Routes = [
   {
     path: 'access',
     loadChildren: () => import('./pages/access/access.module').then( m => m.AccessPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule),
+    canActivate: [AuthGuard, AdminGuard]
+  },
+  {
+    path: 'data',
+    loadChildren: () => import('./pages/data/data.module').then( m => m.DataPageModule),
+    canActivate: [AuthGuard, AdminGuard]
   }
 ];
 

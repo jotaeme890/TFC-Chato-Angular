@@ -27,6 +27,7 @@ import { SharedModule } from './shared/shared.module';
 import { provideLottieOptions } from 'ngx-lottie';
 import player from 'lottie-web';
 import { CapitalizeInitialPipe } from './core/pipes/capitalize-initial.pipe';
+import { DividerModule } from 'primeng/divider';
 
 export function MediaServiceFactory(
   backend:string,
@@ -59,7 +60,7 @@ export function AuthServiceFactory(
 @NgModule({
   declarations: [
     AppComponent,
-    CapitalizeInitialPipe
+    CapitalizeInitialPipe,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -75,7 +76,8 @@ export function AuthServiceFactory(
       }
     }),
     ToastModule,
-    SharedModule
+    SharedModule,
+    DividerModule
   ],
   providers: [
     provideLottieOptions({

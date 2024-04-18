@@ -2,10 +2,18 @@ ion-item{
     cursor: pointer;
 }
 
+ion-icon {
+    margin-right: 20px;
+}
+
+ion-list{
+    margin-top: 20px;
+}
+
 ion-menu-button{
     --color: #0F212D;
     font-size: 50px;
-    margin-left: 50px;
+    margin-left: 100px;
 }
 
 ion-header {
@@ -24,7 +32,7 @@ ion-header {
 }
 
 .menu--header {
-    padding: 2%;
+    padding: 8%;
 
     &__toolbar{
         gap: 20px;
@@ -41,7 +49,7 @@ ion-header {
 @media (max-width: 700px) {
     ion-menu-button{
         font-size: 40px;
-        margin-left: 0px;
+        margin-left: 10px;
     }
 
     ion-header {

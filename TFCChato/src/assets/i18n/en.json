@@ -27,10 +27,11 @@
         "emailUser": "Email already in use.",
         "error": "Something went wrong."
     },
-    "pages": {
+    "menu": {
         "logOut": "Log out",
         "loading": "Loading...",
         "settings": "Settings",
-        "avatar": "User`s avatar"
+        "avatar": "User`s avatar",
+        "graphics": "Analysis of data"
     }
 }

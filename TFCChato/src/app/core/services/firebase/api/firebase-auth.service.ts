@@ -93,17 +93,27 @@ export class FirebaseAuthService extends AuthService{
     });
   }
 
+  
   /**
-  * Helper method to handle post-registration tasks such as saving user-specific information to the Firestore database.
-  * If the UUID is present, it proceeds to create a document in the database. Throws an error if no UUID is found, indicating
-  * an unexpected scenario.
-  * @param {User} info - The user info including name, surname, role, username, and email.
-  * @returns Returns an Observable that performs the document creation in Firestore.
-  */
+   * The function `postRegister` takes a `User` object, capitalizes the first letter of the `name`
+   * property if needed, and then creates a document in Firebase with the user information.
+   * 
+   * @param info The `info` parameter in the `postRegister` function is an object of type `User` that
+   * contains the following properties:
+   * @return An Observable is being returned. The function `postRegister` takes a `User` object as a
+   * parameter, checks if the `uuid` property exists in the `info` object, and then modifies the `name`
+   * property by capitalizing the first letter if it is not already capitalized. Finally, it creates a
+   * document in the 'userInfo' collection in Firebase with the provided user information and the
+   * specified
+   */
   private postRegister(info:User):Observable<any>{
     if(info.uuid){
+      let fixedName = info.name;
+      if (fixedName[0] !== fixedName[0].toUpperCase()) {
+          fixedName = fixedName.charAt(0).toUpperCase() + fixedName.slice(1);
+      }
       return from(this.firebaseSvc.createDocumentWithId('userInfo',{
-        name:info.name,
+        name: fixedName,
         surname: info.surname,
         role: info.role,
         username: info.username,

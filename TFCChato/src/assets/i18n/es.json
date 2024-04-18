@@ -27,10 +27,11 @@
         "emailUser": "Este correo ya está en uso.",
         "error": "Algo ha ido mal."
     },
-    "pages": {
+    "menu": {
         "logOut": "Cerrar sesión",
         "loading": "Cargando...",
         "settings": "Ajustes",
-        "avatar": "Avatar del usuario"
+        "avatar": "Avatar del usuario",
+        "graphics": "Análisis de datos"
     }
 }

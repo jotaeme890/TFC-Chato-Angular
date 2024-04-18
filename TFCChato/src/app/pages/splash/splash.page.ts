@@ -45,6 +45,11 @@ export class SplashPage implements OnInit {
         setTimeout(() => {
           this._router.navigate(['/home'])
         }, 4000)
+      },
+      error: _ => {
+        setTimeout(() => {
+          this._router.navigate(['/access'])
+        }, 4000)
       }
     });
   }

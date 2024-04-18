@@ -35,6 +35,8 @@ export class AppComponent {
   ) {
     this.auth.isLogged$.subscribe(logged => {
       if (logged)
+        this.router.navigate(['/home']);
+      else
         this.router.navigate(['/splash']);
     });
 

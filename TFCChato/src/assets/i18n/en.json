@@ -29,6 +29,8 @@
     },
     "pages": {
         "logOut": "Log out",
-        "loading": "Loading..."
+        "loading": "Loading...",
+        "settings": "Settings",
+        "avatar": "User`s avatar"
     }
 }

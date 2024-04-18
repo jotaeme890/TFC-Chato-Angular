@@ -14,7 +14,7 @@
       <ion-toolbar>
         <div class="menu--header__toolbar">
           <ion-avatar>
-            <img [src]="(auth.user$|async)?.name"/>
+            <img [src]="(auth.user$|async)?.name" alt="{{'pages.logOut' | translate}}"/>
           </ion-avatar>
           <ion-label>
             <span>{{ (auth.user$ | async)?.name }} {{ (auth.user$ | async)?.surname | capitalizeInitial}}</span>
@@ -27,6 +27,12 @@
     <ion-content>
       <ion-list>
         <ion-menu-toggle>
+
+          <ion-item>
+            <ion-icon slot="start" name="settings-outline"></ion-icon>
+            <ion-label>{{'pages.settings' | translate}}</ion-label>
+          </ion-item>
+
           <ion-item (click)="logOut()">
             <ion-icon slot="start" name="log-out-outline"></ion-icon>
             <ion-label>{{'pages.logOut' | translate}}</ion-label>

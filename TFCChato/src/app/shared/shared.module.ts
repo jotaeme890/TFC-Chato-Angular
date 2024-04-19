@@ -7,6 +7,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from '../core/translate/translate';
 import { CapitalizeInitialPipe } from '../core/pipes/capitalize-initial.pipe';
 import { UsersInfoComponent } from './components/users-info/users-info.component';
+import { ShortenTextPipe } from '../core/pipes/shorten-text.pipe';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { UsersInfoComponent } from './components/users-info/users-info.component
       useFactory: (createTranslateLoader),
       deps: [HttpClient]
       }
-    })
+    }),
+    ShortenTextPipe
   ],
   exports: [
     UsersInfoComponent

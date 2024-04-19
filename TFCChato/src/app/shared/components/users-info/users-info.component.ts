@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserInfo } from 'src/app/core/interfaces/user-info';
 
 @Component({
@@ -10,15 +11,15 @@ export class UsersInfoComponent  implements OnInit {
 
   @Input() users: UserInfo[] | null | undefined;
 
-  @Output() userData= new EventEmitter<UserInfo>();
-
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {}
 
-  dataUser( user: UserInfo ) {
-    console.log(user);
-    this.userData.emit( user );
+  dataUser( userId: string | undefined ) {
+    console.log(userId);
+    this.router.navigate([`/data/user/${userId}`]);
   }
 
 }

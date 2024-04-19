@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
 import { AdminGuard } from './core/guards/admin.guard';
+import { UserDataPageModule } from './pages/user-data/user-data.module';
 
 const routes: Routes = [
   {
@@ -25,9 +26,18 @@ const routes: Routes = [
   },
   {
     path: 'data',
-    loadChildren: () => import('./pages/data/data.module').then( m => m.DataPageModule),
-    canActivate: [AuthGuard, AdminGuard]
-  }
+    canActivate: [AuthGuard, AdminGuard],
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./pages/data/data.module').then(m => m.DataPageModule),
+      },
+      {
+        path: 'user/:id',
+        loadChildren: () => import('./pages/user-data/user-data.module').then(m => m.UserDataPageModule),
+      },
+    ]
+  },
 ];
 
 @NgModule({

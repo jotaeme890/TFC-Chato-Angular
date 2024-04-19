@@ -35,5 +35,8 @@
         "settings": "Settings",
         "avatar": "User`s avatar",
         "graphics": "Analysis of data"
+    },
+    "data": {
+        "users": "Users"
     }
 }

@@ -12,6 +12,15 @@ ion-menu-button {
     margin-left: 100px;
 }
 
+ion-item.active {
+    --background: #0F212D;
+    --color: var(--ion-color-primary-contrast);
+    
+    ion-icon {
+      color: var(--ion-color-primary-contrast);
+    }
+}
+
 ion-header {
     --background: transparent;
     ion-toolbar {

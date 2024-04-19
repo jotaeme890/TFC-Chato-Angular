@@ -42,16 +42,38 @@ export class AppComponent {
     });
   }
 
+  /**
+   * The function `isActive` checks if the current URL includes a specified URL string and returns a
+   * boolean value.
+   * 
+   * @param url The `isActive` function takes a `url` parameter of type string. This function is likely
+   * used to check if the current URL matches the provided `url` parameter.
+   * @return A boolean value is being returned, indicating whether the current URL contains the
+   * specified URL string.
+   */
+  isActive(url: string): boolean {
+    return this.router.url.includes(url);
+  }
+
+  /**
+   * The `toHome` function uses the Angular router to navigate to the '/home' route.
+   */
   toHome() {
     this.router.navigate(['/home'])
   }
 
+  /**
+   * The `toSettings` function navigates to the settings route using the Angular router.
+   */
   toSettings() {
     this.router.navigate(['/settings'])
   }
 
+  /**
+   * The `toData` function navigates to the '/data' route using the Angular router.
+   */
   toData() {
-    this.router.navigate(['/data  '])
+    this.router.navigate(['/data'])
   }
 
   /**

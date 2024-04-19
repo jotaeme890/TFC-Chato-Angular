@@ -4,6 +4,7 @@ import { initializeApp, getApp, FirebaseApp } from "firebase/app";
 import { getFirestore, addDoc, collection, updateDoc, doc, onSnapshot, getDoc, setDoc, query, where, getDocs, Unsubscribe, DocumentData, deleteDoc, Firestore, DocumentReference, DocumentSnapshot, FieldPath, CollectionReference} from "firebase/firestore";
 import { getStorage, ref, getDownloadURL, uploadBytes, FirebaseStorage } from "firebase/storage";
 import { createUserWithEmailAndPassword, deleteUser, signInAnonymously, signOut, signInWithEmailAndPassword, initializeAuth, indexedDBLocalPersistence, UserCredential, Auth, User } from "firebase/auth";
+import { UserInfo } from "../../interfaces/user-info";
 
 export interface FirebaseStorageFile{
   path:string,
@@ -32,6 +33,9 @@ export class FirebaseService {
   private _isLogged:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public isLogged$:Observable<boolean> = this._isLogged.asObservable();
 
+  private _users: BehaviorSubject<UserInfo[]> = new BehaviorSubject<UserInfo[]>([]);
+  public users$: Observable<UserInfo[]> = this._users.asObservable();
+
   constructor(
     @Inject('firebase-config') config:any
   ) {
@@ -54,6 +58,7 @@ export class FirebaseService {
       if(user){
         if(user.uid && user.email){
           this._isLogged.next(true);
+          this.subscribeToCollection('userInfo', this._users, (el: any) => el);
         }
       } else{
         this._isLogged.next(false);
@@ -61,7 +66,7 @@ export class FirebaseService {
       
     });
   }
-
+ 
   /**
    * The function `getUser` returns the user object or null.
    * @returns The `user` property is being returned, which is of type `User` or `null`.

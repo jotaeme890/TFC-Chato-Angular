@@ -1,0 +1,11 @@
+<ion-list lines="full">
+  <ion-list-header>
+    <ion-label>Usuarios</ion-label>
+  </ion-list-header>
+  <ion-item *ngFor="let user of users">
+    <ion-label>{{user.name}}</ion-label>
+    <ion-label>{{user.surname}}</ion-label>
+    <ion-label>{{user.username}}</ion-label>
+    <ion-label>{{user.role}}</ion-label>
+  </ion-item>
+</ion-list>

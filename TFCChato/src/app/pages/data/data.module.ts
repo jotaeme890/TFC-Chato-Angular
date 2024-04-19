@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DataPageRoutingModule } from './data-routing.module';
 
 import { DataPage } from './data.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DataPageRoutingModule
+    DataPageRoutingModule,
+    SharedModule
   ],
   declarations: [DataPage]
 })

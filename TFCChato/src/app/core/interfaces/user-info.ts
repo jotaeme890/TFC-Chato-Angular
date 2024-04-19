@@ -5,7 +5,7 @@ export interface UserCredentials{
     password:string
 }
 
-export interface User {
+export interface UserInfo {
     name: string;
     surname: string;
     picture?: Photo;

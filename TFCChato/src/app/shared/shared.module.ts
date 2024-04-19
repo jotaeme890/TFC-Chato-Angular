@@ -6,11 +6,12 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from '../core/translate/translate';
 import { CapitalizeInitialPipe } from '../core/pipes/capitalize-initial.pipe';
-
+import { UsersInfoComponent } from './components/users-info/users-info.component';
 
 
 @NgModule({
   declarations: [
+    UsersInfoComponent
   ],
   imports: [
     CommonModule,
@@ -22,9 +23,10 @@ import { CapitalizeInitialPipe } from '../core/pipes/capitalize-initial.pipe';
       useFactory: (createTranslateLoader),
       deps: [HttpClient]
       }
-    }),
+    })
   ],
   exports: [
+    UsersInfoComponent
   ]
 })
 export class SharedModule { }

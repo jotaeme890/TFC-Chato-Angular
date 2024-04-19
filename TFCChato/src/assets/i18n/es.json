@@ -7,7 +7,8 @@
         "password": "Contraseña",
         "repPassword": "Repita la Contraseña",
         "logIn": "Iniciar sesión",
-        "register": "Registrarse"
+        "register": "Registrarse",
+        "role": "Rol"
     },
     "access": {
         "toLogin": "Actualmente ya tengo cuenta.",

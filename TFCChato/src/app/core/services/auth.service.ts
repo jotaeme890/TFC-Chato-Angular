@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable} from 'rxjs';
-import { User, UserCredentials } from '../interfaces/user-info';
+import { UserInfo, UserCredentials } from '../interfaces/user-info';
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +9,15 @@ export abstract class AuthService {
 
   protected _logged = new BehaviorSubject<boolean>(false);
   public isLogged$ = this._logged.asObservable();
-  protected _user = new BehaviorSubject<User | null>(null);
+  protected _user = new BehaviorSubject<UserInfo | null>(null);
   public user$ = this._user.asObservable();
   
   /**
   * Performs user login.
   * @param {Object} credentials - User credentials for login.
-  * @returns {Observable<User>} Observable emitting the authenticated user.
+  * @returns {Observable<UserInfo>} Observable emitting the authenticated user.
   */
-  public abstract login(credentials:Object):Observable<User>;
+  public abstract login(credentials:Object):Observable<UserInfo>;
 
   /**
   * Registers a new user.
@@ -39,8 +39,8 @@ export abstract class AuthService {
 
   /**
   * Updates the user's information.
-  * @param {User} user - Updated user information.
+  * @param {UserInfo} user - Updated user information.
   * @returns {Observable<any>} Observable emitting the result of the update process.
   */
-  public abstract updateUser(user:User):Observable<any>;
+  public abstract updateUser(user:UserInfo):Observable<any>;
 }

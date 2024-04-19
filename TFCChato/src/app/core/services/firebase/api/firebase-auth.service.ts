@@ -1,5 +1,5 @@
 import { Observable, from, map, switchMap, tap } from 'rxjs';
-import { User, UserCredentials, UserRegisterInfo } from '../../../interfaces/user-info';
+import { UserInfo, UserCredentials, UserRegisterInfo } from '../../../interfaces/user-info';
 import { FirebaseService, FirebaseUserCredential } from '../firebase.service';
 import { AuthService } from '../../auth.service';
 
@@ -77,7 +77,7 @@ export class FirebaseAuthService extends AuthService{
         if(!credentials || !credentials.user || !credentials.user.user || !credentials.user.user.uid)
           subscr.error('Cannot register');
         if(credentials){
-          var _info:User = {...info};
+          var _info:UserInfo = {...info};
           _info.uuid = this.firebaseSvc.user?.uid;
           this.postRegister(_info).subscribe(data=>{
             this._user.next(null);
@@ -98,7 +98,7 @@ export class FirebaseAuthService extends AuthService{
    * The function `postRegister` takes a `User` object, capitalizes the first letter of the `name`
    * property if needed, and then creates a document in Firebase with the user information.
    * 
-   * @param info The `info` parameter in the `postRegister` function is an object of type `User` that
+   * @param info The `info` parameter in the `postRegister` function is an object of type `UserInfo` that
    * contains the following properties:
    * @return An Observable is being returned. The function `postRegister` takes a `User` object as a
    * parameter, checks if the `uuid` property exists in the `info` object, and then modifies the `name`
@@ -106,7 +106,7 @@ export class FirebaseAuthService extends AuthService{
    * document in the 'userInfo' collection in Firebase with the provided user information and the
    * specified
    */
-  private postRegister(info:User):Observable<any>{
+  private postRegister(info:UserInfo):Observable<any>{
     if(info.uuid){
       let fixedName = info.name;
       if (fixedName[0] !== fixedName[0].toUpperCase()) {
@@ -118,6 +118,7 @@ export class FirebaseAuthService extends AuthService{
         role: info.role,
         username: info.username,
         email:info.email,
+        uuid: info.uuid
       }, info.uuid))
     }
     throw new Error('Error inesperado');
@@ -128,7 +129,7 @@ export class FirebaseAuthService extends AuthService{
   * retrieves their detailed profile from the 'userInfo' collection. Throws an error if no user is currently connected.
   * @returns Returns an Observable that emits the user's detailed information or throws an error if the user is not connected.
   */
-  public me():Observable<User>{
+  public me():Observable<UserInfo>{
     if(this.firebaseSvc.user?.uid)
     return from(this.firebaseSvc.getDocument('userInfo', this.firebaseSvc.user.uid)).pipe(map(data=>{
       return {
@@ -157,11 +158,11 @@ export class FirebaseAuthService extends AuthService{
   /**
   * Updates the current user's information in Firestore and refreshes the local user data by fetching updated info after the update.
   * Uses RxJS operators to chain these asynchronous tasks efficiently.
-  * @param {User} user - The new user data to be updated in Firestore.
+  * @param {UserInfo} user - The new user data to be updated in Firestore.
   * @returns Returns an Observable that emits the updated user data after both the Firestore document is updated and the local
   * user data is refreshed.
   */
-  public override updateUser(user:User): Observable<User> {
+  public override updateUser(user:UserInfo): Observable<UserInfo> {
     return from(this.firebaseSvc.updateDocument('users', this._user!.value!.uuid!,user)).pipe(switchMap(_=>this.me().pipe(tap(data=>{
       this._user.next(data);
     }))));

@@ -37,6 +37,8 @@
         "graphics": "Análisis de datos"
     },
     "data": {
-        "users": "Usuarios"
+        "users": "Usuarios",
+        "data": "Datos",
+        "graphic": "Gráficas"
     }
 }

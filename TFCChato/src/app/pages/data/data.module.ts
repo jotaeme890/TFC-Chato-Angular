@@ -12,6 +12,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from 'src/app/core/translate/translate';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { createTranslateLoader } from 'src/app/core/translate/translate';
     IonicModule,
     DataPageRoutingModule,
     SharedModule,
+    MatTabsModule,
     // Translate
     TranslateModule.forChild({
       loader: {

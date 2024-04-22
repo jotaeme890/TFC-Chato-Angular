@@ -1,3 +1,19 @@
 <ion-content>
-  <app-users-info [users]="(_firebaseService.users$ | async)"></app-users-info>
+  <mat-tab-group class="custom-tab-group">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <ion-icon class="" name="cellular-outline"></ion-icon>
+        {{'data.data' | translate}}
+      </ng-template>
+      <app-users-info [users]="(_firebaseService.users$ | async)"></app-users-info>
+    </mat-tab>
+  
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <ion-icon name="cellular-outline"></ion-icon>
+        {{'data.graphic' | translate}}
+      </ng-template>
+      Content 2
+    </mat-tab>
+  </mat-tab-group>
 </ion-content>

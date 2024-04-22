@@ -1,6 +1,6 @@
 ion-list {
     width: 80%;
-    margin: 5% auto;
+    margin: 3% auto;
 
     ion-list-header {
         --background: #0F212D;
@@ -21,6 +21,14 @@ ion-list {
 
         &:hover {
             border-color: #0F212D;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .subheader {
+        ion-label {
+          margin-left: 0.2%;
         }
     }
 }

@@ -8,7 +8,8 @@
         "repPassword": "Repeat the Password",
         "logIn": "Log In",
         "register": "Register",
-        "role": "Role"
+        "role": "Role",
+        "picture": "Picture"
     },
     "access": {
         "toLogin": "I currently have an account.",
@@ -39,6 +40,7 @@
     "data": {
         "users": "Users",
         "data": "Data",
-        "graphic": "Graphics"
+        "graphic": "Graphics",
+        "update": "Modify user"
     }
 }

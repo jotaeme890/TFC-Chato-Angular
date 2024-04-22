@@ -1,3 +1,20 @@
 <ion-content>
-  <p>HOLA {{user?.name}}</p>
+  <div class="user">
+    <div class="user--image">
+      <ion-img alt="{{'forms.picture' | translate}}" src="{{user.picture}}"></ion-img>
+    </div>
+
+    <div class="user--info">
+      <div class="detail">
+
+        <h1 class="detail--name">{{user.name}} {{user.surname}}</h1>
+
+        <p class="detail--username">{{user.username}}</p>
+
+        <p class="detail--role">{{user.role}}</p>
+
+        <button>{{"data.update" | translate}}</button>
+      </div> 
+    </div>
+  </div>
 </ion-content>

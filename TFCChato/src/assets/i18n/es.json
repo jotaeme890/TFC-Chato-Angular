@@ -8,7 +8,8 @@
         "repPassword": "Repita la Contraseña",
         "logIn": "Iniciar sesión",
         "register": "Registrarse",
-        "role": "Rol"
+        "role": "Rol",
+        "picture": "Foto"
     },
     "access": {
         "toLogin": "Actualmente ya tengo cuenta.",
@@ -39,6 +40,7 @@
     "data": {
         "users": "Usuarios",
         "data": "Datos",
-        "graphic": "Gráficas"
+        "graphic": "Gráficas",
+        "update": "Modificar usuario"
     }
 }

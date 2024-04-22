@@ -13,10 +13,10 @@
     <ion-toolbar>
       <div class="menu--header__toolbar">
         <ion-avatar>
-          <img [src]="(auth.user$|async)?.name" alt="{{'menu.avatar' | translate}}"/>
+          <img [src]="(auth.user$|async)?.picture?.url_thumbnail" alt="{{'menu.avatar' | translate}}"/>
         </ion-avatar>
         <ion-label>
-          <span>{{ (auth.user$ | async)?.name }} {{ (auth.user$ | async)?.surname | capitalizeInitial}}</span>
+          <span>{{(auth.user$ | async)?.name }} {{ (auth.user$ | async)?.surname | capitalizeInitial}}</span>
         </ion-label>
       </div>
     </ion-toolbar>

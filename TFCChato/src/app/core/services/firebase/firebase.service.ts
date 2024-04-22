@@ -35,6 +35,8 @@ export class FirebaseService {
 
   private _users: BehaviorSubject<UserInfo[]> = new BehaviorSubject<UserInfo[]>([]);
   public users$: Observable<UserInfo[]> = this._users.asObservable();
+  private _incidents: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  public incidents$: Observable<any[]> = this._incidents.asObservable();
 
   constructor(
     @Inject('firebase-config') config:any
@@ -43,10 +45,14 @@ export class FirebaseService {
   }
 
   /**
-  * Initializes Firebase services including Firestore, Authentication, and Storage.
-  * Sets up an authentication state observer to reactively handle user login state changes.
-  * @param {any} firebaseConfig - Configuration for initializing Firebase.
-  */
+   * The `init` function initializes Firebase, sets up authentication, and subscribes to user and
+   * incident collections based on the user's authentication state.
+   * 
+   * @param firebaseConfig The `firebaseConfig` parameter is an object that contains the configuration
+   * settings needed to initialize Firebase in your application. It typically includes properties such
+   * as `apiKey`, `authDomain`, `projectId`, `storageBucket`, `messagingSenderId`, `appId`, and
+   * `measurementId`. These settings are unique to
+   */
   public async init(firebaseConfig:any) {
     // Initialize Firebase
     this._app = initializeApp(firebaseConfig);
@@ -59,6 +65,7 @@ export class FirebaseService {
         if(user.uid && user.email){
           this._isLogged.next(true);
           this.subscribeToCollection('userInfo', this._users, (el: any) => el);
+          this.subscribeToCollection('incidentsInfo', this._incidents, (el:any) => el)
         }
       } else{
         this._isLogged.next(false);

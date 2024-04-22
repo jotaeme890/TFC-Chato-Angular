@@ -81,7 +81,7 @@ export class AppComponent {
    */
   logOut(){
     this.auth.logout().subscribe(async _=>{
-      await this.router.navigate(['/login']);
+      await this.router.navigate(['/access']);
     });
   }
 }

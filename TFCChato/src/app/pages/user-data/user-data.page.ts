@@ -21,15 +21,14 @@ export class UserDataPage implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.userId = params.get('id');
-      if( this.userId ) {
-        this.userService.getUserById(this.userId)
-        .then(user => {
-          this.user = user.data
-        })
-        .catch( error => {
-            console.log('Error');
+      if (this.userId) {
+        this.userService.getUserById(this.userId).subscribe(user => {
+          if (user) {
+            this.user = user;
+          } else {
+            console.log('User not found!');
           }
-        )
+        });
       }
     });
   }

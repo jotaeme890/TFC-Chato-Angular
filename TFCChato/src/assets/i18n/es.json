@@ -9,7 +9,8 @@
         "logIn": "Iniciar sesión",
         "register": "Registrarse",
         "role": "Rol",
-        "picture": "Foto"
+        "picture": "Foto",
+        "update": "Modificar usuario"
     },
     "access": {
         "toLogin": "Actualmente ya tengo cuenta.",

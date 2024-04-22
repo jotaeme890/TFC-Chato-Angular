@@ -8,11 +8,13 @@ import { createTranslateLoader } from '../core/translate/translate';
 import { CapitalizeInitialPipe } from '../core/pipes/capitalize-initial.pipe';
 import { UsersInfoComponent } from './components/users-info/users-info.component';
 import { ShortenTextPipe } from '../core/pipes/shorten-text.pipe';
+import { PictureSelectableComponent } from './components/picture-selectable/picture-selectable.component';
 
 
 @NgModule({
   declarations: [
-    UsersInfoComponent
+    UsersInfoComponent,
+    PictureSelectableComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { ShortenTextPipe } from '../core/pipes/shorten-text.pipe';
     ShortenTextPipe
   ],
   exports: [
-    UsersInfoComponent
+    UsersInfoComponent,
+    PictureSelectableComponent
   ]
 })
 export class SharedModule { }

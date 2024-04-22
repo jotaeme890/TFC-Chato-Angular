@@ -9,13 +9,12 @@
     &--image {
         width: 49%;
         min-width: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        .product--image {
-            ion-img::part(image) {
-                margin: auto;
-                border-radius: 10px;
-                width: 70%;
-            }
+        img {
+            width: 40%;
         }
     }
 

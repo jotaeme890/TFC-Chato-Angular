@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" fill="clear" (click)="onCancel()">
+          <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{'edit.modify' | translate}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="onSub()" (keyup.enter)="onSub()">
+    <div class="container">
+
+      <app-picture-selectable formControlName="picture"></app-picture-selectable>
+
+      <ion-item>
+        <ion-input labelPlacement="floating" label="{{'forms.name' | translate}}" formControlName="name" type="text"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input labelPlacement="floating" label="{{'register.surname' | translate}}" formControlName="surname" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input labelPlacement="floating" label="{{'forms.email' | translate}}" formControlName="email" type="text"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input labelPlacement="floating" label="{{'forms.username' | translate}}" formControlName="username" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="uuid" type="hidden"></ion-input>
+      </ion-item>
+
+      <div>
+        <button style="text-transform: none" (click)="onSub()">{{'forms.update' | translate}}</button>
+      </div>
+    </div>
+  </form>

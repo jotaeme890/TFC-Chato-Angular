@@ -1,7 +1,7 @@
 <ion-content>
   <div class="user">
     <div class="user--image">
-      <ion-img alt="{{'forms.picture' | translate}}" src="{{user.picture}}"></ion-img>
+      <img alt="{{'forms.picture' | translate}}" [src]="user.picture.url_large"/>
     </div>
 
     <div class="user--info">
@@ -13,7 +13,7 @@
 
         <p class="detail--role">{{user.role}}</p>
 
-        <button>{{"data.update" | translate}}</button>
+        <button (click)="updateUser(user)">{{"data.update" | translate}}</button>
       </div> 
     </div>
   </div>

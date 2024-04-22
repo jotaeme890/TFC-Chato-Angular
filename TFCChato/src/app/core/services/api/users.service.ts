@@ -25,8 +25,17 @@ export class UsersService {
       map(users => users.find(user => user.uuid === userId))
     );
   }
-  
+
+  /**
+   * The updateUser function in TypeScript logs the user data and updates the userInfo document in
+   * Firebase if the data contains a UUID.
+   * 
+   * @param data UserInfo object containing information about a user, including their UUID.
+   */
   updateUser( data: UserInfo ){
     console.log( data );
+    let _data = {...data}
+    if( _data.uuid )
+      this.firebaseService.updateDocument('userInfo', _data.uuid, data)
   }
 }

@@ -36,7 +36,8 @@
         "loading": "Loading...",
         "settings": "Settings",
         "avatar": "User`s avatar",
-        "graphics": "Analysis of data"
+        "graphics": "Analysis of data",
+        "about": "About the app"
     },
     "data": {
         "users": "Users",

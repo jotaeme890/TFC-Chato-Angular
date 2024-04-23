@@ -20,14 +20,14 @@ export class UserDataPage implements OnInit {
   user: any | undefined;
 
   /**
-   * Creates an instance of UserDataPage.
-   * @param route - The ActivatedRoute service to get URL parameters.
-   * @param userService - The UsersService to manage user data.
-   * @param _router - The Router service for page navigation.
-   * @param myModal - The modal controller to display and control modal windows.
-   * @param media - The MediaService for handling media operations.
-   * @param _firebaseSvc - The FirebaseService for interacting with Firebase.
-   */
+  * Creates an instance of UserDataPage.
+  * @param route - The ActivatedRoute service to get URL parameters.
+  * @param userService - The UsersService to manage user data.
+  * @param _router - The Router service for page navigation.
+  * @param myModal - The modal controller to display and control modal windows.
+  * @param media - The MediaService for handling media operations.
+  * @param _firebaseSvc - The FirebaseService for interacting with Firebase.
+  */
   constructor(
     private route: ActivatedRoute,
     private userService: UsersService,
@@ -38,10 +38,10 @@ export class UserDataPage implements OnInit {
   ) { }
 
   /**
-   * Method executed when the component is initialized.
-   * Subscribes to changes in URL parameters to get the user ID
-   * and load corresponding user data.
-   */
+  * Method executed when the component is initialized.
+  * Subscribes to changes in URL parameters to get the user ID
+  * and load corresponding user data.
+  */
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.userId = params.get('id');
@@ -58,11 +58,11 @@ export class UserDataPage implements OnInit {
   }
 
   /**
-   * Method to update user data.
-   * Opens a modal for editing user data and updates the data
-   * on the server once the editing is confirmed.
-   * @param user - The updated user information.
-   */
+  * Method to update user data.
+  * Opens a modal for editing user data and updates the data
+  * on the server once the editing is confirmed.
+  * @param user - The updated user information.
+  */
   async updateUser( user: UserInfo ) {
     const mod = await this.myModal.create({
       component: UpdateUserComponent,

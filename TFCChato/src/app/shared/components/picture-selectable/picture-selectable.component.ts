@@ -23,6 +23,10 @@ export class PictureSelectableComponent  implements OnInit {
   isDisabled:boolean = false;
   hasValue:boolean = false;
 
+  /**
+  * Creates an instance of PictureSelectableComponent.
+  * @param pictureModal - The ModalController for managing modal windows.
+  */
   constructor(
     private pictureModal:ModalController
   ) { }
@@ -34,9 +38,16 @@ export class PictureSelectableComponent  implements OnInit {
 
   ngOnInit() {}
 
+  /**
+  * Method for propagating changes to the Angular forms API.
+  */
   propagateChange = (obj: any) => {
   }
 
+  /**
+  * Writes a new value to the component.
+  * @param obj - The new value to be written.
+  */
   writeValue(obj: any): void {
     if(obj){
       this.hasValue = true;
@@ -44,23 +55,44 @@ export class PictureSelectableComponent  implements OnInit {
     }
   }
 
+  /**
+  * Registers a callback function to be executed when the value changes.
+  * @param fn - The callback function to register.
+  */
   registerOnChange(fn: any): void {
     this.propagateChange = fn;
   }
 
+  /**
+  * Registers a callback function to be executed when the component is touched.
+  * @param fn - The callback function to register.
+  */
   registerOnTouched(fn: any): void {
   }
 
+  /**
+  * Sets the disabled state of the component.
+  * @param isDisabled - Boolean value indicating if the component should be disabled.
+  */
   setDisabledState?(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
   }
 
+  /**
+  * Changes the selected picture.
+  * @param picture - The new picture value.
+  */
   changePicture(picture:string){
     this.hasValue = picture!='';
     this._picture.next(picture);
     this.propagateChange(picture);
   }
 
+  /**
+  * Event handler for changing the picture by uploading a file.
+  * @param event - The event triggering the picture change.
+  * @param fileLoader - The HTML input element for file uploading.
+  */
   onChangePicture(event:Event, fileLoader:HTMLInputElement){
     event.stopPropagation();
     fileLoader.onchange = ()=>{
@@ -79,14 +111,19 @@ export class PictureSelectableComponent  implements OnInit {
     fileLoader.click();
   }
 
+  /**
+  * Event handler for deleting the selected picture.
+  * @param event - The event triggering the picture deletion.
+  */
   onDeletePicture(event:Event){
     event.stopPropagation();
     this.changePicture('');
   }
 
+  /**
+  * Closes the picture modal.
+  */
   close(){
     this.pictureModal?.dismiss();
   }
-
-
 }

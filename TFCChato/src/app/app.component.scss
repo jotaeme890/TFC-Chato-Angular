@@ -43,13 +43,20 @@ ion-header {
     text-align: center;
     padding: 10px;
     font-size: 0.8em;
-    color: gray; // O el color que prefieras
-    border-top: 1px solid lightgray; // Opcional, para añadir una línea divisora
+    color: gray;
+    border-top: 1px solid lightgray;
   
     p {
-      margin: 0; // Para asegurarte de que el párrafo no tenga margen extra
+      margin: 0;
     }
-  }
+
+    &:hover {
+        cursor: pointer;
+        p {
+            font-weight: bold;
+        }
+    }
+}
 
 
 .menu--header__toolbar {

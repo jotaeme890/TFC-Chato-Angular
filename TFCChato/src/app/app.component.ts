@@ -3,7 +3,7 @@ import { LocalService } from './core/services/translate/local.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from './core/services/auth.service';
 import { filter } from 'rxjs';
-import { IonMenu } from '@ionic/angular';
+import { IonMenu, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -86,9 +86,12 @@ export class AppComponent {
   }
 
   /**
-  * The `toAbout` function navigates to the '/about' route using the Angular router.
+  * The `toAbout` function navigates to the '/about' route using the Angular router and close the menu.
+  * 
+  * @param menu The menu
   */
-  toAbout() {
-
+  toAbout(menu: IonMenu) {
+    this.router.navigate(['/about'])
+    menu.close();
   }
 }

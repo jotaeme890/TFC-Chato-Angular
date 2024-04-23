@@ -3,5 +3,7 @@
     "@ionic/angular/common",
     "@ionic/angular/standalone"
   ],
-  "docwriter.style": "Javadoc"
+  "docwriter.style": "reST",
+  "docwriter.progress.trackClasses": false,
+  "docwriter.progress.trackMethods": true
 }

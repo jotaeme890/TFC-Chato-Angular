@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { UserInfo } from '../../interfaces/user-info';
 import { FirebaseService } from '../firebase/firebase.service';
 import { take, map, Observable } from 'rxjs';
+import { AuthService } from '../auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class UsersService {
    * `FirebaseService` class.
    */
   constructor(
-    private firebaseService: FirebaseService
+    private firebaseService: FirebaseService,
+    private auth: AuthService
   ) { }
 
   /**
@@ -36,15 +38,13 @@ export class UsersService {
   }
 
   /**
-   * The updateUser function in TypeScript logs the user data and updates the userInfo document in
-   * Firebase if the data contains a UUID.
+   * The `updateUser` function in TypeScript updates user information using an authentication service.
    * 
-   * @param data UserInfo object containing information about a user, including their UUID.
+   * @param data The `data` parameter in the `updateUser` function is of type `UserInfo`. It likely
+   * contains information about the user that needs to be updated, such as their name, email, or other
+   * profile details.
    */
   updateUser( data: UserInfo ){
-    console.log( data );
-    let _data = {...data}
-    if( _data.uuid )
-      this.firebaseService.updateDocument('userInfo', _data.uuid, data)
+    this.auth.updateUser(data).subscribe();
   }
 }

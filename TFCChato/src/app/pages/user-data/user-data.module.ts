@@ -12,6 +12,10 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from 'src/app/core/translate/translate';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   imports: [
@@ -29,6 +33,11 @@ import { SharedModule } from 'src/app/shared/shared.module';
       deps: [HttpClient]
       }
     }),
+    // Angular Material
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
     SharedModule
   ],
   declarations: [

@@ -6,39 +6,51 @@
       </ion-button>
     </ion-buttons>
     <ion-title>
-      {{'edit.modify' | translate}}
+      {{'forms.update' | translate}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <form [formGroup]="form" (ngSubmit)="onSub()" (keyup.enter)="onSub()">
-    <div class="container">
-
       <app-picture-selectable formControlName="picture"></app-picture-selectable>
 
-      <ion-item>
-        <ion-input labelPlacement="floating" label="{{'forms.name' | translate}}" formControlName="name" type="text"></ion-input>
-      </ion-item>
-  
-      <ion-item>
-        <ion-input labelPlacement="floating" label="{{'register.surname' | translate}}" formControlName="surname" type="text"></ion-input>
-      </ion-item>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'forms.name' | translate }}</mat-label>
+        <input matInput formControlName="name">
+        <mat-error *ngIf="form.controls['name'].touched && form.controls['name'].invalid">
+          {{ 'errors.valid' | translate }}
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'forms.surname' | translate }}</mat-label>
+        <input matInput formControlName="surname">
+        <mat-error *ngIf="form.controls['surname'].touched && form.controls['surname'].invalid">
+          {{ 'errors.valid' | translate }}
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'forms.email' | translate }}</mat-label>
+        <input matInput type="email" formControlName="email">
+        <mat-error *ngIf="form.controls['email'].touched && form.controls['email'].hasError('required')">
+          {{ 'errors.valid' | translate }}
+        </mat-error>
+        <mat-error *ngIf="form.controls['email'].touched && form.controls['email'].hasError('email')">
+          {{ 'errors.emailError' | translate }}
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'forms.username' | translate }}</mat-label>
+        <input matInput formControlName="username">
+        <mat-error *ngIf="form.controls['username'].touched && form.controls['username'].invalid">
+          {{ 'errors.valid' | translate }}
+        </mat-error>
+      </mat-form-field>
 
-      <ion-item>
-        <ion-input labelPlacement="floating" label="{{'forms.email' | translate}}" formControlName="email" type="text"></ion-input>
-      </ion-item>
-  
-      <ion-item>
-        <ion-input labelPlacement="floating" label="{{'forms.username' | translate}}" formControlName="username" type="text"></ion-input>
-      </ion-item>
+    <button [disabled]="form.invalid">{{'forms.update' | translate}}</button>
 
-      <ion-item>
-        <ion-input formControlName="uuid" type="hidden"></ion-input>
-      </ion-item>
-
-      <div>
-        <button style="text-transform: none" (click)="onSub()">{{'forms.update' | translate}}</button>
-      </div>
-    </div>
   </form>
+</ion-content>

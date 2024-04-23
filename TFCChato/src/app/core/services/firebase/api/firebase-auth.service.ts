@@ -135,7 +135,7 @@ export class FirebaseAuthService extends AuthService{
       return {
         name:data.data['name'],
         surname:data.data['surname'],
-        picture:data.data['photo']??"",
+        picture:data.data['picture']??"",
         email: data.data['email'],
         role: data.data['role'],
         username: data.data['username'],
@@ -162,9 +162,14 @@ export class FirebaseAuthService extends AuthService{
   * @returns Returns an Observable that emits the updated user data after both the Firestore document is updated and the local
   * user data is refreshed.
   */
-  public override updateUser(user:UserInfo): Observable<UserInfo> {
-    return from(this.firebaseSvc.updateDocument('users', this._user!.value!.uuid!,user)).pipe(switchMap(_=>this.me().pipe(tap(data=>{
-      this._user.next(data);
-    }))));
+  public updateUser(user: UserInfo): Observable<void> {
+    return from(this.firebaseSvc.updateDocument('userInfo', user!.uuid!, user)).pipe(
+      tap(() => {
+        if (user.uuid === this._user.value?.uuid) {
+          console.log("AQUI");
+          this._user.next(user);
+        }
+      })
+    );
   }
 }

@@ -12,9 +12,13 @@ export class UpdateUserComponent  implements OnInit {
 
   form: FormGroup;
 
-  @Input() set user(user: UserInfo) {
+  /**
+   * Setter method for setting user information to be edited.
+   * Populates the form fields with the provided user information.
+   * @param user - The user information to be edited.
+   */
+  @Input() set userInfo(user: UserInfo) {
     if (user) {
-      console.log(user);
       this.form.controls['picture'].setValue(user.picture?.url_medium);
       this.form.controls['name'].setValue(user.name);
       this.form.controls['surname'].setValue(user.surname);
@@ -24,6 +28,11 @@ export class UpdateUserComponent  implements OnInit {
     }
   }
 
+  /**
+   * Creates an instance of UpdateUserComponent.
+   * @param formBuilder - The FormBuilder service for building form instances.
+   * @param modal - The ModalController for managing modal windows.
+   */
   constructor(
     private formBuilder: FormBuilder,
     private modal: ModalController,
@@ -40,10 +49,18 @@ export class UpdateUserComponent  implements OnInit {
 
   ngOnInit() {}
 
+  /**
+   * Handler for form submission.
+   * Dismisses the modal and passes the updated user information to the parent component.
+   */
   onSub() {
     this.modal.dismiss(this.form.value);
   }
 
+  /**
+   * Handler for cancel action.
+   * Dismisses the modal without passing any data to the parent component.
+   */
   onCancel() {
     this.modal.dismiss(null);
   }

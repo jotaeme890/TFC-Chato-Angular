@@ -1,0 +1,45 @@
+.custom-card {
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  min-width: 500px;
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .status {
+      background-color: #0f212d;
+      color: #ffffff;
+      padding: 0.5rem 2rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      margin-left: 1rem;
+    }
+  }
+
+  .card-details {
+    list-style: none;
+
+    .detail {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+    .custom-card {
+        max-width: 100%;
+        min-width: 100%;
+    }
+}

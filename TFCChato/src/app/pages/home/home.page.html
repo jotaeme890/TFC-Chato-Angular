@@ -1,3 +1,5 @@
 <ion-content>
-    <p>HOLA</p>
+    <div class="incidents">
+        <app-incidents-info *ngFor="let incident of firebaseService.incidents$| async" [incident]="incident"></app-incidents-info>
+    </div>
 </ion-content>

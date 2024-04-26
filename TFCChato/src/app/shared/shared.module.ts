@@ -9,12 +9,14 @@ import { CapitalizeInitialPipe } from '../core/pipes/capitalize-initial.pipe';
 import { UsersInfoComponent } from './components/users-info/users-info.component';
 import { ShortenTextPipe } from '../core/pipes/shorten-text.pipe';
 import { PictureSelectableComponent } from './components/picture-selectable/picture-selectable.component';
+import { IncidentsInfoComponent } from './components/incidents-info/incidents-info.component';
 
 
 @NgModule({
   declarations: [
     UsersInfoComponent,
-    PictureSelectableComponent
+    PictureSelectableComponent,
+    IncidentsInfoComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { PictureSelectableComponent } from './components/picture-selectable/pict
   ],
   exports: [
     UsersInfoComponent,
-    PictureSelectableComponent
+    PictureSelectableComponent,
+    IncidentsInfoComponent
   ]
 })
 export class SharedModule { }

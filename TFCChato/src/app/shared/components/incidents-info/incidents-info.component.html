@@ -1,0 +1,20 @@
+<div class="custom-card">
+  <div class="card-header">
+    <h3 class="card-title">{{incident?.title}}</h3>
+    <span *ngIf="!incident?.resolved" class="status">No resuelta</span>
+  </div>
+  <ul class="card-details">
+    <li class="detail">
+      <ion-icon name="calendar-clear-outline"></ion-icon> 
+      Fecha: 26 abril 2024
+    </li>
+    <li class="detail">
+      <ion-icon name="time-outline"></ion-icon>
+      Horario: 1:00 AM - 2:00 AM
+    </li>
+    <li class="detail">
+      <ion-icon name="person-outline"></ion-icon>
+      Empleado: {{incident?.userName}}
+    </li>
+  </ul>
+</div>

@@ -44,5 +44,11 @@
         "data": "Data",
         "graphic": "Graphics",
         "update": "Modify user"
+    },
+    "incidents": {
+        "unresolved": "Unresolved",
+        "day": "Day",
+        "hour": "Hour",
+        "user": "User" 
     }
 }

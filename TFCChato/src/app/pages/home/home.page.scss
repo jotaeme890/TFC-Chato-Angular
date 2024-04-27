@@ -1,10 +1,7 @@
 .incidents {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 100%;
-    padding: 20px; /* Ajusta el relleno según sea necesario */
-    box-sizing: border-box; /* Asegura que el relleno se incluya en el ancho */
-    justify-content: flex-start; /* Alinea los elementos a la izquierda */
-    align-items: flex-start; /* Alinea los elementos en la parte superior */
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  padding: 4%;
+}

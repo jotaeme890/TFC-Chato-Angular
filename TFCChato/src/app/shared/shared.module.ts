@@ -29,6 +29,7 @@ import { IncidentsInfoComponent } from './components/incidents-info/incidents-in
       deps: [HttpClient]
       }
     }),
+    ShortenTextPipe,
     ShortenTextPipe
   ],
   exports: [

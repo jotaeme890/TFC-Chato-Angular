@@ -1,7 +1,9 @@
 .incidents {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
   width: 100%;
-  padding: 4%;
+  margin: 5% 0;
+  padding: 2%;
 }

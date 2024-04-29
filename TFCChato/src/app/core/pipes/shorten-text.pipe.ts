@@ -21,8 +21,8 @@ export class ShortenTextPipe implements PipeTransform {
   * it returns a substring of the `value` up to the `limit` followed by a period. If the length of the
   * `value` is not greater than the
   */
-  transform(value: string, limit: number = 15): string {
-    return value.length > limit ? value.substring(0, limit) + '.' : value;
+  transform(value: string | undefined, limit: number = 10): string | undefined {
+    return value!.length > limit ? value!.substring(0, limit) + '...' : value;
   }
 
 }

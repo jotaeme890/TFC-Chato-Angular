@@ -1,7 +1,7 @@
 <div class="card">
 
   <div class="card--header">
-    <h3 class="card--header__title">{{incident?.title}}</h3>
+    <h3 class="card--header__title">{{incident?.title | shortenText}}</h3>
     <div *ngIf="!incident?.resolved" class="card--header__status">
       <span>{{'incidents.unresolved' | translate}}</span>
     </div>
@@ -11,13 +11,13 @@
     <div>
       <ion-icon name="calendar-clear-outline"></ion-icon>
       <span>
-        {{'incidents.day' |translate}}: 27/04/2024
+        {{'incidents.day' |translate}}: {{formattedDay}}
       </span>
     </div>
     <div>
       <ion-icon name="time-outline"></ion-icon>
       <span>
-        {{'incidents.hour' |translate}}: 13:41
+        {{'incidents.hour' |translate}}: {{formattedTime}}
       </span>
     </div>
     <div>

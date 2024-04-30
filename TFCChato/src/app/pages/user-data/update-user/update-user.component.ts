@@ -19,7 +19,7 @@ export class UpdateUserComponent  implements OnInit {
   */
   @Input() set userInfo(user: UserInfo) {
     if (user) {
-      this.form.controls['picture'].setValue(user.picture?.url_medium);
+      this.form.controls['picture'].setValue(user.picture);
       this.form.controls['name'].setValue(user.name);
       this.form.controls['surname'].setValue(user.surname);
       this.form.controls['email'].setValue(user.email);

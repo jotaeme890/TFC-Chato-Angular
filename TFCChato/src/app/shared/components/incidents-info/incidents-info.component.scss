@@ -1,5 +1,5 @@
 .card {
-  padding: 4% 4%;
+  padding: 15px;
   border-radius: 0.5rem;
   box-shadow: 0px 2px 15px -2px rgba(71, 71, 71, 0.24);
   width: 400px;
@@ -15,7 +15,7 @@
     }
 
     &__status {
-      background-color: #0f212d;
+      background-color: #bd1e1e;
       padding: 2% 5%;
       border-radius: 2em;
 
@@ -47,7 +47,6 @@
 
     &--header {
       &__status {
-        padding: 2% 4%;
         margin-left: 1rem;
       }
     }

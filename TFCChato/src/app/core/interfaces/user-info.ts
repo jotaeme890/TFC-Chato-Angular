@@ -8,7 +8,7 @@ export interface UserCredentials{
 export interface UserInfo {
     name: string;
     surname: string;
-    picture?: Photo;
+    picture?: string;
     email: string;
     role: string;
     username: string;

@@ -3,7 +3,7 @@
         "name": "Nombre",
         "surname": "Apellidos",
         "email": "Correo Electrónico",
-        "username": "Nombre de usuario",
+        "username": "Usuario",
         "password": "Contraseña",
         "repPassword": "Repita la Contraseña",
         "logIn": "Iniciar sesión",

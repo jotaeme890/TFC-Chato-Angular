@@ -10,7 +10,9 @@
         "register": "Registrarse",
         "role": "Rol",
         "picture": "Foto",
-        "update": "Modificar usuario"
+        "update": "Modificar usuario",
+        "admin": "Administrador",
+        "user": "Usuario"
     },
     "access": {
         "toLogin": "Actualmente ya tengo cuenta.",

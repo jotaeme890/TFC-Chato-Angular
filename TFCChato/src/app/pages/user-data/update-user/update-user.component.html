@@ -50,6 +50,14 @@
         </mat-error>
       </mat-form-field>
 
+      <mat-form-field appearance="outline">
+        <mat-label>{{'forms.role' | translate}}</mat-label>
+        <mat-select formControlName="role">
+          <mat-option value="admin">{{'forms.admin' | translate}}</mat-option>
+          <mat-option value="user">{{'forms.user' | translate}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
     <button [disabled]="form.invalid">{{'forms.update' | translate}}</button>
 
   </form>

@@ -10,7 +10,9 @@
         "register": "Register",
         "role": "Role",
         "picture": "Picture",
-        "update": "Update user"
+        "update": "Update user",
+        "admin": "Admin",
+        "user": "User"
     },
     "access": {
         "toLogin": "I currently have an account.",

@@ -73,6 +73,7 @@ export class UserDataPage implements OnInit {
     await mod.present();
     const results = await mod.onDidDismiss();
     if (results && results.data) {
+      console.log(results);
       if( results.data.picture.substring(0,4) == 'data' ) {
         dataURLtoBlob(results.data.picture,   (blob: Blob) => {
           this.media.upload(blob).subscribe((media: number[]) => {

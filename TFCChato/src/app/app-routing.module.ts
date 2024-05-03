@@ -26,15 +26,16 @@ const routes: Routes = [
   },
   {
     path: 'data',
-    canActivate: [AuthGuard, AdminGuard],
     children: [
       {
         path: '',
         loadChildren: () => import('./pages/data/data.module').then(m => m.DataPageModule),
+        canActivate: [AuthGuard, AdminGuard],
       },
       {
         path: 'user/:id',
         loadChildren: () => import('./pages/user-data/user-data.module').then(m => m.UserDataPageModule),
+        canActivate: [AuthGuard, AdminGuard],
       },
     ]
   },

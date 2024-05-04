@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 
@@ -11,10 +12,15 @@ import { FirebaseService } from 'src/app/core/services/firebase/firebase.service
 export class DataPage implements OnInit {
 
   constructor(
-    protected _firebaseService: FirebaseService
+    protected _firebaseService: FirebaseService,
+    private router: Router
   ) { }
 
   ngOnInit() {
+  }
+
+  userInfo(userId: string) {
+    this.router.navigate([`/data/user/${userId}`]);
   }
 
 }

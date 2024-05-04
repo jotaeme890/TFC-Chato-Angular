@@ -31,7 +31,11 @@ export class PictureSelectableComponent  implements OnInit {
     private pictureModal:ModalController
   ) { }
 
-
+/**
+ * This method is called when the component is being destroyed. It ensures
+ * that any subscriptions to the BehaviorSubject for the selected picture are properly
+ * terminated by completing the BehaviorSubject, preventing potential memory leaks.
+ */
   ngOnDestroy(): void {
     this._picture.complete();
   }

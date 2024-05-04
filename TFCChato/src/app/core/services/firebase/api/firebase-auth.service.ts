@@ -166,7 +166,6 @@ export class FirebaseAuthService extends AuthService{
     return from(this.firebaseSvc.updateDocument('userInfo', user!.uuid!, user)).pipe(
       tap(() => {
         if (user.uuid === this._user.value?.uuid) {
-          console.log("AQUI");
           this._user.next(user);
         }
       })

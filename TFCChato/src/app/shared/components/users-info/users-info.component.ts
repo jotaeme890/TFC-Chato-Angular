@@ -10,6 +10,7 @@ import { UserInfo } from 'src/app/core/interfaces/user-info';
 export class UsersInfoComponent  implements OnInit {
 
   @Input() users: UserInfo[] | null | undefined;
+  @Output() onUserClicked: EventEmitter<string> = new EventEmitter<string>()
 
   /**
   * The constructor function takes a Router object as a parameter and assigns it to a private property
@@ -25,13 +26,8 @@ export class UsersInfoComponent  implements OnInit {
 
   ngOnInit() {}
 
-  /**
-  * The function `dataUser` navigates to a specific user's data page based on the provided `userId`.
-  * 
-  * @param userId The `userId` parameter in the `dataUser` function is a string or undefined type.
-  */
   dataUser( userId: string | undefined ) {
-    this.router.navigate([`/data/user/${userId}`]);
+    this.onUserClicked.emit(userId)
   }
 
 }

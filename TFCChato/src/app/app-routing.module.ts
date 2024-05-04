@@ -7,8 +7,18 @@ import { UserDataPageModule } from './pages/user-data/user-data.module';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
-    canActivate: [AuthGuard, AdminGuard]
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
+        canActivate: [AuthGuard, AdminGuard],
+      },
+      {
+        path: 'incident-data/:id',
+        loadChildren: () => import('./pages/incident-data/incident-data.module').then( m => m.IncidentDataPageModule),
+        canActivate: [AuthGuard, AdminGuard],
+      }
+    ]
   },
   {
     path: '',
@@ -43,7 +53,7 @@ const routes: Routes = [
     path: 'about',
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule),
     canActivate: [AuthGuard, AdminGuard],
-  },
+  }
 ];
 
 @NgModule({

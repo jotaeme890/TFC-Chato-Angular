@@ -1,5 +1,4 @@
-<div class="card">
-
+<div (click)="onIncidentClick($event)" [ngClass]="{'card': true, 'checked': incident?.checked, 'noCheck': !incident?.checked}" >
   <div class="card--header">
     <h3 class="card--header__title">{{incident?.title | shortenText}}</h3>
     <div *ngIf="!incident?.resolved" class="card--header__status">

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FirebaseService } from '../firebase/firebase.service';
+import { incidentInfo } from '../../interfaces/incidents-info';
+import { Observable, map, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,4 +20,16 @@ export class IncidentsService {
   constructor(
     private firebaseService: FirebaseService
   ) { }
+
+  getIncidentById(incidentId: string): Observable<incidentInfo | undefined> {
+    return this.firebaseService.incidents$.pipe(
+      take(1),
+      map(incident => incident.find(incident => incident.uuid === incidentId))
+    );
+  }
+
+  updateIncident(incident: incidentInfo) {
+    this.firebaseService.updateDocument('incidentsInfo', incident.uuid, incident)
+    console.log("AQUI");
+  }
 }

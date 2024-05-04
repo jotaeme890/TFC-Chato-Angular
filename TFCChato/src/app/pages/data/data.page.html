@@ -5,7 +5,7 @@
         <ion-icon class="" name="cellular-outline"></ion-icon>
         {{'data.data' | translate}}
       </ng-template>
-      <app-users-info [users]="(_firebaseService.users$ | async)"></app-users-info>
+      <app-users-info [users]="(_firebaseService.users$ | async)" (onUserClicked)="userInfo($event)"></app-users-info>
     </mat-tab>
   
     <mat-tab>

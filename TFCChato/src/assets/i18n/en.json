@@ -51,6 +51,7 @@
         "unresolved": "Unresolved",
         "day": "Day",
         "hour": "Hour",
-        "user": "User" 
+        "user": "User",
+        "resolved": "Set as resolved"
     }
 }

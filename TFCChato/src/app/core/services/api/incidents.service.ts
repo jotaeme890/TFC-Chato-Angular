@@ -30,6 +30,5 @@ export class IncidentsService {
 
   updateIncident(incident: incidentInfo) {
     this.firebaseService.updateDocument('incidentsInfo', incident.uuid, incident)
-    console.log("AQUI");
   }
 }

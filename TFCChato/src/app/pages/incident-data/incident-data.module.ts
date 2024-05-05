@@ -7,13 +7,24 @@ import { IonicModule } from '@ionic/angular';
 import { IncidentDataPageRoutingModule } from './incident-data-routing.module';
 
 import { IncidentDataPage } from './incident-data.page';
+import { HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { createTranslateLoader } from 'src/app/core/translate/translate';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    IncidentDataPageRoutingModule
+    IncidentDataPageRoutingModule,
+    // Translate
+    TranslateModule.forChild({
+      loader: {
+      provide: TranslateLoader,
+      useFactory: (createTranslateLoader),
+      deps: [HttpClient]
+      }
+    }),
   ],
   declarations: [IncidentDataPage]
 })

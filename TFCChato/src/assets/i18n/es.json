@@ -51,6 +51,7 @@
         "unresolved": "Sin resolver",
         "day": "Día",
         "hour": "Hora",
-        "user": "Usuario" 
+        "user": "Usuario",
+        "resolved": "Marcar como resuelta"
     }
 }

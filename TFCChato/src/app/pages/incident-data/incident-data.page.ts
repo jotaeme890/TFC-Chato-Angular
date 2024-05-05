@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { incidentInfo } from 'src/app/core/interfaces/incidents-info';
 import { IncidentsService } from 'src/app/core/services/api/incidents.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { IncidentsService } from 'src/app/core/services/api/incidents.service';
 })
 export class IncidentDataPage implements OnInit {
 
-  incidentId: string | null= ''
+  incidentId: string | null= '';
+  incident: any | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,7 +25,7 @@ export class IncidentDataPage implements OnInit {
         this.incidentsService.getIncidentById(this.incidentId).subscribe({
           next: incident => {
             if( incident ) {
-              console.log(incident);
+              this.incident = incident
               if( !incident.checked ){
                 incident.checked = true
                 this.incidentsService.updateIncident(incident)
@@ -33,6 +35,13 @@ export class IncidentDataPage implements OnInit {
         })
       }
     })
+  }
+
+  setResolvedIncident(incident: incidentInfo) {
+    incident.resolved = true;
+    this.incident = incident;
+    this.incidentsService.updateIncident(incident);
+    console.log(incident);
   }
 
 }

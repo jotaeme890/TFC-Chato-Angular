@@ -53,4 +53,16 @@
   - Autologin.
   - Diseño de Figma.
   - Exportar datos  .csv para su posterior tratamiento para power BI.
-  - Modificar página de About
+  - Modificar página de About.
+
+
+### Webgrafía usada
+  - [Cabecera de la tabla](https://ionicframework.com/docs/api/list-header)
+  - [Tabla](https://ionicframework.com/docs/api/list)
+  - [Menú lateral](https://ionicframework.com/docs/api/menu)
+  - [Iconoc](https://ionic.io/ionicons)
+  - [Tabs](https://material.angular.io/components/tabs/api)
+  - [Formularios](https://material.angular.io/components/form-field/overview)
+  - [Toasts](https://primeng.org/toast)
+  - [Divider](https://primeng.org/divider)
+  - [Documentación angular](https://angular.io/api/common/NgClass)

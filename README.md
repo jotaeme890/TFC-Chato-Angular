@@ -1,5 +1,8 @@
 # Checkpoint
 
+### Vídeo
+[Enlace vídeo Youtube](https://youtu.be/LxI69-CrHsg)
+
 <details>
   <summary>Diario</summary>
 

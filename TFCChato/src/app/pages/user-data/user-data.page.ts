@@ -73,17 +73,23 @@ export class UserDataPage implements OnInit {
     await mod.present();
     const results = await mod.onDidDismiss();
     if (results && results.data) {
-      console.log(results);
-      if( results.data.picture.substring(0,4) == 'data' ) {
-        dataURLtoBlob(results.data.picture,   (blob: Blob) => {
-          this.media.upload(blob).subscribe((media: number[]) => {
-            results.data.picture = media[0];
-            this.userService.updateUser(results.data);
+      console.log(results.data);
+      if(results?.data?.picture) {
+        if( results?.data?.picture?.substring(0,4) == 'data' ) {
+          dataURLtoBlob(results.data.picture,   (blob: Blob) => {
+            this.media.upload(blob).subscribe((media: number[]) => {
+              results.data.picture = media[0];
+              this.userService.updateUser(results.data);
+            });
           });
-        });
-        this._router.navigate(['/data']);
+          this._router.navigate(['/data']);
+        } else {
+          results.data.picture = user.picture;
+          this.userService.updateUser(results.data);
+          this._router.navigate(['/data']);
+        }
       } else {
-        results.data.picture = user.picture;
+        results.data.picture = "";
         this.userService.updateUser(results.data);
         this._router.navigate(['/data']);
       }

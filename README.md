@@ -44,3 +44,13 @@
   **Día 05/05/2024 →** Hoy ya he acabado todo lo que quería para el checkpoint, ya que he añadido la vista del detalle de la incidencia, y he añadido las palabras necesarios con sus traducciones. Ya me quedaría: Arreglar la carga del autologin, hacer la vista de las gráficas y poder editar, añadir o eliminar categorías, los filtros con las categorías, y la página de ajustes.
 
 </details>
+
+
+### Tareas pendientes por hacer
+  - Página de ajustes completa (Con cambio de tema, idioma y modificación de perfil).
+  - Añadir tabla de categorías en la página de análisis (con todo su CRUD correspondiente), y también las gráficas.
+  - Añadir menú para el filtrado de las incidencias.
+  - Autologin.
+  - Diseño de Figma.
+  - Exportar datos  .csv para su posterior tratamiento para power BI.
+  - Modificar página de About

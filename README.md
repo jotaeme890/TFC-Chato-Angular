@@ -60,7 +60,7 @@
   - [Cabecera de la tabla](https://ionicframework.com/docs/api/list-header)
   - [Tabla](https://ionicframework.com/docs/api/list)
   - [Menú lateral](https://ionicframework.com/docs/api/menu)
-  - [Iconoc](https://ionic.io/ionicons)
+  - [Iconos](https://ionic.io/ionicons)
   - [Tabs](https://material.angular.io/components/tabs/api)
   - [Formularios](https://material.angular.io/components/form-field/overview)
   - [Toasts](https://primeng.org/toast)

@@ -1,10 +1,10 @@
 # Checkpoint
 
-### Vídeo
-[Enlace vídeo Youtube](https://youtu.be/LxI69-CrHsg)
+### Vídeo -> [Vídeo Youtube](https://youtu.be/LxI69-CrHsg)
 
+</br>
 <details>
-  <summary>Diario</summary>
+  <summary>DIARIO</summary>
 
   **Día 08/04/2024 →** Ya que no nos han proporcionado el feedback del anteproyecto, he realizado el diseño de la página de **Login** y la de **Registro** en Figma. Este diseño es el básico (sin texto, ni colores, etc).
   

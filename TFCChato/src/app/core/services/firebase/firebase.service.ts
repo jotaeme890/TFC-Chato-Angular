@@ -37,6 +37,8 @@ export class FirebaseService {
   public users$: Observable<UserInfo[]> = this._users.asObservable();
   private _incidents: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   public incidents$: Observable<any[]> = this._incidents.asObservable();
+  private _categories: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  public _categories$: Observable<any[]> = this._categories.asObservable();
 
   constructor(
     @Inject('firebase-config') config:any
@@ -65,6 +67,7 @@ export class FirebaseService {
         if(user.uid && user.email){
           this._isLogged.next(true);
           this.subscribeToCollection('userInfo', this._users, (el: any) => el);
+          this.subscribeToCollection('categoryInfo', this._categories, (el: any) => el);
           this.subscribeToCollection('incidentsInfo', this._incidents, (el:any) => el)
         }
       } else{

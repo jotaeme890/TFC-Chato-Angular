@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    height: 86.3vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.header {
+    text-align: center;
+    flex: 1;
+    overflow: auto;
+}
+
+h1 {
+    font-size: 90px;
+    color: #0f212d;
+    font-weight: 900;
+}
+
+.slogan {
+    font-size: 30px;
+    color: #0f212d;
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+
+    ion-icon {
+        color: #0f212d;
+    }
+}
+
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        .header {
+            h1 {
+                font-size: 5rem;
+            }
+            
+            .slogan {
+                font-size: 1rem;
+            }
+        }
+    }
+}

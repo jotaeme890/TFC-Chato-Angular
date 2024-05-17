@@ -1,7 +1,11 @@
-# TFC-Chato-Angular
+# TFC
 
+### Vídeo -> [Vídeo Youtube]
+### Figma -> [Figma]
+
+</br>
 <details>
-  <summary>Diario</summary>
+  <summary>DIARIO</summary>
 
   **Día 08/04/2024 →** Ya que no nos han proporcionado el feedback del anteproyecto, he realizado el diseño de la página de **Login** y la de **Registro** en Figma. Este diseño es el básico (sin texto, ni colores, etc).
   
@@ -60,7 +64,7 @@
   - [Cabecera de la tabla](https://ionicframework.com/docs/api/list-header)
   - [Tabla](https://ionicframework.com/docs/api/list)
   - [Menú lateral](https://ionicframework.com/docs/api/menu)
-  - [Iconoc](https://ionic.io/ionicons)
+  - [Iconos](https://ionic.io/ionicons)
   - [Tabs](https://material.angular.io/components/tabs/api)
   - [Formularios](https://material.angular.io/components/form-field/overview)
   - [Toasts](https://primeng.org/toast)

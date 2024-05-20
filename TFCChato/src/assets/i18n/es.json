@@ -12,7 +12,8 @@
         "picture": "Foto",
         "update": "Modificar usuario",
         "admin": "Administrador",
-        "user": "Usuario"
+        "user": "Usuario",
+        "description": "Descripción"
     },
     "access": {
         "toLogin": "Actualmente ya tengo cuenta.",
@@ -45,7 +46,8 @@
         "users": "Usuarios",
         "data": "Datos",
         "graphic": "Gráficas",
-        "update": "Modificar usuario"
+        "update": "Modificar usuario",
+        "categories": "Categorías"
     },
     "incidents": {
         "unresolved": "Sin resolver",

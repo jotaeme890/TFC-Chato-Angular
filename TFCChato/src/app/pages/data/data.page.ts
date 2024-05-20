@@ -23,4 +23,7 @@ export class DataPage implements OnInit {
     this.router.navigate([`/data/user/${userId}`]);
   }
 
+  categoryInfo(categoryId: string) {
+    console.log(categoryId);
+  }
 }

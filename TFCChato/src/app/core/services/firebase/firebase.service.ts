@@ -38,7 +38,7 @@ export class FirebaseService {
   private _incidents: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   public incidents$: Observable<any[]> = this._incidents.asObservable();
   private _categories: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
-  public _categories$: Observable<any[]> = this._categories.asObservable();
+  public categories$: Observable<any[]> = this._categories.asObservable();
 
   constructor(
     @Inject('firebase-config') config:any

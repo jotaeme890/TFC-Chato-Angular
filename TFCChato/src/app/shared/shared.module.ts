@@ -10,13 +10,15 @@ import { UsersInfoComponent } from './components/users-info/users-info.component
 import { ShortenTextPipe } from '../core/pipes/shorten-text.pipe';
 import { PictureSelectableComponent } from './components/picture-selectable/picture-selectable.component';
 import { IncidentsInfoComponent } from './components/incidents-info/incidents-info.component';
+import { CategoriesInfoComponent } from './components/categories-info/categories-info.component';
 
 
 @NgModule({
   declarations: [
     UsersInfoComponent,
     PictureSelectableComponent,
-    IncidentsInfoComponent
+    IncidentsInfoComponent,
+    CategoriesInfoComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +37,8 @@ import { IncidentsInfoComponent } from './components/incidents-info/incidents-in
   exports: [
     UsersInfoComponent,
     PictureSelectableComponent,
-    IncidentsInfoComponent
+    IncidentsInfoComponent,
+    CategoriesInfoComponent
   ]
 })
 export class SharedModule { }

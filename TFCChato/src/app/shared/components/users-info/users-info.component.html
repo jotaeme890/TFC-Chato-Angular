@@ -14,6 +14,7 @@
     <ion-label>{{user.name | shortenText }}</ion-label>
     <ion-label>{{user.surname | shortenText }}</ion-label>
     <ion-label>{{user.username | shortenText }}</ion-label>
-    <ion-label>{{user.role}}</ion-label>
+    <ion-label *ngIf="user.role === 'user'" class="detail--role">{{'forms.user' | translate}}</ion-label>
+    <ion-label *ngIf="user.role === 'admin'" class="detail--role">{{'forms.admin' | translate}}</ion-label>
   </ion-item>
 </ion-list>

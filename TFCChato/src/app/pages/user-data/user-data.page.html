@@ -11,7 +11,8 @@
 
         <p class="detail--username">{{user.username}}</p>
 
-        <p class="detail--role">{{user.role}}</p>
+        <p *ngIf="user.role === 'user'" class="detail--role">{{'forms.user' | translate}}</p>
+        <p *ngIf="user.role === 'admin'" class="detail--role">{{'forms.admin' | translate}}</p>
 
         <button (click)="updateUser(user)">{{"data.update" | translate}}</button>
       </div> 

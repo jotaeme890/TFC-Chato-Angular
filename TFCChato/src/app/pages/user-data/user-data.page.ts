@@ -68,7 +68,8 @@ export class UserDataPage implements OnInit {
       component: UpdateUserComponent,
       componentProps: {
         userInfo: user
-      }
+      },
+      cssClass: "modalDesign"
     });
     await mod.present();
     const results = await mod.onDidDismiss();

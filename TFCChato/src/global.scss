@@ -35,3 +35,11 @@
     user-select: none;
     box-sizing: border-box
 }
+
+.modalDesign {
+    --height: 90%;
+
+    @media (max-width: 769px) {
+        --height: 100%;
+    }
+}

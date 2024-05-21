@@ -30,18 +30,7 @@
           {{ 'errors.valid' | translate }}
         </mat-error>
       </mat-form-field>
-    
-      <mat-form-field appearance="outline">
-        <mat-label>{{ 'forms.email' | translate }}</mat-label>
-        <input matInput type="email" formControlName="email">
-        <mat-error *ngIf="form.controls['email'].touched && form.controls['email'].hasError('required')">
-          {{ 'errors.valid' | translate }}
-        </mat-error>
-        <mat-error *ngIf="form.controls['email'].touched && form.controls['email'].hasError('email')">
-          {{ 'errors.emailError' | translate }}
-        </mat-error>
-      </mat-form-field>
-    
+      
       <mat-form-field appearance="outline">
         <mat-label>{{ 'forms.username' | translate }}</mat-label>
         <input matInput formControlName="username">

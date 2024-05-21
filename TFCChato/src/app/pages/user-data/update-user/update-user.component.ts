@@ -22,7 +22,6 @@ export class UpdateUserComponent  implements OnInit {
       this.form.controls['picture'].setValue(user.picture);
       this.form.controls['name'].setValue(user.name);
       this.form.controls['surname'].setValue(user.surname);
-      this.form.controls['email'].setValue(user.email);
       this.form.controls['username'].setValue(user.username);
       this.form.controls['uuid'].setValue(user.uuid)
       this.form.controls['role'].setValue(user.role)
@@ -42,7 +41,6 @@ export class UpdateUserComponent  implements OnInit {
       picture:['',[Validators.required]],
       name: ['', Validators.required],
       surname: ['', Validators.required],
-      email: ['', Validators.required],
       username: ['', [Validators.required]],
       role: ['', [Validators.required]],
       uuid: [''],

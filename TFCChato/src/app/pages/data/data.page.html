@@ -6,7 +6,7 @@
         {{'data.data' | translate}}
       </ng-template>
       <app-users-info [users]="(_firebaseService.users$ | async)" (onUserClicked)="userInfo($event)"></app-users-info>
-      <app-categories-info [categories]="(_firebaseService.categories$ | async)" (onCategoryClicked)="categoryInfo($event)"></app-categories-info>
+      <app-categories-info [categories]="(_firebaseService.categories$ | async)" (onTrashClicked)="deleteCategory($event)"></app-categories-info>
     </mat-tab>
   
     <mat-tab>

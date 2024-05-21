@@ -22,6 +22,11 @@ ion-list {
         &:hover {
             border-color: #0F212D;
         }
+
+        #actions {
+            display: flex;
+            gap: 20px;
+        }
     }
 }
 

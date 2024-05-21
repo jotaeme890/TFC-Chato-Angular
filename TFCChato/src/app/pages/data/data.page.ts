@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { CategoriesService } from 'src/app/core/services/api/categories.service';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 
@@ -13,7 +14,8 @@ export class DataPage implements OnInit {
 
   constructor(
     protected _firebaseService: FirebaseService,
-    private router: Router
+    private router: Router,
+    private _categoryService: CategoriesService
   ) { }
 
   ngOnInit() {
@@ -23,7 +25,7 @@ export class DataPage implements OnInit {
     this.router.navigate([`/data/user/${userId}`]);
   }
 
-  categoryInfo(categoryId: string) {
-    console.log(categoryId);
+  deleteCategory(info: any) {
+    this._categoryService.deleteCategory(info)
   }
 }

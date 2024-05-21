@@ -10,10 +10,13 @@ export class CategoriesService {
     private firebaseService: FirebaseService
   ) { }
 
-  deleteCategory(categoryId: string){
-    this.firebaseService.deleteDocument('categoryInfo', categoryId)
+  // TODO: AL BORRAR UNA CATEGORIA VER SI YA TIENE INCIDENCIAS Y VER QUE HACER
+  deleteCategory(info: any){
+    console.log(info);
+    // this.firebaseService.deleteDocument('categoryInfo', info.id)
   }
 
+  // TODO: AL BORRAR UNA CATEGORIA VER SI YA TIENE INCIDENCIAS Y VER QUE HACER
   updateCategory(category: any) {
     this.firebaseService.updateDocument('incidentsInfo', category.uuid, category)
   }

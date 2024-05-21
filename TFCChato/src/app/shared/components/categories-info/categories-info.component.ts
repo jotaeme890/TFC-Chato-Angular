@@ -9,15 +9,20 @@ import { CategoryInfo } from 'src/app/core/interfaces/category-info';
 export class CategoriesInfoComponent  implements OnInit {
 
   @Input() categories: CategoryInfo[] | null | undefined;
-  @Output() onCategoryClicked: EventEmitter<string> = new EventEmitter<string>()
+  @Output() onTrashClicked: EventEmitter<{uuid: string, name: string}> = new EventEmitter<{uuid: string, name: string}>()
+  @Output() onEditClicked: EventEmitter<string> = new EventEmitter<string>()
 
 
   constructor() { }
 
   ngOnInit() {}
+  openModal(){
 
-  dataIncident( incidentId: string | undefined ) {
-    this.onCategoryClicked.emit(incidentId)
+  }
+
+  deleteCategory( categoryId: string | undefined, categoryName: string ) {
+    if(categoryId)
+      this.onTrashClicked.emit({uuid:categoryId, name: categoryName})
   }
 
 }

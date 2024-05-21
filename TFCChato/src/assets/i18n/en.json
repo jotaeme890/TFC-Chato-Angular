@@ -13,7 +13,8 @@
         "update": "Update user",
         "admin": "Admin",
         "user": "User",
-        "description": "Description"
+        "description": "Description",
+        "actions": "Actions"
     },
     "access": {
         "toLogin": "I currently have an account.",

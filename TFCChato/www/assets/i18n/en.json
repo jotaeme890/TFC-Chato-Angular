@@ -1,0 +1,59 @@
+{
+    "forms": {
+        "name": "Name",
+        "surname": "Surname",
+        "email": "Email",
+        "username": "Username",
+        "password": "Password",
+        "repPassword": "Repeat the Password",
+        "logIn": "Log In",
+        "register": "Register",
+        "role": "Role",
+        "picture": "Picture",
+        "update": "Update user",
+        "admin": "Admin",
+        "user": "User",
+        "description": "Description"
+    },
+    "access": {
+        "toLogin": "I currently have an account.",
+        "toRegister": "I don´t have an account."
+    },
+    "errors": {
+        "valid": "This field is required.",
+        "emailError": "Invalid email",
+        "passwordError": "Password does not meet the requirements (8 letters, 1 uppercase and 1 number).",
+        "repeatError": "Passwords do not match."
+    },
+    "toast": {
+        "waitAdmin": "Wait for the admin to give you permissions.",
+        "loginError": "Incorrect username or password.",
+        "registerError": "Incorrect username or password.",
+        "failRegister": "Failed to complete registration process.",
+        "emailUser": "Email already in use.",
+        "error": "Something went wrong."
+    },
+    "menu": {
+        "home": "Home",
+        "logOut": "Log out",
+        "loading": "Loading...",
+        "settings": "Settings",
+        "avatar": "User`s avatar",
+        "graphics": "Analysis of data",
+        "about": "About the app"
+    },
+    "data": {
+        "users": "Users",
+        "data": "Data",
+        "graphic": "Graphics",
+        "update": "Modify user",
+        "categories": "Categories"
+    },
+    "incidents": {
+        "unresolved": "Unresolved",
+        "day": "Day",
+        "hour": "Hour",
+        "user": "User",
+        "resolved": "Set as resolved"
+    }
+}

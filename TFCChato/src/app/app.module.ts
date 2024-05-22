@@ -28,6 +28,8 @@ import { provideLottieOptions } from 'ngx-lottie';
 import player from 'lottie-web';
 import { CapitalizeInitialPipe } from './core/pipes/capitalize-initial.pipe';
 import { DividerModule } from 'primeng/divider';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 export function MediaServiceFactory(
   backend:string,
@@ -77,7 +79,7 @@ export function AuthServiceFactory(
     }),
     ToastModule,
     SharedModule,
-    DividerModule
+    DividerModule,
   ],
   providers: [
     provideLottieOptions({

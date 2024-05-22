@@ -26,6 +26,11 @@
         "passwordError": "La contraseña no cumple los requisitos (8 letras, 1 mayúscula y 1 número).",
         "repeatError": "Las contraseñas no coinciden."
     },
+    "dialog": {
+        "delete": "¿Seguro que quiere borrar esta categoría?",
+        "no": "Cancelar",
+        "yes": "Aceptar"
+    },
     "toast": {
         "waitAdmin": "Espere a que el administrador le de permisos.",
         "loginError": "Usuario o contraseña incorrectos.",

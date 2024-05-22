@@ -1,10 +1,13 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { CategoryInfo } from 'src/app/core/interfaces/category-info';
 import { CategoriesService } from 'src/app/core/services/api/categories.service';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 import { CustomTranslateService } from 'src/app/core/services/translate/translate.service';
+import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-data',
@@ -21,9 +24,24 @@ export class DataPage implements OnInit {
     private _categoryService: CategoriesService,
     private translate: CustomTranslateService,
     private messageService: MessageService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
+  }
+
+  openDialog(category: CategoryInfo): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '250px',
+      data: { message: '¿Estás seguro de que quieres borrar esto?' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      if (result) {
+        this.deleteCategory(category);
+      }
+    });
   }
 
   userInfo(userId: string) {

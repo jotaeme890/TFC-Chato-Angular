@@ -5,12 +5,14 @@ import { IonicModule } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from '../core/translate/translate';
-import { CapitalizeInitialPipe } from '../core/pipes/capitalize-initial.pipe';
 import { UsersInfoComponent } from './components/users-info/users-info.component';
 import { ShortenTextPipe } from '../core/pipes/shorten-text.pipe';
 import { PictureSelectableComponent } from './components/picture-selectable/picture-selectable.component';
 import { IncidentsInfoComponent } from './components/incidents-info/incidents-info.component';
 import { CategoriesInfoComponent } from './components/categories-info/categories-info.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { CategoriesInfoComponent } from './components/categories-info/categories
     UsersInfoComponent,
     PictureSelectableComponent,
     IncidentsInfoComponent,
-    CategoriesInfoComponent
+    CategoriesInfoComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
@@ -32,13 +35,16 @@ import { CategoriesInfoComponent } from './components/categories-info/categories
       }
     }),
     ShortenTextPipe,
-    ShortenTextPipe
+    ShortenTextPipe,
+    MatDialogModule,
+    MatButtonModule
   ],
   exports: [
     UsersInfoComponent,
     PictureSelectableComponent,
     IncidentsInfoComponent,
-    CategoriesInfoComponent
+    CategoriesInfoComponent,
+    ConfirmDialogComponent
   ]
 })
 export class SharedModule { }

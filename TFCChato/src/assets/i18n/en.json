@@ -26,6 +26,11 @@
         "passwordError": "Password does not meet the requirements (8 letters, 1 uppercase and 1 number).",
         "repeatError": "Passwords do not match."
     },
+    "dialog": {
+        "delete": "Would you like to delete this category?",
+        "no": "Cancel",
+        "yes": "Accept"
+    },
     "toast": {
         "waitAdmin": "Wait for the admin to give you permissions.",
         "loginError": "Incorrect username or password.",

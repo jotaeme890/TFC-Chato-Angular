@@ -38,7 +38,7 @@
         "failRegister": "Fallo en el registro.",
         "emailUser": "Este correo ya está en uso.",
         "error": "Algo ha ido mal.",
-        "cant": "No puede borrar/modificar esta categoría",
+        "cant": "No puede crear/borrar/modificar esta categoría",
         "good": "Todo ha ido bien"
     },
     "menu": {
@@ -55,7 +55,8 @@
         "data": "Datos",
         "graphic": "Gráficas",
         "update": "Modificar usuario",
-        "categories": "Categorías"
+        "categories": "Categorías",
+        "create": "Crear categoría"
     },
     "incidents": {
         "unresolved": "Sin resolver",

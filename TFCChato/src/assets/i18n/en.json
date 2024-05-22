@@ -38,7 +38,7 @@
         "failRegister": "Failed to complete registration process.",
         "emailUser": "Email already in use.",
         "error": "Something went wrong.",
-        "cant": "You cannot delete/modify this category",
+        "cant": "You cannot create/delete/modify this category",
         "good": "All was good"
     },
     "menu": {
@@ -55,7 +55,8 @@
         "data": "Data",
         "graphic": "Graphics",
         "update": "Modify user",
-        "categories": "Categories"
+        "categories": "Categories",
+        "create": "Create category"
     },
     "incidents": {
         "unresolved": "Unresolved",

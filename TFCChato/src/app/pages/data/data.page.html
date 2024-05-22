@@ -6,7 +6,16 @@
         {{'data.data' | translate}}
       </ng-template>
       <app-users-info [users]="(_firebaseService.users$ | async)" (onUserClicked)="userInfo($event)"></app-users-info>
+
+      <div class="category-mobile" (click)="createCategory()">
+        <button>{{ "data.create" | translate }}</button>
+      </div>
+
       <app-categories-info [categories]="(_firebaseService.categories$ | async)" (onEditClicked)="editCategory($event)" (onTrashClicked)="openDialog($event)"></app-categories-info>
+
+      <div class="category-button" (click)="createCategory()">
+        +
+      </div>
     </mat-tab>
   
     <mat-tab>

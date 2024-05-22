@@ -31,7 +31,8 @@
         </mat-error>
       </mat-form-field>
 
-      <button [disabled]="!form.dirty">{{'forms.update' | translate}}</button>
+      <button *ngIf="mod === 'update'" [disabled]="!form.dirty">{{'forms.update' | translate}}</button>
+      <button *ngIf="mod === 'create'" [disabled]="!form.dirty">{{'data.create' | translate}}</button>
     </div>
 
   </form>

@@ -10,6 +10,31 @@ import { CategoryInfo } from '../../interfaces/category-info';
 export class CategoriesService {
   constructor(private firebaseService: FirebaseService) {}
 
+  createCategory(category: CategoryInfo): Observable<string> {
+    return this.firebaseService.categories$.pipe(
+      first(),
+      switchMap(existingCategories => {
+        if (existingCategories.some(c => c.name === category.name)) {
+          return throwError(() => new Error('Una categoría con este nombre ya existe.'));
+        }
+        if(this.firebaseService.user){
+          category.adminId = this.firebaseService.user.uid || '';
+          category.admin = this.firebaseService.user.email || '';
+        }
+        console.log("object");
+        return from(this.firebaseService.createDocument('categoryInfo', category)).pipe(
+          switchMap(docRef => {
+            const uuid = docRef;
+            return from(this.firebaseService.updateDocument('categoryInfo', uuid, { uuid })).pipe(
+              map(() => 'Categoría creada y actualizada exitosamente con UUID.')
+            );
+          })
+        );
+      }),
+      catchError(err => throwError(() => new Error('Error al crear la categoría: ' + err.message)))
+    );
+  }
+
   deleteCategory(category: CategoryInfo): Observable<string> {
     return this.firebaseService.incidents$.pipe(
       first(),

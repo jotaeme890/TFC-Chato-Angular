@@ -1,22 +1,29 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { CategoryInfo } from 'src/app/core/interfaces/category-info';
 
 @Component({
-  selector: 'app-update-category',
-  templateUrl: './update-category.component.html',
-  styleUrls: ['./update-category.component.scss'],
+  selector: 'app-modal-category',
+  templateUrl: './modal-category.component.html',
+  styleUrls: ['./modal-category.component.scss'],
 })
-export class UpdateCategoryComponent  implements OnInit {
+export class ModalCategoryComponent  implements OnInit {
 
   form: FormGroup;
+  mod: string = '';
 
-  @Input() set userInfo(category: CategoryInfo) {
+  @Input() set categoryInfo(category: CategoryInfo) {
     if (category) {
       this.form.controls['name'].setValue(category.name);
       this.form.controls['description'].setValue(category.description);
       this.form.controls['uuid'].setValue(category.uuid)
+    }
+  }
+
+  @Input() set mode(m: string) {
+    if( m ) {
+      this.mod = m
     }
   }
 

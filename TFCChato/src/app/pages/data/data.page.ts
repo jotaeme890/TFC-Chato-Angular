@@ -8,8 +8,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 import { CustomTranslateService } from 'src/app/core/services/translate/translate.service';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
-import { UpdateCategoryComponent } from './update-category/update-category.component';
 import { ModalController } from '@ionic/angular';
+import { ModalCategoryComponent } from './modal-category/modal-category.component';
 
 @Component({
   selector: 'app-data',
@@ -53,9 +53,10 @@ export class DataPage implements OnInit {
 
   async editCategory(info: CategoryInfo) {
     const mod = await this.myModal.create({
-      component: UpdateCategoryComponent,
+      component: ModalCategoryComponent,
       componentProps: {
-        userInfo: info
+        categoryInfo: info,
+        mode: "update"
       },
       cssClass: "modalDesign"
     });
@@ -64,6 +65,27 @@ export class DataPage implements OnInit {
     if (results && results.data) {
       if(results?.data) {
         this._categoryService.updateCategory(results?.data, info.name).subscribe({
+          next: _ => this.showSuccess( 'good' ),
+          error: _ => this.showError( 'cant' )
+        })
+      }
+    }
+  }
+
+  async createCategory(){
+    const mod = await this.myModal.create({
+      component: ModalCategoryComponent,
+      componentProps: {
+        categoryInfo: null,
+        mode: "create"
+      },
+      cssClass: "modalDesign"
+    });
+    await mod.present();
+    const results = await mod.onDidDismiss();
+    if (results && results.data) {
+      if(results?.data) {
+        this._categoryService.createCategory(results?.data).subscribe({
           next: _ => this.showSuccess( 'good' ),
           error: _ => this.showError( 'cant' )
         })

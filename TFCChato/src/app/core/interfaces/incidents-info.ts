@@ -8,6 +8,6 @@ export interface incidentInfo {
     image: Photo,
     resolved: boolean,
     title: string,
-    userName: string,
+    userId: string,
     uuid: string
 }

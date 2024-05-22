@@ -3,5 +3,5 @@ export interface CategoryInfo {
     admin: string;
     adminId: string;
     description: string;
-    uuid?: string;
+    uuid: string;
 }

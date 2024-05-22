@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { incidentInfo } from 'src/app/core/interfaces/incidents-info';
+import { UsersService } from 'src/app/core/services/api/users.service';
 
 @Component({
   selector: 'app-incidents-info',
@@ -12,8 +13,11 @@ export class IncidentsInfoComponent  implements OnInit {
   @Output() onIncidentClicked: EventEmitter<string> = new EventEmitter<string>();
   formattedTime: string | undefined;
   formattedDay: string | undefined;
+  userName: string | undefined;
 
-  constructor() { }
+  constructor(
+    private userService: UsersService
+  ) { }
 
   /**
  * This method is called during component initialization. It checks if the incident
@@ -32,6 +36,9 @@ export class IncidentsInfoComponent  implements OnInit {
         this.formattedDay = date.toLocaleDateString();
         this.formattedTime = date.toLocaleTimeString();
       }
+      this.userService.getUserById(this.incident.userId).subscribe(user => {
+        this.userName = user ? user.name : '';
+      });
     }
   }
 

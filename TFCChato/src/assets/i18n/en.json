@@ -32,7 +32,9 @@
         "registerError": "Incorrect username or password.",
         "failRegister": "Failed to complete registration process.",
         "emailUser": "Email already in use.",
-        "error": "Something went wrong."
+        "error": "Something went wrong.",
+        "cant": "You cannot delete/modify this category",
+        "good": "All was good"
     },
     "menu": {
         "home": "Home",

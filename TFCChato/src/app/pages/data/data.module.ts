@@ -13,6 +13,7 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from 'src/app/core/translate/translate';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { MatTabsModule } from '@angular/material/tabs';
       deps: [HttpClient]
       }
     }),
+    ToastModule
   ],
   declarations: [DataPage]
 })

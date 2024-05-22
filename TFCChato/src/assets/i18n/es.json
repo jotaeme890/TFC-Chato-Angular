@@ -32,7 +32,9 @@
         "registerError": "Usuario o contraseña incorrectos.",
         "failRegister": "Fallo en el registro.",
         "emailUser": "Este correo ya está en uso.",
-        "error": "Algo ha ido mal."
+        "error": "Algo ha ido mal.",
+        "cant": "No puede borrar/modificar esta categoría",
+        "good": "Todo ha ido bien"
     },
     "menu": {
         "home": "Inicio",

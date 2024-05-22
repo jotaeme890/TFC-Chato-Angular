@@ -10,7 +10,7 @@ import { CategoryInfo } from '../../interfaces/category-info';
 export class CategoriesService {
   constructor(private firebaseService: FirebaseService) {}
 
-  deleteCategory(category: any): Observable<string> {
+  deleteCategory(category: CategoryInfo): Observable<string> {
     return this.firebaseService.incidents$.pipe(
       first(),
       switchMap(incidents => {
@@ -28,22 +28,19 @@ export class CategoriesService {
     );
   }
 
-  updateCategory(category: any): Observable<string> {
+  updateCategory(category: CategoryInfo, originalName: string): Observable<string> {
     return this.firebaseService.incidents$.pipe(
       first(),
       switchMap(incidents => {
-        const hasIncident = incidents.some(incident => incident.categoryName === category.name);
-        if (hasIncident) {
-          return throwError(() => new Error('No se puede actualizar la categoría porque tiene incidencias asociadas'));
+        const hasIncidentWithOriginalName = incidents.some(incident => incident.categoryName === originalName);
+        if (hasIncidentWithOriginalName) {
+          return throwError(() => new Error('No se puede actualizar la categoría porque tiene incidencias asociadas con su nombre original'));
         }
-        console.log(category);
-        return this.firebaseService.updateDocument('categoryInfo', category.uuid, category).then(() => {
-          return 'Categoría actualizada exitosamente.';
-        });
+        return from(this.firebaseService.updateDocument('categoryInfo', category.uuid, category)).pipe(
+          map(() => 'Categoría actualizada exitosamente.')
+        );
       }),
-      catchError(err => {
-        return throwError(() => new Error(`Error al intentar actualizar la categoría: ${err.message}`));
-      })
+      catchError(err => throwError(() => new Error(`Error al intentar actualizar la categoría: ${err.message}`)))
     );
-  }
+}
 }

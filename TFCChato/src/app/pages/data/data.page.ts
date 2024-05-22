@@ -63,7 +63,7 @@ export class DataPage implements OnInit {
     const results = await mod.onDidDismiss();
     if (results && results.data) {
       if(results?.data) {
-        this._categoryService.updateCategory(results?.data).subscribe({
+        this._categoryService.updateCategory(results?.data, info.name).subscribe({
           next: _ => this.showSuccess( 'good' ),
           error: _ => this.showError( 'cant' )
         })

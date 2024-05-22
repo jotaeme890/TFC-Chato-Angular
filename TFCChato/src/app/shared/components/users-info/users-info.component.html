@@ -11,10 +11,20 @@
   </ion-item>
 
   <ion-item class="data" *ngFor="let user of users" (click)="dataUser(user.uuid)">
-    <ion-label>{{user.name | shortenText }}</ion-label>
-    <ion-label>{{user.surname | shortenText }}</ion-label>
-    <ion-label>{{user.username | shortenText }}</ion-label>
-    <ion-label *ngIf="user.role === 'user'" class="detail--role">{{'forms.user' | translate}}</ion-label>
-    <ion-label *ngIf="user.role === 'admin'" class="detail--role">{{'forms.admin' | translate | shortenText }}</ion-label>
+    <ion-label *ngIf="isScreenSmall">{{ user.name | shortenText }}</ion-label>
+    <ion-label *ngIf="!isScreenSmall">{{ user.name }}</ion-label>
+
+    <ion-label *ngIf="isScreenSmall">{{ user.surname | shortenText }}</ion-label>
+    <ion-label *ngIf="!isScreenSmall">{{ user.surname }}</ion-label>
+
+    <ion-label *ngIf="isScreenSmall">{{ user.username | shortenText }}</ion-label>
+    <ion-label *ngIf="!isScreenSmall">{{ user.username }}</ion-label>
+
+    <ion-label *ngIf="user.role === 'user' && !isScreenSmall" class="detail--role">{{'forms.user' | translate}}</ion-label>
+    <ion-label *ngIf="user.role === 'user' && isScreenSmall" class="detail--role">{{'forms.user' | translate | shortenText }}</ion-label>
+
+    <ion-label *ngIf="user.role === 'admin' && !isScreenSmall" class="detail--role">{{'forms.admin' | translate}}</ion-label>
+    <ion-label *ngIf="user.role === 'admin' && isScreenSmall" class="detail--role">{{'forms.admin' | translate | shortenText }}</ion-label>
+
   </ion-item>
 </ion-list>

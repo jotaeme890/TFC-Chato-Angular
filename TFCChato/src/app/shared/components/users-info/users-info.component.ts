@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserInfo } from 'src/app/core/interfaces/user-info';
 
@@ -8,6 +8,8 @@ import { UserInfo } from 'src/app/core/interfaces/user-info';
   styleUrls: ['./users-info.component.scss'],
 })
 export class UsersInfoComponent  implements OnInit {
+
+  isScreenSmall: boolean = false;
 
   @Input() users: UserInfo[] | null | undefined;
   @Output() onUserClicked: EventEmitter<string> = new EventEmitter<string>()
@@ -21,13 +23,24 @@ export class UsersInfoComponent  implements OnInit {
   * application.
   */
   constructor(
-    private router: Router
-  ) { }
+    private router: Router,
+  ) { 
+    this.checkScreenSize(window.innerWidth);
+  }
 
   ngOnInit() {}
 
   dataUser( userId: string | undefined ) {
     this.onUserClicked.emit(userId)
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkScreenSize(event.target.innerWidth);
+  }
+
+  private checkScreenSize(width: number) {
+    this.isScreenSmall = width <= 900;
   }
 
 }

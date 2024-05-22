@@ -36,6 +36,7 @@ export class CategoriesService {
         if (hasIncident) {
           return throwError(() => new Error('No se puede actualizar la categoría porque tiene incidencias asociadas'));
         }
+        console.log(category);
         return this.firebaseService.updateDocument('categoryInfo', category.uuid, category).then(() => {
           return 'Categoría actualizada exitosamente.';
         });

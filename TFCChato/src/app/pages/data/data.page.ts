@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 import { CustomTranslateService } from 'src/app/core/services/translate/translate.service';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import { UpdateCategoryComponent } from './update-category/update-category.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-data',
@@ -24,7 +26,8 @@ export class DataPage implements OnInit {
     private _categoryService: CategoriesService,
     private translate: CustomTranslateService,
     private messageService: MessageService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private myModal: ModalController,
   ) { }
 
   ngOnInit() {
@@ -48,7 +51,27 @@ export class DataPage implements OnInit {
     this.router.navigate([`/data/user/${userId}`]);
   }
 
-  deleteCategory(info: any) {
+  async editCategory(info: CategoryInfo) {
+    const mod = await this.myModal.create({
+      component: UpdateCategoryComponent,
+      componentProps: {
+        userInfo: info
+      },
+      cssClass: "modalDesign"
+    });
+    await mod.present();
+    const results = await mod.onDidDismiss();
+    if (results && results.data) {
+      if(results?.data) {
+        this._categoryService.updateCategory(results?.data).subscribe({
+          next: _ => this.showSuccess( 'good' ),
+          error: _ => this.showError( 'cant' )
+        })
+      }
+    }
+  }
+
+  deleteCategory(info: CategoryInfo) {
     this._categoryService.deleteCategory(info).subscribe({
       next: _ => this.showSuccess( 'good' ),
       error: _ => this.showError( 'cant' )

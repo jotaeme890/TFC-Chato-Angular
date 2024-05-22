@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" fill="clear" (click)="onCancel()">
+          <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{'forms.update' | translate}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="onSub()" (keyup.enter)="onSub()">
+
+    <div class="form">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'forms.name' | translate }}</mat-label>
+        <input matInput formControlName="name">
+        <mat-error *ngIf="form.controls['name'].touched && form.controls['name'].invalid">
+          {{ 'errors.valid' | translate }}
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'forms.surname' | translate }}</mat-label>
+        <input matInput formControlName="description">
+        <mat-error *ngIf="form.controls['description'].touched && form.controls['description'].invalid">
+          {{ 'errors.valid' | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <button [disabled]="!form.dirty">{{'forms.update' | translate}}</button>
+    </div>
+
+  </form>
+</ion-content>

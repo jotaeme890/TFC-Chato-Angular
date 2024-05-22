@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -14,11 +14,19 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from 'src/app/core/translate/translate';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ToastModule } from 'primeng/toast';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { UpdateCategoryComponent } from './update-category/update-category.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    // Reactive form
+    ReactiveFormsModule,
     IonicModule,
     DataPageRoutingModule,
     SharedModule,
@@ -31,8 +39,18 @@ import { ToastModule } from 'primeng/toast';
       deps: [HttpClient]
       }
     }),
-    ToastModule
+    ToastModule,
+    // Angular Material
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSelectModule,
+    SharedModule
   ],
-  declarations: [DataPage]
+  declarations: [
+    DataPage,
+    UpdateCategoryComponent
+  ]
 })
 export class DataPageModule {}

@@ -11,7 +11,7 @@ export class CategoriesInfoComponent  implements OnInit {
   isScreenSmall: boolean = false;
   @Input() categories: CategoryInfo[] | null | undefined;
   @Output() onTrashClicked: EventEmitter<CategoryInfo> = new EventEmitter<CategoryInfo>()
-  @Output() onEditClicked: EventEmitter<string> = new EventEmitter<string>()
+  @Output() onEditClicked: EventEmitter<CategoryInfo> = new EventEmitter<CategoryInfo>()
 
 
   constructor() {
@@ -24,8 +24,8 @@ export class CategoriesInfoComponent  implements OnInit {
     this.onTrashClicked.emit(category)
   }
 
-  editCategory() {
-
+  editCategory(category: CategoryInfo) {
+    this.onEditClicked.emit(category)
   }
 
   @HostListener('window:resize', ['$event'])

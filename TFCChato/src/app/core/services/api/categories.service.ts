@@ -42,5 +42,24 @@ export class CategoriesService {
       }),
       catchError(err => throwError(() => new Error(`Error al intentar actualizar la categoría: ${err.message}`)))
     );
-}
+  }
+
+  /* updateCategory(category: CategoryInfo, originalName: string): Observable<string> {
+    return this.firebaseService.incidents$.pipe(
+      first(),
+      switchMap(incidents => {
+        const hasIncidentWithOriginalName = incidents.some(incident => incident.categoryName === originalName);
+        const isNameChanged = originalName !== category.name;
+        if (hasIncidentWithOriginalName && isNameChanged) {
+          return throwError(() => new Error('No se puede cambiar el nombre de la categoría porque tiene incidencias asociadas'));
+        }
+        return from(this.firebaseService.updateDocument('categoryInfo', category.uuid, category)).pipe(
+          map(() => 'Categoría actualizada exitosamente.')
+        );
+      }),
+      catchError(err => {
+        return throwError(() => new Error(`Error al intentar actualizar la categoría: ${err.message}`));
+      })
+    );
+  } */
 }

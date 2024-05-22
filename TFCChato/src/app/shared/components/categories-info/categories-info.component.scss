@@ -14,7 +14,6 @@ ion-list {
     }
 
     .data {
-        cursor: pointer;
         position: relative;
         border-top: 2px solid transparent;
         border-bottom: 2px solid transparent;
@@ -26,6 +25,8 @@ ion-list {
         #actions {
             display: flex;
             gap: 20px;
+            cursor: pointer;
+
         }
     }
 }

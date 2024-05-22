@@ -6,17 +6,19 @@
   <ion-item class="subheader">
     <ion-label>{{'forms.name' | translate }}</ion-label>
     <ion-label>{{'forms.description' | translate }}</ion-label>
+    <ion-label *ngIf="!isScreenSmall"></ion-label> 
     <ion-label>{{'forms.actions' | translate }}</ion-label>
   </ion-item>
 
   <ion-item class="data" *ngFor="let category of categories">
     <ion-label>{{category.name}}</ion-label>
     <ion-label>{{category.description}}</ion-label>
+    <ion-label *ngIf="!isScreenSmall"></ion-label>
     <ion-label id="actions">
       <div (click)="deleteCategory(category)">
         <ion-icon name="trash-outline"></ion-icon>
       </div>
-      <div (click)="openModal()">
+      <div (click)="editCategory()">
         <ion-icon name="pencil-outline"></ion-icon>
       </div>
     </ion-label>

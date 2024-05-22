@@ -5,8 +5,11 @@
           <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>
+    <ion-title  *ngIf="mod === 'update'">
       {{'forms.update' | translate}}
+    </ion-title>
+    <ion-title  *ngIf="mod === 'create'">
+      {{'data.create' | translate}}
     </ion-title>
   </ion-toolbar>
 </ion-header>

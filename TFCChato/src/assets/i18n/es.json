@@ -57,7 +57,8 @@
         "update": "Modificar usuario",
         "categories": "Categorías",
         "create": "Crear categoría",
-        "catind": "Categorías e incidencias"
+        "catind": "Categorías e incidencias",
+        "download": "Descargar datos"
     },
     "incidents": {
         "unresolved": "Sin resolver",

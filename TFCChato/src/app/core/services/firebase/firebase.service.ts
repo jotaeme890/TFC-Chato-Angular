@@ -124,6 +124,24 @@ export class FirebaseService {
     });
   }
 
+  public async getAllData(): Promise<{ [key: string]: any[] }> {
+    const collections = ['userInfo', 'categoryInfo', 'incidentsInfo']; // Añade más nombres de colecciones si necesario
+    const allData: { [key: string]: any[] } = {};
+  
+    try {
+      for (const collectionName of collections) {
+        const querySnapshot = await getDocs(collection(this._db, collectionName));
+        allData[collectionName] = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+      }
+      return allData;
+    } catch (error: any) {
+      throw new Error(`Failed to fetch data: ${error.message}`);
+    }
+  }
+
   /**
    * The function `getUser` returns the user object or null.
    * @returns The `user` property is being returned, which is of type `User` or `null`.

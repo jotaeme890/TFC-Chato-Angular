@@ -5,6 +5,11 @@
         <ion-icon class="" name="cellular-outline"></ion-icon>
         {{'data.data' | translate}}
       </ng-template>
+
+      <div class="download-data"  (click)="exportData()">
+        <button>{{ "data.download" | translate }}</button>
+      </div>
+
       <app-users-info [users]="(_firebaseService.users$ | async)" (onUserClicked)="userInfo($event)"></app-users-info>
 
       <div class="category-mobile" (click)="createCategory()">

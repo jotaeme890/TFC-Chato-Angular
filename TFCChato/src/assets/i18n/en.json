@@ -57,7 +57,8 @@
         "update": "Modify user",
         "categories": "Categories",
         "create": "Create category",
-        "catind": "Categories and incidents"
+        "catind": "Categories and incidents",
+        "download": "Dowload data"
     },
     "incidents": {
         "unresolved": "Unresolved",

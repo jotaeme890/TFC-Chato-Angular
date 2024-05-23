@@ -124,16 +124,29 @@ export class FirebaseService {
     });
   }
 
+  /**
+   * Retrieves all data from specified collections in Firebase.
+   *
+   * @remarks
+   * This method fetches data from the specified collections in Firebase Firestore.
+   * It returns an object containing arrays of documents for each collection.
+   *
+   * @returns A Promise that resolves to an object containing arrays of documents for each collection.
+   *
+   * @throws Error if the data fetching process fails.
+   */
   public async getAllData(): Promise<{ [key: string]: any[] }> {
-    const collections = ['userInfo', 'categoryInfo', 'incidentsInfo']; // Añade más nombres de colecciones si necesario
+    const collections = ['userInfo', 'categoryInfo', 'incidentsInfo'];
     const allData: { [key: string]: any[] } = {};
-  
+
     try {
       for (const collectionName of collections) {
-        const querySnapshot = await getDocs(collection(this._db, collectionName));
-        allData[collectionName] = querySnapshot.docs.map(doc => ({
+        const querySnapshot = await getDocs(
+          collection(this._db, collectionName)
+        );
+        allData[collectionName] = querySnapshot.docs.map((doc) => ({
           id: doc.id,
-          ...doc.data()
+          ...doc.data(),
         }));
       }
       return allData;

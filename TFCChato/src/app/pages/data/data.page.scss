@@ -26,7 +26,18 @@ ion-icon {
     }
 }
 
+.graphics {
+    margin-top: 3%;
+}
+
 app-user-circle-graphic {
+    display: block;
+    max-width: 300px;
+    margin: 0 auto;
+    height: auto;
+}
+
+app-incidents-circle-graphic {
     display: block;
     max-width: 300px;
     margin: 0 auto;

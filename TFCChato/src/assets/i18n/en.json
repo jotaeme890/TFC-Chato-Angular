@@ -56,13 +56,15 @@
         "graphic": "Graphics",
         "update": "Modify user",
         "categories": "Categories",
-        "create": "Create category"
+        "create": "Create category",
+        "catind": "Categories and incidents"
     },
     "incidents": {
         "unresolved": "Unresolved",
         "day": "Day",
         "hour": "Hour",
         "user": "User",
-        "resolved": "Set as resolved"
+        "resolved": "Set as resolved",
+        "anonymous": "Anonymous"
     }
 }

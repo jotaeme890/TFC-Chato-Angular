@@ -24,11 +24,17 @@
         <ion-icon name="cellular-outline"></ion-icon>
         {{'data.graphic' | translate}}
       </ng-template>
-      <p-accordion>
-        <p-accordionTab header="{{'data.users' | translate}}">
-          <app-user-circle-graphic></app-user-circle-graphic>
-        </p-accordionTab>
-    </p-accordion>
+
+      <div class="graphics">
+        <p-accordion>
+          <p-accordionTab header="{{'data.users' | translate}}">
+            <app-user-circle-graphic></app-user-circle-graphic>
+          </p-accordionTab>
+          <p-accordionTab header="{{'data.catind' | translate}}">
+            <app-incidents-circle-graphic></app-incidents-circle-graphic>
+          </p-accordionTab>
+        </p-accordion>
+      </div>
 
     </mat-tab>
   </mat-tab-group>

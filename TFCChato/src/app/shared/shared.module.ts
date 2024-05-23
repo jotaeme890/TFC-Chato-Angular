@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { ChartModule } from 'primeng/chart';
 import { UserCircleGraphicComponent } from './components/user-circle-graphic/user-circle-graphic.component';
+import { IncidentsCircleGraphicComponent } from './components/incidents-circle-graphic/incidents-circle-graphic.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { UserCircleGraphicComponent } from './components/user-circle-graphic/use
     IncidentsInfoComponent,
     CategoriesInfoComponent,
     ConfirmDialogComponent,
-    UserCircleGraphicComponent
+    UserCircleGraphicComponent,
+    IncidentsCircleGraphicComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +51,8 @@ import { UserCircleGraphicComponent } from './components/user-circle-graphic/use
     IncidentsInfoComponent,
     CategoriesInfoComponent,
     ConfirmDialogComponent,
-    UserCircleGraphicComponent
+    UserCircleGraphicComponent,
+    IncidentsCircleGraphicComponent
   ]
 })
 export class SharedModule { }

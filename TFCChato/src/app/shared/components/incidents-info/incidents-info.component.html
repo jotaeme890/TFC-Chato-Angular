@@ -23,7 +23,7 @@
     <div>
       <ion-icon name="person-outline"></ion-icon>
       <span>
-        {{'incidents.user' |translate}}: {{userName}}
+        {{'incidents.user' |translate}}: {{userName ? userName : ('incidents.anonymous' | translate)}}
       </span>
     </div>
   </div>

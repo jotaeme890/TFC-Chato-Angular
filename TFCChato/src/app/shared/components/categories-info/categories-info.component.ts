@@ -1,4 +1,11 @@
-import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { CategoryInfo } from 'src/app/core/interfaces/category-info';
 
 @Component({
@@ -6,36 +13,58 @@ import { CategoryInfo } from 'src/app/core/interfaces/category-info';
   templateUrl: './categories-info.component.html',
   styleUrls: ['./categories-info.component.scss'],
 })
-export class CategoriesInfoComponent  implements OnInit {
-
+export class CategoriesInfoComponent implements OnInit {
   isScreenSmall: boolean = false;
   @Input() categories: CategoryInfo[] | null | undefined;
-  @Output() onTrashClicked: EventEmitter<CategoryInfo> = new EventEmitter<CategoryInfo>()
-  @Output() onEditClicked: EventEmitter<CategoryInfo> = new EventEmitter<CategoryInfo>()
+  @Output() onTrashClicked: EventEmitter<CategoryInfo> =
+    new EventEmitter<CategoryInfo>();
+  @Output() onEditClicked: EventEmitter<CategoryInfo> =
+    new EventEmitter<CategoryInfo>();
 
-
+  /**
+   * Constructs a component constructor function.
+   * Initializes the component by checking the initial screen size.
+   */
   constructor() {
     this.checkScreenSize(window.innerWidth);
-   }
+  }
 
   ngOnInit() {}
 
-  deleteCategory( category: CategoryInfo ) {
-    this.onTrashClicked.emit(category)
+  /**
+   * Emits an event when the delete icon for a category is clicked.
+   *
+   * @param category CategoryInfo - the category to be deleted.
+   */
+  deleteCategory(category: CategoryInfo) {
+    this.onTrashClicked.emit(category);
   }
 
+  /**
+   * Emits an event when the edit icon for a category is clicked.
+   *
+   * @param category CategoryInfo - the category to be edited.
+   */
   editCategory(category: CategoryInfo) {
-    this.onEditClicked.emit(category)
+    this.onEditClicked.emit(category);
   }
 
+  /**
+   * Listens for window resize events and updates the screen size accordingly.
+   *
+   * @param event any - the resize event.
+   */
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.checkScreenSize(event.target.innerWidth);
   }
 
+  /**
+   * Checks the screen size and sets a boolean flag accordingly.
+   *
+   * @param width number - the width of the window.
+   */
   private checkScreenSize(width: number) {
     this.isScreenSmall = width <= 700;
   }
-
-
 }

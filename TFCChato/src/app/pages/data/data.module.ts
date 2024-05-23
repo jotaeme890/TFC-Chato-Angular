@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { ModalCategoryComponent } from './modal-category/modal-category.component';
+import { AccordionModule } from 'primeng/accordion';
 
 @NgModule({
   imports: [
@@ -46,7 +47,8 @@ import { ModalCategoryComponent } from './modal-category/modal-category.componen
     MatButtonModule,
     MatIconModule,
     MatSelectModule,
-    SharedModule
+    SharedModule,
+    AccordionModule
   ],
   declarations: [
     DataPage,

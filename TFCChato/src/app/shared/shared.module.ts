@@ -13,6 +13,8 @@ import { CategoriesInfoComponent } from './components/categories-info/categories
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { ChartModule } from 'primeng/chart';
+import { UserCircleGraphicComponent } from './components/user-circle-graphic/user-circle-graphic.component';
 
 
 @NgModule({
@@ -21,10 +23,12 @@ import { MatButtonModule } from '@angular/material/button';
     PictureSelectableComponent,
     IncidentsInfoComponent,
     CategoriesInfoComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    UserCircleGraphicComponent
   ],
   imports: [
     CommonModule,
+    ChartModule,
     IonicModule.forRoot(), 
     // Translate
     TranslateModule.forChild({
@@ -44,7 +48,8 @@ import { MatButtonModule } from '@angular/material/button';
     PictureSelectableComponent,
     IncidentsInfoComponent,
     CategoriesInfoComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    UserCircleGraphicComponent
   ]
 })
 export class SharedModule { }

@@ -16,10 +16,20 @@ import { ModalCategoryComponent } from './modal-category/modal-category.componen
   templateUrl: './data.page.html',
   styleUrls: ['./data.page.scss'],
   providers: [MessageService],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class DataPage implements OnInit {
-
+  /**
+   * Constructs a component constructor function.
+   *
+   * @param _firebaseService FirebaseService - a service for handling Firebase-related operations.
+   * @param router Router - an instance of the Angular Router service used for navigating between different components.
+   * @param _categoryService CategoriesService - a service for managing categories.
+   * @param translate CustomTranslateService - a service for handling translation services within the component or service where it is injected.
+   * @param messageService MessageService - a service for displaying messages or notifications to the user within the application.
+   * @param dialog MatDialog - a service for displaying dialog boxes.
+   * @param myModal ModalController - a service for managing modal dialogs.
+   */
   constructor(
     protected _firebaseService: FirebaseService,
     private router: Router,
@@ -27,19 +37,23 @@ export class DataPage implements OnInit {
     private translate: CustomTranslateService,
     private messageService: MessageService,
     public dialog: MatDialog,
-    private myModal: ModalController,
-  ) { }
+    private myModal: ModalController
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  /**
+   * Opens a confirmation dialog for deleting a category.
+   *
+   * @param category CategoryInfo - the category information to be deleted.
+   */
   openDialog(category: CategoryInfo): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '250px',
-      data: { message: '¿Estás seguro de que quieres borrar esto?' }
+      data: { message: '¿Estás seguro de que quieres borrar esto?' },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
       if (result) {
         this.deleteCategory(category);
@@ -47,85 +61,114 @@ export class DataPage implements OnInit {
     });
   }
 
+  /**
+   * Navigates to the user information page.
+   *
+   * @param userId string - the ID of the user.
+   */
   userInfo(userId: string) {
     this.router.navigate([`/data/user/${userId}`]);
   }
 
+  /**
+   * Opens a modal dialog for editing a category.
+   *
+   * @param info CategoryInfo - the category information to be edited.
+   */
   async editCategory(info: CategoryInfo) {
     const mod = await this.myModal.create({
       component: ModalCategoryComponent,
       componentProps: {
         categoryInfo: info,
-        mode: "update"
-      }
+        mode: 'update',
+      },
     });
     await mod.present();
     const results = await mod.onDidDismiss();
     if (results && results.data) {
-      if(results?.data) {
-        this._categoryService.updateCategory(results?.data, info.name).subscribe({
-          next: _ => this.showSuccess( 'good' ),
-          error: _ => this.showError( 'cant' )
-        })
+      if (results?.data) {
+        this._categoryService
+          .updateCategory(results?.data, info.name)
+          .subscribe({
+            next: (_) => this.showSuccess('good'),
+            error: (_) => this.showError('cant'),
+          });
       }
     }
   }
 
-  async createCategory(){
+  /**
+   * Opens a modal dialog for creating a new category.
+   */
+  async createCategory() {
     const mod = await this.myModal.create({
       component: ModalCategoryComponent,
       componentProps: {
         categoryInfo: null,
-        mode: "create"
-      }
+        mode: 'create',
+      },
     });
     await mod.present();
     const results = await mod.onDidDismiss();
     if (results && results.data) {
-      if(results?.data) {
+      if (results?.data) {
         this._categoryService.createCategory(results?.data).subscribe({
-          next: _ => this.showSuccess( 'good' ),
-          error: _ => this.showError( 'cant' )
-        })
+          next: (_) => this.showSuccess('good'),
+          error: (_) => this.showError('cant'),
+        });
       }
     }
   }
 
+  /**
+   * Deletes a category.
+   *
+   * @param info CategoryInfo - the category to delete.
+   */
   deleteCategory(info: CategoryInfo) {
     this._categoryService.deleteCategory(info).subscribe({
-      next: _ => this.showSuccess( 'good' ),
-      error: _ => this.showError( 'cant' )
-    })
-  }
-
-  /**
-  * The function `showSuccess` displays a success message after translating the input text.
-  * 
-  * @param text The `text` parameter in the `showSuccess` function is a string that represents the
-  * message to be displayed as a success toast notification.
-  */
-  showSuccess(text: string) {
-    let message = `toast.${text}`
-    this.translate.get( message ).subscribe({
-      next: ( text: string ) => {
-        this.messageService.add({ key: 'tl', severity: 'success', detail: text });
-      }
+      next: (_) => this.showSuccess('good'),
+      error: (_) => this.showError('cant'),
     });
   }
 
   /**
-  * The function `showError` displays an error message using a translation service and a message
-  * service.
-  * 
-  * @param text The `text` parameter in the `showError` function is a string that represents the error
-  * message to be displayed.
-  */
+   * The function `showSuccess` displays a success message after translating the input text.
+   *
+   * @param text The `text` parameter in the `showSuccess` function is a string that represents the
+   * message to be displayed as a success toast notification.
+   */
+  showSuccess(text: string) {
+    let message = `toast.${text}`;
+    this.translate.get(message).subscribe({
+      next: (text: string) => {
+        this.messageService.add({
+          key: 'tl',
+          severity: 'success',
+          detail: text,
+        });
+      },
+    });
+  }
+
+  /**
+   * The function `showError` displays an error message using a translation service and a message
+   * service.
+   *
+   * @param text The `text` parameter in the `showError` function is a string that represents the error
+   * message to be displayed.
+   */
   showError(text: string) {
-    let message = `toast.${text}`
-    this.translate.get( message ).subscribe({
-      next: ( text: string ) => {
-        this.messageService.add({ key: 'tl', severity: 'error', detail: text, life: 6000 });
-      }
+    let message = `toast.${text}`;
+    this.translate.get(message).subscribe({
+      next: (text: string) => {
+        this.messageService.add({
+          key: 'tl',
+          severity: 'error',
+          detail: text,
+          life: 6000,
+        });
+      },
     });
   }
 }

@@ -1,86 +1,134 @@
-import { Inject, Injectable } from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
-import { initializeApp, getApp, FirebaseApp } from "firebase/app";
-import { getFirestore, addDoc, collection, updateDoc, doc, onSnapshot, getDoc, setDoc, query, where, getDocs, Unsubscribe, DocumentData, deleteDoc, Firestore, DocumentReference, DocumentSnapshot, FieldPath, CollectionReference} from "firebase/firestore";
-import { getStorage, ref, getDownloadURL, uploadBytes, FirebaseStorage } from "firebase/storage";
-import { createUserWithEmailAndPassword, deleteUser, signInAnonymously, signOut, signInWithEmailAndPassword, initializeAuth, indexedDBLocalPersistence, UserCredential, Auth, User } from "firebase/auth";
-import { UserInfo } from "../../interfaces/user-info";
+import { Inject, Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { initializeApp, getApp, FirebaseApp } from 'firebase/app';
+import {
+  getFirestore,
+  addDoc,
+  collection,
+  updateDoc,
+  doc,
+  onSnapshot,
+  getDoc,
+  setDoc,
+  query,
+  where,
+  getDocs,
+  Unsubscribe,
+  DocumentData,
+  deleteDoc,
+  Firestore,
+  DocumentReference,
+  DocumentSnapshot,
+  FieldPath,
+  CollectionReference,
+} from 'firebase/firestore';
+import {
+  getStorage,
+  ref,
+  getDownloadURL,
+  uploadBytes,
+  FirebaseStorage,
+} from 'firebase/storage';
+import {
+  createUserWithEmailAndPassword,
+  deleteUser,
+  signInAnonymously,
+  signOut,
+  signInWithEmailAndPassword,
+  initializeAuth,
+  indexedDBLocalPersistence,
+  UserCredential,
+  Auth,
+  User,
+} from 'firebase/auth';
+import { UserInfo } from '../../interfaces/user-info';
 
-export interface FirebaseStorageFile{
-  path:string,
-  file:string
-};
-
-export interface FirebaseDocument{
-  id:string;
-  data:DocumentData;
+export interface FirebaseStorageFile {
+  path: string;
+  file: string;
 }
 
+export interface FirebaseDocument {
+  id: string;
+  data: DocumentData;
+}
 
-export interface FirebaseUserCredential{
-  user:UserCredential
+export interface FirebaseUserCredential {
+  user: UserCredential;
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FirebaseService {
   private _app!: FirebaseApp;
   private _db!: Firestore;
-  private _auth!:Auth;
-  private _webStorage!:FirebaseStorage;
-  private _user:User|null = null;
-  private _isLogged:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  public isLogged$:Observable<boolean> = this._isLogged.asObservable();
+  private _auth!: Auth;
+  private _webStorage!: FirebaseStorage;
+  private _user: User | null = null;
+  private _isLogged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
+  public isLogged$: Observable<boolean> = this._isLogged.asObservable();
 
-  private _users: BehaviorSubject<UserInfo[]> = new BehaviorSubject<UserInfo[]>([]);
+  private _users: BehaviorSubject<UserInfo[]> = new BehaviorSubject<UserInfo[]>(
+    []
+  );
   public users$: Observable<UserInfo[]> = this._users.asObservable();
   private _incidents: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   public incidents$: Observable<any[]> = this._incidents.asObservable();
   private _categories: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   public categories$: Observable<any[]> = this._categories.asObservable();
 
-  constructor(
-    @Inject('firebase-config') config:any
-  ) {
+  constructor(@Inject('firebase-config') config: any) {
     this.init(config);
   }
 
   /**
    * The `init` function initializes Firebase, sets up authentication, and subscribes to user and
    * incident collections based on the user's authentication state.
-   * 
+   *
    * @param firebaseConfig The `firebaseConfig` parameter is an object that contains the configuration
    * settings needed to initialize Firebase in your application. It typically includes properties such
    * as `apiKey`, `authDomain`, `projectId`, `storageBucket`, `messagingSenderId`, `appId`, and
    * `measurementId`. These settings are unique to
    */
-  public async init(firebaseConfig:any) {
+  public async init(firebaseConfig: any) {
     // Initialize Firebase
     this._app = initializeApp(firebaseConfig);
     this._db = getFirestore(this._app);
     this._webStorage = getStorage(this._app);
-    this._auth = initializeAuth(getApp(), { persistence: indexedDBLocalPersistence });          
-    this._auth.onAuthStateChanged(async user=>{
+    this._auth = initializeAuth(getApp(), {
+      persistence: indexedDBLocalPersistence,
+    });
+    this._auth.onAuthStateChanged(async (user) => {
       this._user = user;
-      if(user){
-        if(user.uid && user.email){
+      if (user) {
+        if (user.uid && user.email) {
           this._isLogged.next(true);
           this.subscribeToCollection('userInfo', this._users, (el: any) => el);
-          this.subscribeToCollection('categoryInfo', this._categories, (el: any) => el);
-          this.subscribeToCollection('incidentsInfo', this._incidents, (el:any) => el)
+          this.subscribeToCollection(
+            'categoryInfo',
+            this._categories,
+            (el: any) => el
+          );
+          this.subscribeToCollection(
+            'incidentsInfo',
+            this._incidents,
+            (el: any) => el
+          );
         }
-      } else{
+      } else {
         this._isLogged.next(false);
       }
     });
   }
- 
+
   /**
    * The function `getUser` returns the user object or null.
    * @returns The `user` property is being returned, which is of type `User` or `null`.
    */
-  public get user():User|null{
+  public get user(): User | null {
     return this._user;
   }
 
@@ -108,43 +156,50 @@ export class FirebaseService {
    * @returns The function `fileUpload` returns a Promise that resolves to a `FirebaseStorageFile`
    * object, which contains the `path` and `file` properties.
    */
-  public fileUpload(blob: Blob, mimeType:string, path:string, prefix:string, extension:string):Promise<FirebaseStorageFile>{
+  public fileUpload(
+    blob: Blob,
+    mimeType: string,
+    path: string,
+    prefix: string,
+    extension: string
+  ): Promise<FirebaseStorageFile> {
     return new Promise(async (resolve, reject) => {
-        if(!this._webStorage || !this._auth)
-            reject({
-                msg: "Not connected to FireStorage"
-            });
-        var freeConnection = false;
-        if(this._auth && !this._auth.currentUser){
-            try {
-                await signInAnonymously(this._auth);
-                freeConnection = true;
-            } catch (error) {
-                reject(error);
-            }
+      if (!this._webStorage || !this._auth)
+        reject({
+          msg: 'Not connected to FireStorage',
+        });
+      var freeConnection = false;
+      if (this._auth && !this._auth.currentUser) {
+        try {
+          await signInAnonymously(this._auth);
+          freeConnection = true;
+        } catch (error) {
+          reject(error);
         }
-        const url = path+"/"+prefix+"-"+Date.now() + extension;
-        const storageRef = ref(this._webStorage!, url);
-        const metadata = {
-            contentType: mimeType,
-        };
-        uploadBytes(storageRef, blob).then(async (snapshot) => {
-            getDownloadURL(storageRef).then(async downloadURL => {
-              if(freeConnection)
-                  await signOut(this._auth!);
+      }
+      const url = path + '/' + prefix + '-' + Date.now() + extension;
+      const storageRef = ref(this._webStorage!, url);
+      const metadata = {
+        contentType: mimeType,
+      };
+      uploadBytes(storageRef, blob)
+        .then(async (snapshot) => {
+          getDownloadURL(storageRef)
+            .then(async (downloadURL) => {
+              if (freeConnection) await signOut(this._auth!);
               resolve({
-                  path,
-                  file: downloadURL,
+                path,
+                file: downloadURL,
               });
-            }).catch(async error=>{
-              if(freeConnection)
-                  await signOut(this._auth!);
+            })
+            .catch(async (error) => {
+              if (freeConnection) await signOut(this._auth!);
               reject(error);
             });
-        }).catch(async (error) => {
-            if(freeConnection)
-                await signOut(this._auth!);
-            reject(error);
+        })
+        .catch(async (error) => {
+          if (freeConnection) await signOut(this._auth!);
+          reject(error);
         });
     });
   }
@@ -159,7 +214,7 @@ export class FirebaseService {
    * `'image'`, and `".jpg"`.
    */
   public imageUpload(blob: Blob): Promise<any> {
-    return this.fileUpload(blob,'image/jpeg', 'images', 'image', ".jpg");
+    return this.fileUpload(blob, 'image/jpeg', 'images', 'image', '.jpg');
   }
 
   /**
@@ -174,15 +229,16 @@ export class FirebaseService {
    * @returns The `createDocument` function returns a `Promise` that resolves to a string, which is the
    * ID of the newly created document in the specified collection.
    */
-  public createDocument(collectionName:string, data:any):Promise<string>{
-    return new Promise((resolve,reject)=>{
-        if(!this._db)
-            reject({
-                msg:"Database is not connected"
-            });
-        const collectionRef = collection(this._db!, collectionName);
-        addDoc(collectionRef, data).then(docRef => resolve(docRef.id)
-        ).catch(err =>  reject(err));
+  public createDocument(collectionName: string, data: any): Promise<string> {
+    return new Promise((resolve, reject) => {
+      if (!this._db)
+        reject({
+          msg: 'Database is not connected',
+        });
+      const collectionRef = collection(this._db!, collectionName);
+      addDoc(collectionRef, data)
+        .then((docRef) => resolve(docRef.id))
+        .catch((err) => reject(err));
     });
   }
 
@@ -231,15 +287,20 @@ export class FirebaseService {
    * document.
    * @returns This function returns a Promise that resolves to void.
    */
-  public updateDocument(collectionName:string, document:string, data:any):Promise<void>{
-    return new Promise(async (resolve,reject)=>{
-        if(!this._db)
-            reject({
-                msg:"Database is not connected"
-                });
-        const collectionRef = collection(this._db!, collectionName);
-        updateDoc(doc(collectionRef,document),data).then(docRef => resolve()
-        ).catch(err =>  reject(err));
+  public updateDocument(
+    collectionName: string,
+    document: string,
+    data: any
+  ): Promise<void> {
+    return new Promise(async (resolve, reject) => {
+      if (!this._db)
+        reject({
+          msg: 'Database is not connected',
+        });
+      const collectionRef = collection(this._db!, collectionName);
+      updateDoc(doc(collectionRef, document), data)
+        .then((docRef) => resolve())
+        .catch((err) => reject(err));
     });
   }
 
@@ -253,15 +314,20 @@ export class FirebaseService {
    * object contains an id property representing the document ID and a data property representing the
    * document data.
    */
-  public getDocuments(collectionName:string):Promise<FirebaseDocument[]>{
-    return new Promise(async (resolve, reject)=>{
-        if(!this._db)
-            reject({
-                msg:"Database is not connected"
-                });
-        const querySnapshot = await getDocs(collection(this._db!, collectionName));
-        resolve(querySnapshot.docs.map<FirebaseDocument>(doc=>{
-            return {id:doc.id, data:doc.data()}}));
+  public getDocuments(collectionName: string): Promise<FirebaseDocument[]> {
+    return new Promise(async (resolve, reject) => {
+      if (!this._db)
+        reject({
+          msg: 'Database is not connected',
+        });
+      const querySnapshot = await getDocs(
+        collection(this._db!, collectionName)
+      );
+      resolve(
+        querySnapshot.docs.map<FirebaseDocument>((doc) => {
+          return { id: doc.id, data: doc.data() };
+        })
+      );
     });
   }
 
@@ -280,22 +346,29 @@ export class FirebaseService {
    * of the documents that match the provided `substring` within the specified `collectionName`. If no
    * documents match the criteria, an empty array is returned.
    */
-  public getDocumentsBySubstring(collectionName: string, substring: string): Promise<FirebaseDocument[]> {
+  public getDocumentsBySubstring(
+    collectionName: string,
+    substring: string
+  ): Promise<FirebaseDocument[]> {
     return new Promise(async (resolve, reject) => {
       if (!this._db) {
         reject({
-          msg: "Database is not connected"
+          msg: 'Database is not connected',
         });
       }
       try {
         const allDocs = await getDocs(collection(this._db!, collectionName));
-  
-        const filteredDocs = allDocs.docs.filter(doc => doc.id.includes(substring));
+
+        const filteredDocs = allDocs.docs.filter((doc) =>
+          doc.id.includes(substring)
+        );
 
         if (filteredDocs && filteredDocs.length > 0) {
-          resolve(filteredDocs.map<FirebaseDocument>(doc => {
-            return { id: doc.id, data: doc.data() };
-          }));
+          resolve(
+            filteredDocs.map<FirebaseDocument>((doc) => {
+              return { id: doc.id, data: doc.data() };
+            })
+          );
         } else {
           // No se encontraron documentos que coincidan con el criterio de búsqueda
           resolve([]);
@@ -320,21 +393,24 @@ export class FirebaseService {
    * exists in the specified collection, and rejects with an error message if the database is not
    * connected or if the document does not exist.
    */
-  public getDocument(collectionName:string, document:string):Promise<FirebaseDocument>{
-    return new Promise(async (resolve, reject)=>{
-        if(!this._db)
-            reject({
-                msg:"Database is not connected"
-                });
-        const docRef = doc(this._db!, collectionName, document);
-        const docSnap = await getDoc(docRef);
-        
-        if (docSnap.exists()) {
-            resolve({id:docSnap.id, data:docSnap.data()});
-        } else {
-            // doc.data() will be undefined in this case
-            reject('document does not exists');
-        }
+  public getDocument(
+    collectionName: string,
+    document: string
+  ): Promise<FirebaseDocument> {
+    return new Promise(async (resolve, reject) => {
+      if (!this._db)
+        reject({
+          msg: 'Database is not connected',
+        });
+      const docRef = doc(this._db!, collectionName, document);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        resolve({ id: docSnap.id, data: docSnap.data() });
+      } else {
+        // doc.data() will be undefined in this case
+        reject('document does not exists');
+      }
     });
   }
 
@@ -354,17 +430,27 @@ export class FirebaseService {
    * `FirebaseDocument` objects. Each `FirebaseDocument` object contains an `id` property representing
    * the document ID and a `data` property representing the document data.
    */
-  public getDocumentsBy(collectionName:string, field:string, value:any):Promise<FirebaseDocument[]>{
-    return new Promise(async (resolve, reject)=>{
-        if(!this._db)
-            reject({
-                msg:"Database is not connected"
-                });
-        const q = query(collection(this._db!, collectionName), where(field, "==", value));
+  public getDocumentsBy(
+    collectionName: string,
+    field: string,
+    value: any
+  ): Promise<FirebaseDocument[]> {
+    return new Promise(async (resolve, reject) => {
+      if (!this._db)
+        reject({
+          msg: 'Database is not connected',
+        });
+      const q = query(
+        collection(this._db!, collectionName),
+        where(field, '==', value)
+      );
 
-        const querySnapshot = await getDocs(q);
-        resolve(querySnapshot.docs.map<FirebaseDocument>(doc=>{
-            return {id:doc.id, data:doc.data()}}));
+      const querySnapshot = await getDocs(q);
+      resolve(
+        querySnapshot.docs.map<FirebaseDocument>((doc) => {
+          return { id: doc.id, data: doc.data() };
+        })
+      );
     });
   }
 
@@ -380,17 +466,20 @@ export class FirebaseService {
    * `success` property set to a boolean value. The object structure being returned is `{ success:
    * boolean }`.
    */
-  public deleteDocument(collectionName: string, docId: string): Promise<{ success: boolean }> {
+  public deleteDocument(
+    collectionName: string,
+    docId: string
+  ): Promise<{ success: boolean }> {
     return new Promise(async (resolve, reject) => {
       try {
         if (!this._db) {
-          throw new Error("Database is not connected");
+          throw new Error('Database is not connected');
         }
         const docRef = doc(this._db, collectionName, docId);
         await deleteDoc(docRef);
         resolve({ success: true });
       } catch (error) {
-        console.error("Error deleting document:", error);
+        console.error('Error deleting document:', error);
         reject(error);
       }
     });
@@ -409,12 +498,19 @@ export class FirebaseService {
    * emitting it to the `subject`.
    * @returns The `subscribeToCollection` function returns either an `Unsubscribe` function or `null`.
    */
-  public subscribeToCollection(collectionName:string, subject: BehaviorSubject<any[]>, mapFunction:(el:DocumentData)=>any):Unsubscribe | null{
-    if(!this._db)
-        return null;
-    return onSnapshot(collection(this._db, collectionName), (snapshot) => {
-      subject.next(snapshot.docs.map<any>(doc=>mapFunction(doc.data())));
-      }, error=>{});
+  public subscribeToCollection(
+    collectionName: string,
+    subject: BehaviorSubject<any[]>,
+    mapFunction: (el: DocumentData) => any
+  ): Unsubscribe | null {
+    if (!this._db) return null;
+    return onSnapshot(
+      collection(this._db, collectionName),
+      (snapshot) => {
+        subject.next(snapshot.docs.map<any>((doc) => mapFunction(doc.data())));
+      },
+      (error) => {}
+    );
   }
 
   /**
@@ -431,39 +527,46 @@ export class FirebaseService {
    * emitted by the `subject`
    * @returns The `subscribeToDocument` function returns either an `Unsubscribe` function or `null`.
    */
-  public subscribeToDocument(documentPath: string, subject: BehaviorSubject<any>, mapFunction: (el: DocumentData) => any): Unsubscribe | null {
+  public subscribeToDocument(
+    documentPath: string,
+    subject: BehaviorSubject<any>,
+    mapFunction: (el: DocumentData) => any
+  ): Unsubscribe | null {
     if (!this._db) {
       return null;
     }
     const documentRef: DocumentReference = doc(this._db, documentPath);
-  
-    return onSnapshot(documentRef, (snapshot: DocumentSnapshot) => {
-      const data = snapshot.data();
-      if (data) {
-        subject.next(mapFunction(data));
+
+    return onSnapshot(
+      documentRef,
+      (snapshot: DocumentSnapshot) => {
+        const data = snapshot.data();
+        if (data) {
+          subject.next(mapFunction(data));
+        }
+      },
+      (error) => {
+        console.error('Error:', error);
       }
-    }, error => {
-      console.error('Error:', error);
-    });
+    );
   }
-  
+
   /**
    * The `signOut` function in TypeScript signs out the user and optionally signs in anonymously.
    * @param {boolean} [signInAnon=false] - The `signInAnon` parameter is a boolean flag that indicates
    * whether the user should be signed in anonymously after signing out. If `signInAnon` is set to
    * `true`, the `connectAnonymously` method will be called after signing out.
    */
-  public async signOut(signInAnon:boolean=false):Promise<void> {
-    new Promise<void>(async (resolve, reject)=>{
-        if(this._auth)
-          try {
-              await this._auth.signOut();
-              if(signInAnon)
-                  await this.connectAnonymously();
-              resolve();
-          } catch (error) {
-            reject(error);
-          }
+  public async signOut(signInAnon: boolean = false): Promise<void> {
+    new Promise<void>(async (resolve, reject) => {
+      if (this._auth)
+        try {
+          await this._auth.signOut();
+          if (signInAnon) await this.connectAnonymously();
+          resolve();
+        } catch (error) {
+          reject(error);
+        }
     });
   }
 
@@ -473,11 +576,10 @@ export class FirebaseService {
    * @returns The `isUserConnected` function returns a Promise that resolves to a boolean value
    * indicating whether the user is connected or not.
    */
-  public isUserConnected():Promise<boolean>{
-    const response = new Promise<boolean>(async (resolve, reject)=>{
-        if(!this._auth)
-            resolve(false);
-        resolve(this._auth!.currentUser != null)
+  public isUserConnected(): Promise<boolean> {
+    const response = new Promise<boolean>(async (resolve, reject) => {
+      if (!this._auth) resolve(false);
+      resolve(this._auth!.currentUser != null);
     });
     return response;
   }
@@ -488,33 +590,31 @@ export class FirebaseService {
    * @returns A Promise that resolves to a boolean value indicating whether the user is connected
    * anonymously or not.
    */
-  public isUserConnectedAnonymously():Promise<boolean>{
-    const response = new Promise<boolean>(async (resolve, reject)=>{
-        if(!this._auth)
-            resolve(false);
-        resolve(this._auth!.currentUser != null && this._auth!.currentUser.isAnonymous);
+  public isUserConnectedAnonymously(): Promise<boolean> {
+    const response = new Promise<boolean>(async (resolve, reject) => {
+      if (!this._auth) resolve(false);
+      resolve(
+        this._auth!.currentUser != null && this._auth!.currentUser.isAnonymous
+      );
     });
     return response;
-    
   }
 
   /**
    * The function `connectAnonymously` connects a user anonymously if not already connected.
    * @returns A Promise is being returned from the `connectAnonymously` function.
    */
-  public async connectAnonymously():Promise<void>{
+  public async connectAnonymously(): Promise<void> {
     const response = new Promise<void>(async (resolve, reject) => {
-        if(!this._auth)
-            resolve();
-        if(! (await this.isUserConnected()) && !(await this.isUserConnectedAnonymously())){
-            await signInAnonymously(this._auth!).catch(error=>reject(error));
-            resolve();
-        }
-        else if(await this.isUserConnectedAnonymously())
-            resolve();
-        else
-            reject({msg:"An user is already connected"});
-
+      if (!this._auth) resolve();
+      if (
+        !(await this.isUserConnected()) &&
+        !(await this.isUserConnectedAnonymously())
+      ) {
+        await signInAnonymously(this._auth!).catch((error) => reject(error));
+        resolve();
+      } else if (await this.isUserConnectedAnonymously()) resolve();
+      else reject({ msg: 'An user is already connected' });
     });
     return response;
   }
@@ -535,35 +635,45 @@ export class FirebaseService {
    * information about the user. If there is an error during the process, it logs specific error
    * messages based on the error code and then rejects the promise with the error.
    */
-  public async createUserWithEmailAndPassword(email:string, password:string):Promise<FirebaseUserCredential | null>{
-    return new Promise(async(resolve,reject)=>{
-        if(!this._auth)
-            resolve(null);
-        try {
-            resolve({user: await createUserWithEmailAndPassword(this._auth!, email, password)});
-        } catch (error:any) {
-            switch (error.code) {
-            case 'auth/email-already-in-use':
-                console.log(`Email address ${email} already in use.`);
-                break;
-            case 'auth/invalid-email':
-                console.log(`Email address ${email} is invalid.`);
-                break;
-            case 'auth/operation-not-allowed':
-                console.log(`Error during sign up.`);
-                break;
-            case 'auth/weak-password':
-                console.log('Password is not strong enough. Add additional characters including special characters and numbers.');
-                break;
-            default:
-                console.log(error.message);
-                break;
-            }
-            reject(error);
+  public async createUserWithEmailAndPassword(
+    email: string,
+    password: string
+  ): Promise<FirebaseUserCredential | null> {
+    return new Promise(async (resolve, reject) => {
+      if (!this._auth) resolve(null);
+      try {
+        resolve({
+          user: await createUserWithEmailAndPassword(
+            this._auth!,
+            email,
+            password
+          ),
+        });
+      } catch (error: any) {
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            console.log(`Email address ${email} already in use.`);
+            break;
+          case 'auth/invalid-email':
+            console.log(`Email address ${email} is invalid.`);
+            break;
+          case 'auth/operation-not-allowed':
+            console.log(`Error during sign up.`);
+            break;
+          case 'auth/weak-password':
+            console.log(
+              'Password is not strong enough. Add additional characters including special characters and numbers.'
+            );
+            break;
+          default:
+            console.log(error.message);
+            break;
         }
+        reject(error);
+      }
     });
   }
-  
+
   /**
    * The function `connectUserWithEmailAndPassword` attempts to sign in a user with the provided email
    * and password using Firebase authentication and returns a `FirebaseUserCredential` or `null` in a
@@ -577,18 +687,26 @@ export class FirebaseService {
    * object `_auth` is not available. If there is an error during sign-in, the Promise will be rejected
    * with the error.
    */
-  public async connectUserWithEmailAndPassword(email: string, password: string):Promise<FirebaseUserCredential | null> {
-    return new Promise<FirebaseUserCredential | null>(async (resolve, reject)=>{
-        if(!this._auth)
-          resolve(null);
+  public async connectUserWithEmailAndPassword(
+    email: string,
+    password: string
+  ): Promise<FirebaseUserCredential | null> {
+    return new Promise<FirebaseUserCredential | null>(
+      async (resolve, reject) => {
+        if (!this._auth) resolve(null);
         try {
-          const user = await signInWithEmailAndPassword(this._auth, email, password);
+          const user = await signInWithEmailAndPassword(
+            this._auth,
+            email,
+            password
+          );
           return { user };
         } catch (error) {
-          reject( error );
-          return error
+          reject(error);
+          return error;
         }
-    });   
+      }
+    );
   }
 
   /**
@@ -596,14 +714,13 @@ export class FirebaseService {
    * successfully deleted or rejects if there is no user to delete.
    * @returns The `deleteUser` method is returning a Promise that resolves with void.
    */
-  public deleteUser():Promise<void>{
-    return new Promise<void>((resolve, reject)=>{
-        if(!this._user)
-            reject();
-        resolve(deleteUser(this._user!));
+  public deleteUser(): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      if (!this._user) reject();
+      resolve(deleteUser(this._user!));
     });
   }
- 
+
   /**
    * The function `updateDocumentField` updates a specific field with a new value in a document within
    * a Firestore collection.
@@ -625,17 +742,22 @@ export class FirebaseService {
    * when the document field update operation is successful, or rejects with an error object if there
    * is an issue such as the database not being connected or an error during the update operation.
    */
-  public updateDocumentField(collectionName: string, document: string, fieldName: string, fieldValue: any): Promise<void> {
+  public updateDocumentField(
+    collectionName: string,
+    document: string,
+    fieldName: string,
+    fieldValue: any
+  ): Promise<void> {
     return new Promise(async (resolve, reject) => {
       if (!this._db) {
         reject({
-          msg: "Database is not connected"
+          msg: 'Database is not connected',
         });
       }
-  
+
       const documentRef = doc(this._db as Firestore, collectionName, document);
       const fieldUpdate = { [fieldName]: fieldValue }; // Crear un objeto con el campo a actualizar
-  
+
       try {
         await updateDoc(documentRef, fieldUpdate);
         resolve();

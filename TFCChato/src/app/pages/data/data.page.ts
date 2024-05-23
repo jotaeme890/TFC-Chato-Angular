@@ -57,8 +57,7 @@ export class DataPage implements OnInit {
       componentProps: {
         categoryInfo: info,
         mode: "update"
-      },
-      cssClass: "modalDesign"
+      }
     });
     await mod.present();
     const results = await mod.onDidDismiss();
@@ -78,8 +77,7 @@ export class DataPage implements OnInit {
       componentProps: {
         categoryInfo: null,
         mode: "create"
-      },
-      cssClass: "modalDesign"
+      }
     });
     await mod.present();
     const results = await mod.onDidDismiss();

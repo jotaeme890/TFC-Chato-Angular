@@ -1,0 +1,24 @@
+<div id="popover-button">
+  <ion-item [button]="!disabled" [detail]="!disabled">
+    <ion-text slot="start" position="fixed">{{'data.categories' | translate}}:</ion-text>
+    <ion-text *ngIf="!categorySelected && !disabled">{{'data.selectCat' | translate}}</ion-text>
+    <ion-text *ngIf="categorySelected">{{categorySelected.data.name}}</ion-text>
+</ion-item>
+
+</div>
+
+<ion-popover *ngIf="!disabled" trigger="popover-button" #popover (willPresent)="onLoadCategories()">
+  <ng-template>
+    <ion-content >
+      
+      <ion-list>
+        <app-item
+          (clicked)="onCityClicked(popover,$event)"
+          *ngFor="let category of categories"
+          [item]="category"
+        ></app-item>
+      </ion-list>
+
+    </ion-content>
+  </ng-template>
+</ion-popover>

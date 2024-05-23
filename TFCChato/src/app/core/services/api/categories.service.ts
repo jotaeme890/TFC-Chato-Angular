@@ -24,6 +24,10 @@ export class CategoriesService {
    */
   constructor(private firebaseService: FirebaseService) {}
 
+  getCategory(categoryId: string) {
+    return this.firebaseService.getDocument('categoryInfo', categoryId)
+  }
+
   /**
    * Creates a new category.
    *

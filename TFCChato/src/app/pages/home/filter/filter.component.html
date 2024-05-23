@@ -1,0 +1,16 @@
+<div class="filter">
+  <form [formGroup]="form">
+    <div>
+      <app-category-selectable formControlName="category"></app-category-selectable>
+
+      <section class="example-section">
+        <mat-checkbox formControlName="checked">Vistos</mat-checkbox>
+        <mat-checkbox formControlName="resolved">Resueltos</mat-checkbox>
+      </section>
+
+      <button [disabled]="!form.dirty" (click)="resetFilters()">Borrar filtros</button>
+      <button [disabled]="!form.dirty" (click)="setFilters()">Aplicar filtros</button>
+
+    </div>
+  </form>
+</div>

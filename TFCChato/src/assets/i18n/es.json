@@ -58,7 +58,8 @@
         "categories": "Categorías",
         "create": "Crear categoría",
         "catind": "Categorías e incidencias",
-        "download": "Descargar datos"
+        "download": "Descargar datos",
+        "selectCat": "Seleccione una categoría"
     },
     "incidents": {
         "unresolved": "Sin resolver",

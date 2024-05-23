@@ -1,4 +1,5 @@
 <ion-content>
+    <app-filter></app-filter>
     <div class="incidents">
         <app-incidents-info *ngFor="let incident of firebaseService.incidents$ | async" (onIncidentClicked)="incidentInfo($event)" [incident]="incident"></app-incidents-info>
     </div>

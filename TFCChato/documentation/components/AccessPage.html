@@ -1,0 +1,1184 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TFCChato documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">TFCChato documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AccessPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/access/access.page.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>MessageService</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-access</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./access.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./access.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#login" >login</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changeForm" >changeForm</a>
+                            </li>
+                            <li>
+                                <a href="#loginUser" >loginUser</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#registerUser" >registerUser</a>
+                            </li>
+                            <li>
+                                <a href="#showError" >showError</a>
+                            </li>
+                            <li>
+                                <a href="#showSuccess" >showSuccess</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, translate: <a href="../injectables/CustomTranslateService.html" target="_self">CustomTranslateService</a>, messageService: MessageService, route: ActivatedRoute, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/access/access.page.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>The constructor function subscribes to query parameters and displays an error message if the
+&#39;error&#39; parameter is &#39;notAdmin&#39;.</p>
+<p>It is used for handling translation services within the component or service where it is injected.
+This service likely provides methods for translating text or messages into different languages or
+for managing localization in the application.
+<code>MessageService</code>. It is likely used for displaying messages or notifications to the user within
+the application.
+service provided by Angular that gives access to information about a route associated with a
+component loaded in an outlet. It allows you to access route parameters, query parameters, and
+other information related to the current route.
+service. It is used for navigating between different components in your Angular application based
+on the defined routes.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>AuthService - a service for handling authentication and user authorization.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>translate</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomTranslateService.html" target="_self" >CustomTranslateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>The <code>translate</code> parameter in the constructor is of type <code>CustomTranslateService</code>.
+It is used for handling translation services within the component or service where it is injected.
+This service likely provides methods for translating text or messages into different languages or
+for managing localization in the application.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>messageService</td>
+                                                  
+                                                        <td>
+                                                                    <code>MessageService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>The <code>messageService</code> parameter in the constructor is of type
+<code>MessageService</code>. It is likely used for displaying messages or notifications to the user within
+the application.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>The <code>route</code> parameter in the constructor is of type <code>ActivatedRoute</code>, which is a
+service provided by Angular that gives access to information about a route associated with a
+component loaded in an outlet. It allows you to access route parameters, query parameters, and
+other information related to the current route.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>The <code>router</code> parameter in the constructor is an instance of the Angular Router
+service. It is used for navigating between different components in your Angular application based
+on the defined routes.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeForm"></a>
+                    <span class="name">
+                        <span ><b>changeForm</b></span>
+                        <a href="#changeForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="58"
+                                    class="link-to-prism">src/app/pages/access/access.page.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>The function toggles the value of the <code>login</code> property.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loginUser"></a>
+                    <span class="name">
+                        <span ><b>loginUser</b></span>
+                        <a href="#loginUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loginUser(data: <a href="../interfaces/UserCredentials.html" target="_self">UserCredentials</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">src/app/pages/access/access.page.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>The <code>loginUser</code> function in TypeScript logs in a user with provided credentials and handles
+errors, displaying a specific error message for invalid email.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserCredentials.html" target="_self" >UserCredentials</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>UserCredentials object containing user login information, such as email and password</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/pages/access/access.page.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerUser"></a>
+                    <span class="name">
+                        <span ><b>registerUser</b></span>
+                        <a href="#registerUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>registerUser(data: <a href="../interfaces/UserRegisterInfo.html" target="_self">UserRegisterInfo</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">src/app/pages/access/access.page.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>The function <code>registerUser</code> registers a user with the role &#39;user&#39; and handles different error
+cases during the registration process.</p>
+<p>This parameter likely contains information about a user that is being registered, such as their
+email, password, and any other relevant details.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserRegisterInfo.html" target="_self" >UserRegisterInfo</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>registerUser</code> function takes in a parameter <code>data</code> of type <code>UserRegisterInfo</code>.
+This parameter likely contains information about a user that is being registered, such as their
+email, password, and any other relevant details.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showError"></a>
+                    <span class="name">
+                        <span ><b>showError</b></span>
+                        <a href="#showError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showError(text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="138"
+                                    class="link-to-prism">src/app/pages/access/access.page.ts:138</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>The function <code>showError</code> displays an error message using a translation service and a message
+service.</p>
+<p>message to be displayed.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>text</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>text</code> parameter in the <code>showError</code> function is a string that represents the error
+message to be displayed.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showSuccess"></a>
+                    <span class="name">
+                        <span ><b>showSuccess</b></span>
+                        <a href="#showSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showSuccess(text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="121"
+                                    class="link-to-prism">src/app/pages/access/access.page.ts:121</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>The function <code>showSuccess</code> displays a success message after translating the input text.</p>
+<p>message to be displayed as a success toast notification.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>text</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The <code>text</code> parameter in the <code>showSuccess</code> function is a string that represents the
+message to be displayed as a success toast notification.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="login"></a>
+                    <span class="name">
+                        <span ><b>login</b></span>
+                        <a href="#login"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/access/access.page.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { MessageService } from &#x27;primeng/api&#x27;;
+import { UserCredentials, UserRegisterInfo } from &#x27;src/app/core/interfaces/user-info&#x27;;
+import { AuthService } from &#x27;src/app/core/services/auth.service&#x27;;
+import { CustomTranslateService } from &#x27;src/app/core/services/translate/translate.service&#x27;;
+
+@Component({
+  selector: &#x27;app-access&#x27;,
+  templateUrl: &#x27;./access.page.html&#x27;,
+  styleUrls: [&#x27;./access.page.scss&#x27;],
+  providers: [MessageService]
+})
+export class AccessPage implements OnInit {
+
+  login &#x3D; true;
+
+  /**
+  * The constructor function subscribes to query parameters and displays an error message if the
+  * &#x27;error&#x27; parameter is &#x27;notAdmin&#x27;.
+  * 
+  * @param auth AuthService - a service for handling authentication and user authorization.
+  * @param translate The &#x60;translate&#x60; parameter in the constructor is of type &#x60;CustomTranslateService&#x60;.
+  * It is used for handling translation services within the component or service where it is injected.
+  * This service likely provides methods for translating text or messages into different languages or
+  * for managing localization in the application.
+  * @param messageService The &#x60;messageService&#x60; parameter in the constructor is of type
+  * &#x60;MessageService&#x60;. It is likely used for displaying messages or notifications to the user within
+  * the application.
+  * @param route The &#x60;route&#x60; parameter in the constructor is of type &#x60;ActivatedRoute&#x60;, which is a
+  * service provided by Angular that gives access to information about a route associated with a
+  * component loaded in an outlet. It allows you to access route parameters, query parameters, and
+  * other information related to the current route.
+  * @param router The &#x60;router&#x60; parameter in the constructor is an instance of the Angular Router
+  * service. It is used for navigating between different components in your Angular application based
+  * on the defined routes.
+  */
+  constructor(
+    private auth: AuthService,
+    private translate: CustomTranslateService,
+    private messageService: MessageService,
+    private route: ActivatedRoute, 
+    private router: Router
+  ) {
+    this.route.queryParams.subscribe(params &#x3D;&gt; {
+      if (params[&#x27;error&#x27;] &#x3D;&#x3D;&#x3D; &#x27;notAdmin&#x27;) {
+        this.showError( &#x27;waitAdmin&#x27; );
+      }
+    });
+  }
+
+  ngOnInit() {
+  }
+
+  /**
+  * The function toggles the value of the &#x60;login&#x60; property.
+  */
+  changeForm(){
+    this.login &#x3D; !this.login
+  }
+
+  /**
+  * The function &#x60;registerUser&#x60; registers a user with the role &#x27;user&#x27; and handles different error
+  * cases during the registration process.
+  * 
+  * @param data The &#x60;registerUser&#x60; function takes in a parameter &#x60;data&#x60; of type &#x60;UserRegisterInfo&#x60;.
+  * This parameter likely contains information about a user that is being registered, such as their
+  * email, password, and any other relevant details.
+  */
+  registerUser( data:UserRegisterInfo ){
+    let _data:UserRegisterInfo &#x3D; { ...data };
+    _data.role &#x3D; &#x27;user&#x27;;
+    this.auth.register( _data ).subscribe({
+      next:( data )&#x3D;&gt;{
+        console.log( &#x27;ALL WAS GOOD&#x27; );
+        this.showSuccess( &#x27;waitAdmin&#x27; );
+      },
+      error:( err )&#x3D;&gt;{
+        if ( err.code ) {
+          switch ( err.code ) {
+            case &#x27;auth/email-already-in-use&#x27;:
+              this.showError( &#x27;emailUser&#x27; );
+              break;
+            case &#x27;post-registration-error&#x27;:
+              this.showError( &#x27;failRegister&#x27; );
+              break;
+          }
+        } else {
+          this.showError( &#x27;Unknown registration error&#x27; );
+        }
+      }
+    });
+  }
+
+  /**
+  * The &#x60;loginUser&#x60; function in TypeScript logs in a user with provided credentials and handles
+  * errors, displaying a specific error message for invalid email.
+  * 
+  * @param data UserCredentials object containing user login information, such as email and password
+  */
+  loginUser( data:UserCredentials ){
+    let _data:UserCredentials &#x3D; { ...data };
+    this.auth.login( _data ).subscribe({
+      next:( data )&#x3D;&gt;{
+        console.log( &#x27;ALL WAS GOOD&#x27; );
+      },
+      error:( err )&#x3D;&gt;{
+        console.log( &#x27;BAD&#x27;, err );
+        if( err.code &#x3D;&#x3D;&#x3D; &#x27;auth/invalid-email&#x27; )
+          this.showError( &#x27;loginError&#x27; )
+      }
+    })
+  }
+
+  /**
+  * The function &#x60;showSuccess&#x60; displays a success message after translating the input text.
+  * 
+  * @param text The &#x60;text&#x60; parameter in the &#x60;showSuccess&#x60; function is a string that represents the
+  * message to be displayed as a success toast notification.
+  */
+  showSuccess(text: string) {
+    let message &#x3D; &#x60;toast.${text}&#x60;
+    this.translate.get( message ).subscribe({
+      next: ( text: string ) &#x3D;&gt; {
+        this.messageService.add({ key: &#x27;tl&#x27;, severity: &#x27;info&#x27;, detail: text });
+        this.login &#x3D; true;
+      }
+    });
+  }
+
+  /**
+  * The function &#x60;showError&#x60; displays an error message using a translation service and a message
+  * service.
+  * 
+  * @param text The &#x60;text&#x60; parameter in the &#x60;showError&#x60; function is a string that represents the error
+  * message to be displayed.
+  */
+  showError(text: string) {
+    let message &#x3D; &#x60;toast.${text}&#x60;
+    this.translate.get( message ).subscribe({
+      next: ( text: string ) &#x3D;&gt; {
+        this.messageService.add({ key: &#x27;tl&#x27;, severity: &#x27;error&#x27;, detail: text, life: 6000 });
+        this.login &#x3D; true;
+      }
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content [fullscreen]&#x3D;&quot;true&quot;&gt;
+
+  &lt;div class&#x3D;&quot;access&quot;&gt;
+    &lt;div class&#x3D;&quot;access__forms&quot;&gt;
+      &lt;img class&#x3D;&quot;access__forms--logo&quot; src&#x3D;&quot;../../../assets/images/logo.png&quot;&gt;
+      &lt;app-login-form (onsubmit)&#x3D;&quot;loginUser($event)&quot; *ngIf&#x3D;&quot;login&quot;&gt;&lt;/app-login-form&gt;
+
+      &lt;app-register-form (onsubmit)&#x3D;&quot;registerUser($event)&quot; *ngIf&#x3D;&quot;!login&quot;&gt;&lt;/app-register-form&gt;
+      
+      &lt;button *ngIf&#x3D;&quot;login&quot; (click)&#x3D;&quot;changeForm()&quot;&gt;{{&#x27;access.toRegister&#x27; | translate}}&lt;/button&gt;
+    
+      &lt;button *ngIf&#x3D;&quot;!login&quot; (click)&#x3D;&quot;changeForm()&quot;&gt;{{&#x27;access.toLogin&#x27; | translate}}&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;access__image&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;p-toast [breakpoints]&#x3D;&quot;{&#x27;600px&#x27;: {width: &#x27;96%&#x27;, right: &#x27;1%&#x27;, left: &#x27;1%&#x27;}}&quot; position&#x3D;&quot;top-left&quot; key&#x3D;&quot;tl&quot;&gt;&lt;/p-toast&gt;
+
+&lt;/ion-content&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./access.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-content {
+    margin-top: 30%;
+}
+
+.access {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+
+    &amp;__forms {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        gap: 20px;
+
+        .access__forms--logo {
+            display: none;
+            width: 30%;
+        }
+
+        app-login-form,
+        app-register-form {
+            width: 70%;
+        }
+    }
+
+    &amp;__image {
+        flex: 1;
+        width:99%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-image: url(&#x27;../../../assets/images/vectorial-access.webp&#x27;);
+    }
+
+    button {
+        background-color: transparent;
+        padding: 0.5rem;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 700px) {
+    .access {
+        flex-direction: column;
+    
+        &amp;__forms {  
+            .access__forms--logo {
+                display: block;
+                width: 30%;
+            }
+    
+            app-login-form {
+                width: 100%;
+            }
+
+            app-register-form {
+                margin-top: -5%;
+                width: 100%;
+            }
+        }
+    
+        &amp;__image {
+            display: none;
+        }
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content [fullscreen]="true">  <div class="access">    <div class="access__forms">      <img class="access__forms--logo" src="../../../assets/images/logo.png">      <app-login-form (onsubmit)="loginUser($event)" *ngIf="login"></app-login-form>      <app-register-form (onsubmit)="registerUser($event)" *ngIf="!login"></app-register-form>            <button *ngIf="login" (click)="changeForm()">{{\'access.toRegister\' | translate}}</button>          <button *ngIf="!login" (click)="changeForm()">{{\'access.toLogin\' | translate}}</button>    </div>    <div class="access__image"></div>  </div>  <p-toast [breakpoints]="{\'600px\': {width: \'96%\', right: \'1%\', left: \'1%\'}}" position="top-left" key="tl"></p-toast></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AccessPage', 'selector': 'app-access'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriesInfoComponent', 'selector': 'app-categories-info'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'DataPage', 'selector': 'app-data'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'IncidentDataPage', 'selector': 'app-incident-data'},{'name': 'IncidentsCircleGraphicComponent', 'selector': 'app-incidents-circle-graphic'},{'name': 'IncidentsInfoComponent', 'selector': 'app-incidents-info'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'ModalCategoryComponent', 'selector': 'app-modal-category'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'UpdateUserComponent', 'selector': 'app-update-user'},{'name': 'UserCircleGraphicComponent', 'selector': 'app-user-circle-graphic'},{'name': 'UserDataPage', 'selector': 'app-user-data'},{'name': 'UsersInfoComponent', 'selector': 'app-users-info'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AccessPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AccessPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,6 +1,6 @@
 <ion-content>
-    <app-filter></app-filter>
+    <app-filter (filterChanged)="onFilterChange($event)" (resetRequested)="showAll()"></app-filter>
     <div class="incidents">
-        <app-incidents-info *ngFor="let incident of firebaseService.incidents$ | async" (onIncidentClicked)="incidentInfo($event)" [incident]="incident"></app-incidents-info>
+        <app-incidents-info *ngFor="let incident of filteredIncidents$ | async" (onIncidentClicked)="incidentInfo($event)" [incident]="incident"></app-incidents-info>
     </div>
 </ion-content>

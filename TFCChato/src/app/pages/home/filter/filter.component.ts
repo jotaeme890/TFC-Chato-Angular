@@ -12,6 +12,8 @@ export class FilterComponent implements OnInit {
    */
   @Output() resetRequested = new EventEmitter<void>();
 
+  @Output() filterChanged = new EventEmitter<any>();
+
   form: FormGroup;
 
   /**
@@ -21,7 +23,7 @@ export class FilterComponent implements OnInit {
    */
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
-      category: [undefined],
+      categoryName: [undefined],
       userId: [undefined],
       checked: [false],
       resolved: [false],
@@ -35,13 +37,19 @@ export class FilterComponent implements OnInit {
    */
   setFilters() {
     console.log(this.form.value);
+    this.filterChanged.emit(this.form.value)
   }
 
   /**
    * Resets all filters and emits a signal to notify parent components.
    */
   resetFilters() {
-    this.form.reset();
+    this.form.reset({
+      categoryName:undefined,
+      userId: undefined,
+      checked: false,
+      resolved: false,
+    });
     this.resetRequested.emit();
   }
 }

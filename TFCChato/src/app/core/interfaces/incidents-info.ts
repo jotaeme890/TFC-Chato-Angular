@@ -9,5 +9,6 @@ export interface incidentInfo {
     resolved: boolean,
     title: string,
     userId: string,
-    uuid: string
+    uuid: string,
+    categoryName: string
 }

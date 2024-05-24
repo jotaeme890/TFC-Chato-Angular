@@ -23,8 +23,8 @@ export class FilterComponent implements OnInit {
     this.form = this.formBuilder.group({
       category: [undefined],
       userId: [undefined],
-      checked: [undefined],
-      resolved: [undefined],
+      checked: [false],
+      resolved: [false],
     });
   }
 

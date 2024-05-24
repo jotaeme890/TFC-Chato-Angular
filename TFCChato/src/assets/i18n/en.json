@@ -59,7 +59,8 @@
         "create": "Create category",
         "catind": "Categories and incidents",
         "download": "Dowload data",
-        "selectCat": "Select a category"
+        "selectCat": "Select a category",
+        "selectUs": "Select an user"
     },
     "incidents": {
         "unresolved": "Unresolved",

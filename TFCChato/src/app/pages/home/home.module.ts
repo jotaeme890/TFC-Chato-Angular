@@ -7,13 +7,14 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CategorySelectableComponent } from './category-selectable/category-selectable.component';
-import { UserSelectableComponent } from './user-selectable/user-selectable.component';
-import { ItemComponent } from './item/item.component';
 import { FilterComponent } from './filter/filter.component';
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from 'src/app/core/translate/translate';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { UserSelectableComponent } from './user-selectable/user-selectable.component';
+import { ItemCategoryComponent } from './item-category/item-category.component';
+import { ItemUserComponent } from './item-user/item-user.component';
 
 
 @NgModule({
@@ -36,10 +37,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
   ],
   declarations: [
     HomePage,
-    UserSelectableComponent,
     CategorySelectableComponent,
-    ItemComponent,
-    FilterComponent
+    ItemCategoryComponent,
+    ItemUserComponent,
+    FilterComponent,
+    UserSelectableComponent
   ]
 })
 export class HomePageModule {}

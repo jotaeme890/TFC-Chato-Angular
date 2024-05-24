@@ -1,36 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
 })
-export class FilterComponent  implements OnInit {
-
+export class FilterComponent implements OnInit {
+  /**
+   * EventEmitter for emitting a signal to reset filters.
+   */
+  @Output() resetRequested = new EventEmitter<void>();
 
   form: FormGroup;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private modal: ModalController,
-  ) { 
+  /**
+   * Creates an instance of FiltersComponent.
+   *
+   * @param formBuilder - The FormBuilder service for building form instances.
+   */
+  constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
       category: [undefined],
+      userId: [undefined],
       checked: [undefined],
-      resolved: [undefined]
+      resolved: [undefined],
     });
   }
 
   ngOnInit() {}
 
-  setFilters(){
+  /**
+   * Sets the filters based on the form values.
+   */
+  setFilters() {
     console.log(this.form.value);
   }
 
+  /**
+   * Resets all filters and emits a signal to notify parent components.
+   */
   resetFilters() {
     this.form.reset();
+    this.resetRequested.emit();
   }
-
 }

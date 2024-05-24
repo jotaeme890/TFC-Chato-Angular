@@ -1,13 +1,15 @@
 <div class="filter">
   <form [formGroup]="form">
     <div>
-      <app-category-selectable formControlName="category"></app-category-selectable>
+      <app-category-selectable [resetSignal]="resetRequested" formControlName="category"></app-category-selectable>
+      <app-user-selectable [resetSignal]="resetRequested" formControlName="userId"></app-user-selectable>
 
+      
       <section class="example-section">
         <mat-checkbox formControlName="checked">Vistos</mat-checkbox>
         <mat-checkbox formControlName="resolved">Resueltos</mat-checkbox>
       </section>
-
+      
       <button [disabled]="!form.dirty" (click)="resetFilters()">Borrar filtros</button>
       <button [disabled]="!form.dirty" (click)="setFilters()">Aplicar filtros</button>
 

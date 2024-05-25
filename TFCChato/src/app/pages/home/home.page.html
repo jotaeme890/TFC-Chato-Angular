@@ -1,5 +1,6 @@
 <ion-content>
-    <app-filter (filterChanged)="onFilterChange($event)" (resetRequested)="showAll()"></app-filter>
+    <app-filter class="desktop" (filterChanged)="onFilterChange($event)" (resetRequested)="showAll()"></app-filter>
+    <p class="mobile">HOLA</p>
     <div class="incidents">
         <app-incidents-info *ngFor="let incident of filteredIncidents$ | async" (onIncidentClicked)="incidentInfo($event)" [incident]="incident"></app-incidents-info>
     </div>

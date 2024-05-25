@@ -1,18 +1,15 @@
 <div class="filter">
-  <form [formGroup]="form">
-    <div>
+  <form [formGroup]="form" class="filter-form">
+    <div class="form-controls">
       <app-category-selectable [resetSignal]="resetRequested" formControlName="categoryName"></app-category-selectable>
       <app-user-selectable [resetSignal]="resetRequested" formControlName="userId"></app-user-selectable>
 
-      
-      <section class="example-section">
-        <mat-checkbox formControlName="checked">Vistos</mat-checkbox>
-        <mat-checkbox formControlName="resolved">Resueltos</mat-checkbox>
-      </section>
-      
-      <button [disabled]="!form.dirty" (click)="resetFilters()">Borrar filtros</button>
-      <button (click)="setFilters()">Aplicar filtros</button>
-
+      <mat-checkbox formControlName="checked" class="checkbox">Vistos</mat-checkbox>
+      <mat-checkbox formControlName="resolved" class="checkbox">Resueltos</mat-checkbox>
+    </div>
+    <div class="form-actions">
+      <button (click)="resetFilters()" class="reset--button">{{'filter.reset' | translate}}</button>
+      <button mat-raised-button color="primary" (click)="setFilters()" class="apply--button">{{'filter.apply' | translate}}</button>
     </div>
   </form>
 </div>

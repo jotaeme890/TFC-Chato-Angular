@@ -62,6 +62,10 @@
         "selectCat": "Seleccione una categoría",
         "selectUs": "Selecciona un usuario"
     },
+    "filter": {
+        "apply": "Aplicar filtros",
+        "reset": "Borrar filtros"
+    },
     "incidents": {
         "unresolved": "Sin resolver",
         "day": "Día",

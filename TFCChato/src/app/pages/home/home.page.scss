@@ -5,11 +5,24 @@
   row-gap: 20px;
   column-gap: 30px;
   width: 100%;
-  margin: 5% auto;
+  margin: 2% auto;
   padding: 2%;
 
 
   @media (max-width: 850px) {
     flex-direction: column;
+  }
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .mobile {
+    display: flex;
+  }
+  .desktop {
+    display: none;
   }
 }

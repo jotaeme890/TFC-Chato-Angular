@@ -10,10 +10,11 @@
         "register": "Register",
         "role": "Role",
         "picture": "Picture",
-        "update": "Update user",
+        "update": "Update",
         "admin": "Admin",
         "user": "User",
-        "description": "Description"
+        "description": "Description",
+        "actions": "Actions"
     },
     "access": {
         "toLogin": "I currently have an account.",
@@ -25,13 +26,20 @@
         "passwordError": "Password does not meet the requirements (8 letters, 1 uppercase and 1 number).",
         "repeatError": "Passwords do not match."
     },
+    "dialog": {
+        "delete": "Would you like to delete this category?",
+        "no": "Cancel",
+        "yes": "Accept"
+    },
     "toast": {
         "waitAdmin": "Wait for the admin to give you permissions.",
         "loginError": "Incorrect username or password.",
         "registerError": "Incorrect username or password.",
         "failRegister": "Failed to complete registration process.",
         "emailUser": "Email already in use.",
-        "error": "Something went wrong."
+        "error": "Something went wrong.",
+        "cant": "You cannot create/delete/modify this category",
+        "good": "All was good"
     },
     "menu": {
         "home": "Home",
@@ -47,13 +55,23 @@
         "data": "Data",
         "graphic": "Graphics",
         "update": "Modify user",
-        "categories": "Categories"
+        "categories": "Categories",
+        "create": "Create category",
+        "catind": "Categories and incidents",
+        "download": "Dowload data",
+        "selectCat": "Select a category",
+        "selectUs": "Select an user"
+    },
+    "filter": {
+        "apply": "Apply filter",
+        "reset": "Reset filters"
     },
     "incidents": {
         "unresolved": "Unresolved",
         "day": "Day",
         "hour": "Hour",
         "user": "User",
-        "resolved": "Set as resolved"
+        "resolved": "Set as resolved",
+        "anonymous": "Anonymous"
     }
 }

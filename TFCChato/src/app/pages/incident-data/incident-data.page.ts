@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { incidentInfo } from 'src/app/core/interfaces/incidents-info';
 import { IncidentsService } from 'src/app/core/services/api/incidents.service';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
 
 @Component({
   selector: 'app-incident-data',
@@ -49,10 +50,11 @@ export class IncidentDataPage implements OnInit {
    *
    * @param incident incidentInfo - the incident to be marked as resolved.
    */
-  setResolvedIncident(incident: incidentInfo) {
+  async setResolvedIncident(incident: incidentInfo) {
     incident.resolved = true;
     this.incident = incident;
     this.incidentsService.updateIncident(incident);
+    await Haptics.impact({ style: ImpactStyle.Medium });
     console.log(incident);
   }
 }

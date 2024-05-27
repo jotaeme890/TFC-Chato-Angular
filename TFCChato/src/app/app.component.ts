@@ -4,6 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from './core/services/auth.service';
 import { filter } from 'rxjs';
 import { IonMenu, MenuController } from '@ionic/angular';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
 
 @Component({
   selector: 'app-root',
@@ -79,6 +80,7 @@ export class AppComponent {
   logOut() {
     this.auth.logout().subscribe(async (_) => {
       await this.router.navigate(['/access']);
+      await Haptics.impact({ style: ImpactStyle.Heavy });
     });
   }
 

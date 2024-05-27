@@ -10,10 +10,11 @@
         "register": "Registrarse",
         "role": "Rol",
         "picture": "Foto",
-        "update": "Modificar usuario",
+        "update": "Modificar",
         "admin": "Administrador",
         "user": "Usuario",
-        "description": "Descripción"
+        "description": "Descripción",
+        "actions": "Acciones"
     },
     "access": {
         "toLogin": "Actualmente ya tengo cuenta.",
@@ -25,13 +26,20 @@
         "passwordError": "La contraseña no cumple los requisitos (8 letras, 1 mayúscula y 1 número).",
         "repeatError": "Las contraseñas no coinciden."
     },
+    "dialog": {
+        "delete": "¿Seguro que quiere borrar esta categoría?",
+        "no": "Cancelar",
+        "yes": "Aceptar"
+    },
     "toast": {
         "waitAdmin": "Espere a que el administrador le de permisos.",
         "loginError": "Usuario o contraseña incorrectos.",
         "registerError": "Usuario o contraseña incorrectos.",
         "failRegister": "Fallo en el registro.",
         "emailUser": "Este correo ya está en uso.",
-        "error": "Algo ha ido mal."
+        "error": "Algo ha ido mal.",
+        "cant": "No puede crear/borrar/modificar esta categoría",
+        "good": "Todo ha ido bien"
     },
     "menu": {
         "home": "Inicio",
@@ -47,13 +55,23 @@
         "data": "Datos",
         "graphic": "Gráficas",
         "update": "Modificar usuario",
-        "categories": "Categorías"
+        "categories": "Categorías",
+        "create": "Crear categoría",
+        "catind": "Categorías e incidencias",
+        "download": "Descargar datos",
+        "selectCat": "Seleccione una categoría",
+        "selectUs": "Selecciona un usuario"
+    },
+    "filter": {
+        "apply": "Aplicar filtros",
+        "reset": "Borrar filtros"
     },
     "incidents": {
         "unresolved": "Sin resolver",
         "day": "Día",
         "hour": "Hora",
         "user": "Usuario",
-        "resolved": "Marcar como resuelta"
+        "resolved": "Marcar como resuelta",
+        "anonymous": "Anónimo"
     }
 }

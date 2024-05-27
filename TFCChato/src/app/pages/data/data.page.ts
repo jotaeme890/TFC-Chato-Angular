@@ -10,6 +10,7 @@ import { CustomTranslateService } from 'src/app/core/services/translate/translat
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { ModalController } from '@ionic/angular';
 import { ModalCategoryComponent } from './modal-category/modal-category.component';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
 
 @Component({
   selector: 'app-data',
@@ -130,7 +131,6 @@ export class DataPage implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
       if (result) {
         this.deleteCategory(category);
       }
@@ -189,8 +189,14 @@ export class DataPage implements OnInit {
     if (results && results.data) {
       if (results?.data) {
         this._categoryService.createCategory(results?.data).subscribe({
-          next: (_) => this.showSuccess('good'),
-          error: (_) => this.showError('cant'),
+          next: async (_) => {
+            this.showSuccess('good');
+            await Haptics.impact({ style: ImpactStyle.Medium });
+          },
+          error: async (_) => {
+            this.showError('cant');
+            await Haptics.impact({ style: ImpactStyle.Heavy });
+          },
         });
       }
     }
@@ -203,8 +209,14 @@ export class DataPage implements OnInit {
    */
   deleteCategory(info: CategoryInfo) {
     this._categoryService.deleteCategory(info).subscribe({
-      next: (_) => this.showSuccess('good'),
-      error: (_) => this.showError('cant'),
+      next: async (_) => {
+        this.showSuccess('good');
+        await Haptics.impact({ style: ImpactStyle.Medium });
+      },
+      error: async (_) => {
+        this.showError('cant');
+        await Haptics.impact({ style: ImpactStyle.Heavy });
+      },
     });
   }
 

@@ -1,0 +1,23 @@
+<div id="popover-button-user-mobile">
+  <ion-item [button]="!disabled" [detail]="!disabled">
+    <ion-text *ngIf="!userSelected && !disabled">{{'data.users' | translate}}</ion-text>
+    <ion-text *ngIf="userSelected">{{userSelected.name}}</ion-text>
+</ion-item>
+
+</div>
+
+<ion-popover *ngIf="!disabled" trigger="popover-button-user-mobile" #popover (willPresent)="onLoadCategories()">
+  <ng-template>
+    <ion-content >
+      
+      <ion-list>
+        <app-item-user
+          (clicked)="onUserClicked(popover,$event)"
+          *ngFor="let user of users"
+          [item]="user"
+        ></app-item-user>
+      </ion-list>
+
+    </ion-content>
+  </ng-template>
+</ion-popover>

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" fill="clear" (click)="onCancel()">
+          <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="filter">
+    <form [formGroup]="form" class="filter-form">
+      <div class="form-controls">
+        <app-category-selectable-mobile [resetSignal]="resetRequested" formControlName="categoryName"></app-category-selectable-mobile>
+        <app-user-selectable-mobile [resetSignal]="resetRequested" formControlName="userId"></app-user-selectable-mobile>
+
+        <mat-checkbox formControlName="checked" class="checkbox">Vistos</mat-checkbox>
+        <mat-checkbox formControlName="resolved" class="checkbox">Resueltos</mat-checkbox>
+      </div>
+      <div class="form-actions">
+        <button (click)="resetFilters()" class="reset--button">{{'filter.reset' | translate}}</button>
+        <button mat-raised-button color="primary" (click)="setFilters()" class="apply--button">{{'filter.apply' | translate}}</button>
+      </div>
+    </form>
+  </div>
+</ion-content>

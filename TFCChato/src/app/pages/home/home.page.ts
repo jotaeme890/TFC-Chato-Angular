@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { Observable, map } from 'rxjs';
 import { incidentInfo } from 'src/app/core/interfaces/incidents-info';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
+import { ModalCategoryComponent } from '../data/modal-category/modal-category.component';
+import { FilterComponent } from './filter/filter.component';
+import { FilterMobileComponent } from './filter-mobile/filter-mobile.component';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +27,8 @@ export class HomePage {
   constructor(
     private _auth: AuthService,
     private router: Router,
-    public firebaseService: FirebaseService
+    public firebaseService: FirebaseService,
+    private myModal: ModalController
   ) {}
 
   /**
@@ -35,6 +40,21 @@ export class HomePage {
     if (id) {
       console.log(id);
       this.router.navigate(['/home/incident-data', id]);
+    }
+  }
+
+  async openFilterModal() {
+    const mod = await this.myModal.create({
+      component: FilterMobileComponent,
+    });
+    await mod.present();
+    const results = await mod.onDidDismiss();
+    if (results && results.data) {
+      if (results.data === 'reset') {
+        this.showAll();
+      } else if (results.data) {
+        this.onFilterChange(results.data);
+      }
     }
   }
 

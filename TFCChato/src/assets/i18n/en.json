@@ -64,7 +64,8 @@
     },
     "filter": {
         "apply": "Apply filter",
-        "reset": "Reset filters"
+        "reset": "Reset filters",
+        "filter": "Filters"
     },
     "incidents": {
         "unresolved": "Unresolved",

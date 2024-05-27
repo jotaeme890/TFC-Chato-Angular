@@ -1,24 +1,15 @@
 .filter {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    width: 80%;
-    border-radius: 0.5rem;
-    margin: 2% auto;
-    box-shadow: 0px 2px 15px -2px rgba(71, 71, 71, 0.24);
+    padding: 3%;
 
     .form-controls {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
         width: 100%;
         margin-bottom: 20px;
         gap: 20px;
-
-        app-category-selectable,
-        app-user-selectable {
-            flex: 2;
-            max-width: 100%
-        }
 
         mat-checkbox {
             flex: 1;
@@ -30,14 +21,12 @@
 
     .form-actions {
         display: flex;
-        justify-content: flex-end;
-        align-items: center;
+        flex-direction: column;
+        justify-content: center;
         width: 100%;
         gap: 20px;
-        padding: 10px 0;
 
         button {
-            margin-left: 10px;
             border-radius: 20px;
             padding: 8px 60px;
             font-size: 16px;
@@ -60,9 +49,5 @@
             color: #fff;
             font-weight: bold;
         }
-    }
-
-    @media (max-width: 850px) {
-        width: 95%;
     }
 }

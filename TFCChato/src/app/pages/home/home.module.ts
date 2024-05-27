@@ -15,6 +15,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { UserSelectableComponent } from './user-selectable/user-selectable.component';
 import { ItemCategoryComponent } from './item-category/item-category.component';
 import { ItemUserComponent } from './item-user/item-user.component';
+import { FilterMobileComponent } from './filter-mobile/filter-mobile.component';
+import { UserSelectableMobileComponent } from './user-selectable-mobile/user-selectable-mobile.component';
+import { CategorySelectableMobileComponent } from './category-selectable-mobile/category-selectable-mobile.component';
 
 
 @NgModule({
@@ -41,7 +44,10 @@ import { ItemUserComponent } from './item-user/item-user.component';
     ItemCategoryComponent,
     ItemUserComponent,
     FilterComponent,
-    UserSelectableComponent
+    UserSelectableComponent,
+    FilterMobileComponent,
+    UserSelectableMobileComponent,
+    CategorySelectableMobileComponent
   ]
 })
 export class HomePageModule {}

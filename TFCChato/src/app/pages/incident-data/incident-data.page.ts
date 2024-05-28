@@ -77,7 +77,8 @@ export class IncidentDataPage implements OnInit {
             await Haptics.impact({ style: ImpactStyle.Medium });
           },
           error: async error => {
-            this.showError('cant');
+            this.incident.resolved = false;
+            this.showError('error');
             await Haptics.impact({ style: ImpactStyle.Heavy });
           }
         });

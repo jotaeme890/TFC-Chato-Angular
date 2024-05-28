@@ -7,7 +7,10 @@ import {
   Output,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, combineLatest, map } from 'rxjs';
 import { UserInfo } from 'src/app/core/interfaces/user-info';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 
 @Component({
   selector: 'app-users-info',
@@ -15,6 +18,7 @@ import { UserInfo } from 'src/app/core/interfaces/user-info';
   styleUrls: ['./users-info.component.scss'],
 })
 export class UsersInfoComponent implements OnInit {
+  users$: Observable<any[]> | null = null;
   isScreenSmall: boolean = false;
 
   @Input() users: UserInfo[] | null | undefined;
@@ -28,11 +32,25 @@ export class UsersInfoComponent implements OnInit {
    * injection that allows the class to navigate between different components in the Angular
    * application.
    */
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    protected auth: AuthService,
+    protected firebaseService: FirebaseService
+
+  ) {
     this.checkScreenSize(window.innerWidth);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.users$ = combineLatest([
+      this.firebaseService.users$,
+      this.auth.user$
+    ]).pipe(
+      map(([users, currentUser]) =>
+        users.filter(user => user.uuid !== currentUser?.uuid)
+      )
+    );
+  }
 
   /**
    * Emits an event when a user is clicked.

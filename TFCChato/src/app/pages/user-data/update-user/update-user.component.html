@@ -40,7 +40,7 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" *ngIf="showRoleField">
         <mat-label>{{'forms.role' | translate}}</mat-label>
         <mat-select formControlName="role">
           <mat-option value="admin">{{'forms.admin' | translate}}</mat-option>

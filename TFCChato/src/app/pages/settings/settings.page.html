@@ -1,3 +1,20 @@
 <ion-content>
-  <p>HOLA SETTINGS</p>
+  <div class="user">
+    <div class="user--image">
+      <img alt="{{'forms.picture' | translate}}" [src]="(auth.user$|async)?.picture"/>
+    </div>
+
+    <div class="user--info">
+      <div class="detail">
+
+        <h1 class="detail--name">{{(auth.user$|async)?.name}} {{(auth.user$|async)?.surname}}</h1>
+
+        <p class="detail--username">{{(auth.user$|async)?.username}}</p>
+
+        <p *ngIf="user.role === 'admin'" class="detail--role">{{'forms.admin' | translate}}</p>
+
+        <button (click)="updateUser(user)">{{"data.update" | translate}}</button>
+      </div> 
+    </div>
+  </div>
 </ion-content>

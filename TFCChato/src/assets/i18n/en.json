@@ -75,5 +75,10 @@
         "user": "User",
         "resolved": "Set as resolved",
         "anonymous": "Anonymous"
+    },
+    "settings": {
+        "theme": "Theme",
+        "profile": "Profile",
+        "language": "Languaje"
     }
 }

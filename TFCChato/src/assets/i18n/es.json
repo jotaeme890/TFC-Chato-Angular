@@ -75,5 +75,10 @@
         "user": "Usuario",
         "resolved": "Marcar como resuelta",
         "anonymous": "Anónimo"
+    },
+    "settings": {
+        "theme": "Tema",
+        "profile": "Perfil",
+        "language": "Idioma"
     }
 }

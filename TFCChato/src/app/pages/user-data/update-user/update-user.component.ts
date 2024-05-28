@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { UserInfo } from 'src/app/core/interfaces/user-info';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-update-user',
@@ -10,6 +11,7 @@ import { UserInfo } from 'src/app/core/interfaces/user-info';
 })
 export class UpdateUserComponent implements OnInit {
   form: FormGroup;
+  showRoleField: boolean = true;
 
   /**
    * Setter method for setting user information to be edited.
@@ -24,6 +26,12 @@ export class UpdateUserComponent implements OnInit {
       this.form.controls['username'].setValue(user.username);
       this.form.controls['uuid'].setValue(user.uuid);
       this.form.controls['role'].setValue(user.role);
+
+      this.auth.user$.subscribe(currentUser => {
+        if (currentUser?.uuid === user.uuid) {
+          this.showRoleField = false;
+        }
+      });
     }
   }
 
@@ -34,7 +42,8 @@ export class UpdateUserComponent implements OnInit {
    */
   constructor(
     private formBuilder: FormBuilder,
-    private modal: ModalController
+    private modal: ModalController,
+    private auth: AuthService
   ) {
     this.form = this.formBuilder.group({
       picture: ['', [Validators.required]],
@@ -53,6 +62,9 @@ export class UpdateUserComponent implements OnInit {
    * Dismisses the modal and passes the updated user information to the parent component.
    */
   onSub() {
+    if (!this.showRoleField && this.form) {
+      this?.form?.get('role')?.setValue('admin');
+    }
     this.modal.dismiss(this.form.value);
   }
 

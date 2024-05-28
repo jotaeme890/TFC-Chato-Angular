@@ -39,6 +39,10 @@ export class UpdateUserComponent implements OnInit {
    * Creates an instance of UpdateUserComponent.
    * @param formBuilder - The FormBuilder service for building form instances.
    * @param modal - The ModalController for managing modal windows.
+   * @param auth The `auth` parameter is of type `AuthService`, which is used for handling
+   * authentication-related functionalities in the application. It seems to have an observable property
+   * `isLogged$` that emits a boolean value indicating whether a user is logged in or not. The
+   * constructor subscribes to this observable and navigates
    */
   constructor(
     private formBuilder: FormBuilder,

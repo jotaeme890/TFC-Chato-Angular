@@ -31,6 +31,10 @@ export class UsersInfoComponent implements OnInit {
    * @param router The `router` parameter in the constructor is of type `Router`. It is a dependency
    * injection that allows the class to navigate between different components in the Angular
    * application.
+   * @param auth The `auth` parameter is of type `AuthService`, which is used for handling
+   * authentication-related functionalities in the application. It seems to have an observable property
+   * `isLogged$` that emits a boolean value indicating whether a user is logged in or not. The
+   * constructor subscribes to this observable and navigates
    */
   constructor(
     private router: Router,

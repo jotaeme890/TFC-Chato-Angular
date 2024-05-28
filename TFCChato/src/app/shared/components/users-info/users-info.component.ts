@@ -35,6 +35,7 @@ export class UsersInfoComponent implements OnInit {
    * authentication-related functionalities in the application. It seems to have an observable property
    * `isLogged$` that emits a boolean value indicating whether a user is logged in or not. The
    * constructor subscribes to this observable and navigates
+   * @param firebaseService - The FirebaseService for interacting with Firebase.
    */
   constructor(
     private router: Router,
@@ -45,6 +46,10 @@ export class UsersInfoComponent implements OnInit {
     this.checkScreenSize(window.innerWidth);
   }
 
+  /**
+ * Method executed when the component is initialized.
+ * Retrieves and filters user data from Firebase and the authentication service.
+ */
   ngOnInit() {
     this.users$ = combineLatest([
       this.firebaseService.users$,

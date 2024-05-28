@@ -37,6 +37,7 @@ export class IncidentsService {
    * Updates an incident.
    *
    * @param incident incidentInfo - the updated incident information.
+   * @returns An Observable that emits a success message if the incident is updated successfully, otherwise emits an error message.
    */
   updateIncident(incident: incidentInfo): Observable<any> {
     return from(this.firebaseService.updateDocument('incidentsInfo', incident.uuid, incident)).pipe(

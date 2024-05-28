@@ -28,6 +28,7 @@
     },
     "dialog": {
         "delete": "¿Seguro que quiere borrar esta categoría?",
+        "resolved": "¿Seguro que quiere resolver esta incidencia?",
         "no": "Cancelar",
         "yes": "Aceptar"
     },

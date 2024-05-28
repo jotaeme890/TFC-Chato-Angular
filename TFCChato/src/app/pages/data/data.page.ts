@@ -127,7 +127,7 @@ export class DataPage implements OnInit {
   openDialog(category: CategoryInfo): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '250px',
-      data: { message: '¿Estás seguro de que quieres borrar esto?' },
+      data: { message: 'delete' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {

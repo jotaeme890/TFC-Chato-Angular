@@ -28,6 +28,7 @@
     },
     "dialog": {
         "delete": "Would you like to delete this category?",
+        "resolved": "Would you like to resolve this incident?",
         "no": "Cancel",
         "yes": "Accept"
     },

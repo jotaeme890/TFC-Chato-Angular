@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { incidentInfo } from 'src/app/core/interfaces/incidents-info';
 import { IncidentsService } from 'src/app/core/services/api/incidents.service';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-incident-data',
@@ -17,10 +19,12 @@ export class IncidentDataPage implements OnInit {
    *
    * @param route ActivatedRoute - a service provided by Angular that gives access to information about a route associated with a component loaded in an outlet.
    * @param incidentsService IncidentsService - a service for managing incidents.
+   * @param dialog MatDialog
    */
   constructor(
     private route: ActivatedRoute,
-    private incidentsService: IncidentsService
+    private incidentsService: IncidentsService,
+    public dialog: MatDialog,
   ) {}
 
   /**
@@ -51,10 +55,19 @@ export class IncidentDataPage implements OnInit {
    * @param incident incidentInfo - the incident to be marked as resolved.
    */
   async setResolvedIncident(incident: incidentInfo) {
-    incident.resolved = true;
-    this.incident = incident;
-    this.incidentsService.updateIncident(incident);
-    await Haptics.impact({ style: ImpactStyle.Medium });
-    console.log(incident);
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '250px',
+      data: { message: 'resolved' },
+    });
+
+    dialogRef.afterClosed().subscribe(async (result) => {
+      if (result) {
+        incident.resolved = true;
+        this.incident = incident;
+        this.incidentsService.updateIncident(incident);
+        await Haptics.impact({ style: ImpactStyle.Medium });
+        console.log(incident);
+      }
+    });
   }
 }

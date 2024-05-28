@@ -17,4 +17,21 @@
       </div> 
     </div>
   </div>
+
+  <div class="content">
+    <p-accordion>
+      <p-accordionTab header="{{'settings.theme' | translate}}">
+      </p-accordionTab>
+      <p-accordionTab header="{{'settings.language' | translate}}">
+        <div class="languages">
+          <div [class.selected]="currentLang === 'es'" (click)="setLanguage('es')">
+            <img src="../../../assets/images/espanya.png">
+          </div>
+          <div [class.selected]="currentLang === 'en'" (click)="setLanguage('en')">
+            <img src="../../../assets/images/uk.png">
+          </div>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
 </ion-content>

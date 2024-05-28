@@ -8,6 +8,7 @@ import { MediaService } from 'src/app/core/services/media.service';
 import { Router } from '@angular/router';
 import { UserInfo } from 'src/app/core/interfaces/user-info';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { CustomTranslateService } from 'src/app/core/services/translate/translate.service';
 
 @Component({
   selector: 'app-settings',
@@ -16,6 +17,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class SettingsPage implements OnInit {
   user: any | undefined;
+  currentLang: string;
 
   /**
    * Creates an instance of UserDataPage.
@@ -26,6 +28,10 @@ export class SettingsPage implements OnInit {
    * @param media - The MediaService for media-related operations.
    * @param _router - The Router for navigating between routes.
    * @param auth - The AuthService for authentication-related operations.
+   * @param translate The `translate` parameter in the constructor is of type `CustomTranslateService`.
+   * It is used for handling translation services within the component or service where it is injected.
+   * This service likely provides methods for translating text or messages into different languages or
+   * for managing localization in the application.
    */
   constructor(
     private _firebaseService: FirebaseService,
@@ -33,8 +39,11 @@ export class SettingsPage implements OnInit {
     private myModal: ModalController,
     private media: MediaService,
     private _router: Router,
-    protected auth: AuthService
-  ) {}
+    protected auth: AuthService,
+    private translate: CustomTranslateService,
+  ) {
+    this.currentLang = this.translate.getCurrentLang();
+  }
 
   /**
    * Method executed when the component is initialized.
@@ -86,5 +95,10 @@ export class SettingsPage implements OnInit {
         this.userService.updateUser(results.data);
       }
     }
+  }
+
+  setLanguage(lang: string) {
+    this.translate.use(lang);
+    this.currentLang = lang;
   }
 }

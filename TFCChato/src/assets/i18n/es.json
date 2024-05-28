@@ -80,5 +80,9 @@
         "theme": "Tema",
         "profile": "Perfil",
         "language": "Idioma"
+    },
+    "language": {
+        "spanish": "Español",
+        "english": "Inglés"
     }
 }

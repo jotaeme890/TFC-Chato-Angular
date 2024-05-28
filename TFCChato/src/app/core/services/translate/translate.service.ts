@@ -44,6 +44,10 @@ export class CustomTranslateService {
       });
   }
 
+  getCurrentLang(): string {
+    return this._language.getValue();
+  }
+
   /**
    * The function `get` returns an Observable that retrieves a translated string based on a given key.
    * @param {string} key - The `key` parameter is a string that represents the key used to retrieve a

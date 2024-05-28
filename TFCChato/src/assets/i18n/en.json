@@ -79,6 +79,10 @@
     "settings": {
         "theme": "Theme",
         "profile": "Profile",
-        "language": "Languaje"
+        "language": "Language"
+    },
+    "language": {
+        "spanish": "Spanish",
+        "english": "English"
     }
 }

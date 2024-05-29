@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { UserInfo } from 'src/app/core/interfaces/user-info';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { CustomTranslateService } from 'src/app/core/services/translate/translate.service';
+import { ThemeService } from 'src/app/core/services/theme/theme.service';
 
 @Component({
   selector: 'app-settings',
@@ -41,6 +42,7 @@ export class SettingsPage implements OnInit {
     private _router: Router,
     protected auth: AuthService,
     private translate: CustomTranslateService,
+    private themeService: ThemeService
   ) {
     this.currentLang = this.translate.getCurrentLang();
   }

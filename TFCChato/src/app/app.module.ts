@@ -30,6 +30,7 @@ import { CapitalizeInitialPipe } from './core/pipes/capitalize-initial.pipe';
 import { DividerModule } from 'primeng/divider';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { DropdownModule } from 'primeng/dropdown';
 
 export function MediaServiceFactory(
   backend:string,
@@ -65,6 +66,7 @@ export function AuthServiceFactory(
     CapitalizeInitialPipe,
   ],
   imports: [
+    DropdownModule,
     BrowserAnimationsModule,
     BrowserModule, 
     IonicModule.forRoot(), 

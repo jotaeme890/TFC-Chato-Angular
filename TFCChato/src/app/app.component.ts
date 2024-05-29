@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LocalService } from './core/services/translate/local.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from './core/services/auth.service';
 import { filter } from 'rxjs';
 import { IonMenu, MenuController } from '@ionic/angular';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
+import { ThemeService } from './core/services/theme/theme.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   isSplash: boolean = false;
 
   /**
@@ -32,12 +33,16 @@ export class AppComponent {
   constructor(
     protected auth: AuthService,
     private router: Router,
-    private localLang: LocalService
+    private localLang: LocalService,
+    private themeService: ThemeService
   ) {
     this.auth.isLogged$.subscribe((logged) => {
       if (logged) this.router.navigate(['/home']);
       else this.router.navigate(['/access']);
     });
+  }
+  ngOnInit(): void {
+    this.setTheme()
   }
 
   /**
@@ -92,5 +97,14 @@ export class AppComponent {
   toAbout(menu: IonMenu) {
     this.router.navigate(['/about']);
     menu.close();
+  }
+
+  private setTheme() {
+    const themeCodes: string[] = [
+      "light",
+      "dark"
+    ];
+
+    this.themeService.switchTheme('light')
   }
 }

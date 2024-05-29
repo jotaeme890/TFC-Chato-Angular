@@ -14,6 +14,7 @@ import { createTranslateLoader } from 'src/app/core/translate/translate';
 
 @NgModule({
   imports: [
+    FormsModule,
     CommonModule,
     FormsModule,
     IonicModule,

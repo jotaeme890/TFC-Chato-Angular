@@ -62,9 +62,7 @@ export class FilterMobileComponent implements OnInit {
     const initialFormState = this.filterService.getFilter().value;
     if (initialFormState) {
       this.form = new FormGroup({
-        categoryName: new FormControl(
-          initialFormState?.get('categoryName')?.value
-        ),
+        categoryName: new FormControl(initialFormState?.get('categoryName')?.value),
         userId: new FormControl(initialFormState.get('userId')?.value),
         checked: new FormControl(initialFormState.get('checked')?.value),
         resolved: new FormControl(initialFormState.get('resolved')?.value),

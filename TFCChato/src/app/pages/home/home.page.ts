@@ -8,6 +8,7 @@ import { FirebaseService } from 'src/app/core/services/firebase/firebase.service
 import { ModalCategoryComponent } from '../data/modal-category/modal-category.component';
 import { FilterComponent } from './filter/filter.component';
 import { FilterMobileComponent } from './filter-mobile/filter-mobile.component';
+import { FilterService } from 'src/app/core/services/filter/filter.service';
 
 @Component({
   selector: 'app-home',
@@ -23,12 +24,15 @@ export class HomePage {
    * @param _auth AuthService - a service for handling authentication and user authorization.
    * @param router Router - an instance of the Angular Router service used for navigating between different components.
    * @param firebaseService FirebaseService - a service for handling Firebase-related operations.
+   * @param myModal - The ModalController - a service for managing modal dialogs.
+   * @param filterService - A service for managing filter service.
    */
   constructor(
     private _auth: AuthService,
     private router: Router,
     public firebaseService: FirebaseService,
-    private myModal: ModalController
+    private myModal: ModalController,
+    private filterService: FilterService
   ) {}
 
   /**
@@ -43,6 +47,9 @@ export class HomePage {
     }
   }
 
+  /**
+   * Opens the filter modal and applies the selected filter settings.
+   */
   async openFilterModal() {
     const mod = await this.myModal.create({
       component: FilterMobileComponent,
@@ -58,45 +65,69 @@ export class HomePage {
     }
   }
 
+  /**
+   * Method executed when the component is initialized.
+   * Initializes the component by showing all incidents and subscribing to changes in the filter state.
+   */
   ngOnInit() {
     this.showAll();
+    this.filterService.getFilter().subscribe((filterValues) => {
+      if (filterValues) {
+        this.onFilterChange(filterValues);
+      } else {
+        this.showAll();
+      }
+    });
   }
 
+  /**
+   * Shows all incidents without applying any filters.
+   */
   showAll() {
-    this.filteredIncidents$ = this.firebaseService.incidents$
+    this.filteredIncidents$ = this.firebaseService.incidents$;
   }
 
+  /**
+   * Applies the specified filter settings to the incidents.
+   *
+   * @param filterValues - The filter settings to apply.
+   */
   onFilterChange(filterValues: any) {
-    console.log('filterValues:', filterValues);
+    console.log('filterValues:', filterValues.controls);
     this.filteredIncidents$ = this.firebaseService.incidents$.pipe(
       map((incidents) =>
         incidents.filter((incident: incidentInfo) => {
-          if(filterValues.userId && !filterValues.categoryName){
+          const userIdValue = filterValues.controls.userId.value;
+          const categoryNameValue = filterValues.controls.categoryName.value;
+          const checkedValue = filterValues.controls.checked.value;
+          const resolvedValue = filterValues.controls.resolved.value;
+
+          if (userIdValue && !categoryNameValue) {
             return (
-              incident.checked == filterValues.checked &&
-              incident.resolved == filterValues.resolved &&
-              incident.userId == filterValues.userId
+              incident.checked == checkedValue &&
+              incident.resolved == resolvedValue &&
+              incident.userId == userIdValue
             );
-          } else if(filterValues.userId){
+          } else if (userIdValue) {
             return (
-              incident.categoryName == filterValues.categoryName &&
-              incident.checked == filterValues.checked &&
-              incident.resolved == filterValues.resolved &&
-              incident.userId == filterValues.userId
+              incident.categoryName == categoryNameValue &&
+              incident.checked == checkedValue &&
+              incident.resolved == resolvedValue &&
+              incident.userId == userIdValue
             );
-          } else if(!filterValues.userId && filterValues.categoryName){
+          } else if (!userIdValue && categoryNameValue) {
             return (
-              incident.categoryName == filterValues.categoryName &&
-              incident.checked == filterValues.checked &&
-              incident.resolved == filterValues.resolved
+              incident.categoryName == categoryNameValue &&
+              incident.checked == checkedValue &&
+              incident.resolved == resolvedValue
             );
-          }else if(!filterValues.userId && !filterValues.categoryName){
+          } else if (!userIdValue && !categoryNameValue) {
             return (
-              incident.checked == filterValues.checked &&
-              incident.resolved == filterValues.resolved
+              incident.checked == checkedValue &&
+              incident.resolved == resolvedValue
             );
           } else {
-            return incident
+            return incident;
           }
         })
       )

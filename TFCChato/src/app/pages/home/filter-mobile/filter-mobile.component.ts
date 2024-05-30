@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { FilterService } from 'src/app/core/services/filter/filter.service';
 
 @Component({
   selector: 'app-filter-mobile',
@@ -8,7 +9,6 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./filter-mobile.component.scss'],
 })
 export class FilterMobileComponent implements OnInit {
-
   /**
    * EventEmitter for emitting a signal to reset filters.
    */
@@ -22,10 +22,13 @@ export class FilterMobileComponent implements OnInit {
    * Creates an instance of FiltersComponent.
    *
    * @param formBuilder - The FormBuilder service for building form instances.
+   * @param modal - The ModalController - a service for managing modal dialogs.
+   * @param filterService - A service for managing filter service.
    */
   constructor(
     private formBuilder: FormBuilder,
-    private modal: ModalController
+    private modal: ModalController,
+    private filterService: FilterService
   ) {
     this.form = this.formBuilder.group({
       categoryName: [undefined],
@@ -35,22 +38,69 @@ export class FilterMobileComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
-
+  /**
+   * Method executed when the cancel action is triggered.
+   * Dismisses the modal without passing any data.
+   */
   onCancel() {
     this.modal.dismiss(null);
   }
 
   /**
-   * Sets the filters based on the form values.
+   * Method executed when the component is initialized.
+   * Initializes the form and subscribes to changes in the filter state.
    */
-  setFilters() {
-    console.log(this.form.value);
-    this.modal.dismiss(this.form.value);
+  ngOnInit() {
+    this.initForm();
+    this.subscribeToFilterState();
   }
 
   /**
-   * Resets all filters and emits a signal to notify parent components.
+   * Initializes the form with the initial filter state.
+   */
+  initForm() {
+    const initialFormState = this.filterService.getFilter().value;
+    if (initialFormState) {
+      this.form = new FormGroup({
+        categoryName: new FormControl(
+          initialFormState?.get('categoryName')?.value
+        ),
+        userId: new FormControl(initialFormState.get('userId')?.value),
+        checked: new FormControl(initialFormState.get('checked')?.value),
+        resolved: new FormControl(initialFormState.get('resolved')?.value),
+      });
+    } else {
+      this.form = new FormGroup({
+        categoryName: new FormControl(undefined),
+        userId: new FormControl(undefined),
+        checked: new FormControl(false),
+        resolved: new FormControl(false),
+      });
+    }
+  }
+
+  /**
+   * Subscribes to changes in the filter state.
+   */
+  subscribeToFilterState() {
+    this.filterService.getFilter().subscribe((formState) => {
+      if (formState && this.form !== formState) {
+        this.form.setValue(formState.value);
+      }
+    });
+  }
+
+  /**
+   * Applies the current filter settings and dismisses the modal.
+   */
+  setFilters() {
+    console.log(this.form.value);
+    this.modal.dismiss(null);
+    this.filterService.updateFilterState(this.form);
+  }
+
+  /**
+   * Resets the filter settings to their default values and dismisses the modal.
    */
   resetFilters() {
     this.form.reset({
@@ -60,5 +110,7 @@ export class FilterMobileComponent implements OnInit {
       resolved: false,
     });
     this.modal.dismiss('reset');
+    this.filterService.updateFilterState(this.form);
+    this.resetRequested.emit();
   }
 }

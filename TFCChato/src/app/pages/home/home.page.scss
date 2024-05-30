@@ -1,20 +1,25 @@
 .incidents {
-  justify-content: flex-start;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
   row-gap: 20px;
   column-gap: 30px;
   width: 100%;
-  margin: 2% auto;
-  padding: 2%;
+  padding: 20px;
 
   app-incidents-info {
-    flex: 1 1 0;
+    flex: 0 0 calc(33.333% - 40px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
-
   @media (max-width: 850px) {
-    flex-direction: column;
+    app-incidents-info {
+      flex: 0 0 100%;
+    }
   }
 }
 
@@ -32,12 +37,13 @@
     border-radius: 0.5rem;
     margin: 2% auto;
     background-color: #BD1E1E;
-    
+
     p {
       font-weight: bold;
       color: #fff;
     }
   }
+
   .desktop {
     display: none;
   }

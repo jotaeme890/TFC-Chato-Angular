@@ -38,7 +38,6 @@ export class AppComponent implements OnInit{
   ) {
     this.auth.isLogged$.subscribe((logged) => {
       if (logged) this.router.navigate(['/home']);
-      else this.router.navigate(['/access']);
     });
   }
   ngOnInit(): void {

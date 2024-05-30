@@ -119,13 +119,13 @@
 <title>cluster_AppModule_imports</title>
 <polygon fill="none" stroke="black" points="295,-78 295,-130 556,-130 556,-78 295,-78"/>
 </g>
-<g id="clust7" class="cluster">
-<title>cluster_AppModule_bootstrap</title>
-<polygon fill="none" stroke="black" points="227,-208 227,-260 351,-260 351,-208 227,-208"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_AppModule_declarations</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 287,-130 287,-78 16,-78"/>
+</g>
+<g id="clust7" class="cluster">
+<title>cluster_AppModule_bootstrap</title>
+<polygon fill="none" stroke="black" points="227,-208 227,-260 351,-260 351,-208 227,-208"/>
 </g>
 <!-- AppComponent -->
 <g id="node1" class="node">
@@ -312,6 +312,7 @@ import { CapitalizeInitialPipe } from &#x27;./core/pipes/capitalize-initial.pipe
 import { DividerModule } from &#x27;primeng/divider&#x27;;
 import {MatDialogModule} from &#x27;@angular/material/dialog&#x27;;
 import {MatButtonModule} from &#x27;@angular/material/button&#x27;;
+import { DropdownModule } from &#x27;primeng/dropdown&#x27;;
 
 export function MediaServiceFactory(
   backend:string,
@@ -347,6 +348,7 @@ export function AuthServiceFactory(
     CapitalizeInitialPipe,
   ],
   imports: [
+    DropdownModule,
     BrowserAnimationsModule,
     BrowserModule, 
     IonicModule.forRoot(), 

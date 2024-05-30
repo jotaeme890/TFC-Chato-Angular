@@ -140,6 +140,9 @@
                                 <a href="#deleteCategory" >deleteCategory</a>
                             </li>
                             <li>
+                                <a href="#getCategory" >getCategory</a>
+                            </li>
+                            <li>
                                 <a href="#updateCategory" >updateCategory</a>
                             </li>
                         </ul>
@@ -235,8 +238,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="33"
-                                    class="link-to-prism">src/app/core/services/api/categories.service.ts:33</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/core/services/api/categories.service.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -310,8 +313,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="76"
-                                    class="link-to-prism">src/app/core/services/api/categories.service.ts:76</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/core/services/api/categories.service.ts:80</a></div>
                         </td>
                     </tr>
 
@@ -369,6 +372,73 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getCategory"></a>
+                    <span class="name">
+                        <span ><b>getCategory</b></span>
+                        <a href="#getCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCategory(categoryId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="27"
+                                    class="link-to-prism">src/app/core/services/api/categories.service.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>categoryId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="updateCategory"></a>
                     <span class="name">
                         <span ><b>updateCategory</b></span>
@@ -385,8 +455,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="112"
-                                    class="link-to-prism">src/app/core/services/api/categories.service.ts:112</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/app/core/services/api/categories.service.ts:116</a></div>
                         </td>
                     </tr>
 
@@ -487,6 +557,10 @@ export class CategoriesService {
    * @param firebaseService FirebaseService - a service for handling Firebase-related operations.
    */
   constructor(private firebaseService: FirebaseService) {}
+
+  getCategory(categoryId: string) {
+    return this.firebaseService.getDocument(&#x27;categoryInfo&#x27;, categoryId)
+  }
 
   /**
    * Creates a new category.

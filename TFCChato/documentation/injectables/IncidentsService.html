@@ -314,8 +314,8 @@ This allows the component or service to have access to the functionality provide
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="41"
-                                    class="link-to-prism">src/app/core/services/api/incidents.service.ts:41</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/app/core/services/api/incidents.service.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -358,11 +358,12 @@ This allows the component or service to have access to the functionality provide
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An Observable that emits a success message if the incident is updated successfully, otherwise emits an error message.</p>
+
                             </div>
                 </td>
             </tr>
@@ -377,7 +378,7 @@ This allows the component or service to have access to the functionality provide
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { FirebaseService } from &#x27;../firebase/firebase.service&#x27;;
 import { incidentInfo } from &#x27;../../interfaces/incidents-info&#x27;;
-import { Observable, map, take } from &#x27;rxjs&#x27;;
+import { Observable, catchError, from, map, of, take, throwError } from &#x27;rxjs&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;,
@@ -413,12 +414,18 @@ export class IncidentsService {
    * Updates an incident.
    *
    * @param incident incidentInfo - the updated incident information.
+   * @returns An Observable that emits a success message if the incident is updated successfully, otherwise emits an error message.
    */
-  updateIncident(incident: incidentInfo) {
-    this.firebaseService.updateDocument(
-      &#x27;incidentsInfo&#x27;,
-      incident.uuid,
-      incident
+  updateIncident(incident: incidentInfo): Observable&lt;any&gt; {
+    return from(this.firebaseService.updateDocument(&#x27;incidentsInfo&#x27;, incident.uuid, incident)).pipe(
+      map(response &#x3D;&gt; ({ success: true, data: response })),
+      catchError((err) &#x3D;&gt;
+        throwError(
+          () &#x3D;&gt;
+            new Error(
+              &#x60;Error: ${err.message}&#x60;
+            )
+        ))
     );
   }
 }

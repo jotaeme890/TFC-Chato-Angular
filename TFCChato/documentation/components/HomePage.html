@@ -185,6 +185,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#filteredIncidents$" >filteredIncidents$</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#firebaseService" >firebaseService</a>
                             </li>
@@ -202,6 +205,19 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#incidentInfo" >incidentInfo</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onFilterChange" >onFilterChange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#openFilterModal" >openFilterModal</a>
+                            </li>
+                            <li>
+                                <a href="#showAll" >showAll</a>
                             </li>
                         </ul>
                     </td>
@@ -221,12 +237,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(_auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router, firebaseService: <a href="../injectables/FirebaseService.html" target="_self">FirebaseService</a>)</code>
+<code>constructor(_auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router, firebaseService: <a href="../injectables/FirebaseService.html" target="_self">FirebaseService</a>, myModal: ModalController, filterService: <a href="../injectables/FilterService.html" target="_self">FilterService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/pages/home/home.page.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/home/home.page.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -294,6 +310,42 @@
 
                                                         </td>
                                                 </tr>
+                                                <tr>
+                                                        <td>myModal</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>The ModalController - a service for managing modal dialogs.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>filterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FilterService.html" target="_self" >FilterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>A service for managing filter service.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -332,8 +384,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="31"
-                                    class="link-to-prism">src/app/pages/home/home.page.ts:31</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/app/pages/home/home.page.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -386,12 +438,239 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/pages/home/home.page.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Method executed when the component is initialized.
+Initializes the component by showing all incidents and subscribing to changes in the filter state.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFilterChange"></a>
+                    <span class="name">
+                        <span ><b>onFilterChange</b></span>
+                        <a href="#onFilterChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFilterChange(filterValues: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/app/pages/home/home.page.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Applies the specified filter settings to the incidents.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>filterValues</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The filter settings to apply.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openFilterModal"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>openFilterModal</b></span>
+                        <a href="#openFilterModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openFilterModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/pages/home/home.page.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Opens the filter modal and applies the selected filter settings.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showAll"></a>
+                    <span class="name">
+                        <span ><b>showAll</b></span>
+                        <a href="#showAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showAll()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">src/app/pages/home/home.page.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Shows all incidents without applying any filters.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
     <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filteredIncidents$"></a>
+                    <span class="name">
+                        <span ><b>filteredIncidents$</b></span>
+                        <a href="#filteredIncidents$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;any[]&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.firebaseService.incidents$</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/home/home.page.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -412,7 +691,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/home/home.page.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/home/home.page.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -432,9 +711,15 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
+import { ModalController } from &#x27;@ionic/angular&#x27;;
+import { Observable, map } from &#x27;rxjs&#x27;;
 import { incidentInfo } from &#x27;src/app/core/interfaces/incidents-info&#x27;;
 import { AuthService } from &#x27;src/app/core/services/auth.service&#x27;;
 import { FirebaseService } from &#x27;src/app/core/services/firebase/firebase.service&#x27;;
+import { ModalCategoryComponent } from &#x27;../data/modal-category/modal-category.component&#x27;;
+import { FilterComponent } from &#x27;./filter/filter.component&#x27;;
+import { FilterMobileComponent } from &#x27;./filter-mobile/filter-mobile.component&#x27;;
+import { FilterService } from &#x27;src/app/core/services/filter/filter.service&#x27;;
 
 @Component({
   selector: &#x27;app-home&#x27;,
@@ -442,17 +727,23 @@ import { FirebaseService } from &#x27;src/app/core/services/firebase/firebase.se
   styleUrls: [&#x27;home.page.scss&#x27;],
 })
 export class HomePage {
+  filteredIncidents$: Observable&lt;any[]&gt; &#x3D; this.firebaseService.incidents$;
+
   /**
    * Constructs a component constructor function.
    *
    * @param _auth AuthService - a service for handling authentication and user authorization.
    * @param router Router - an instance of the Angular Router service used for navigating between different components.
    * @param firebaseService FirebaseService - a service for handling Firebase-related operations.
+   * @param myModal - The ModalController - a service for managing modal dialogs.
+   * @param filterService - A service for managing filter service.
    */
   constructor(
     private _auth: AuthService,
     private router: Router,
-    public firebaseService: FirebaseService
+    public firebaseService: FirebaseService,
+    private myModal: ModalController,
+    private filterService: FilterService
   ) {}
 
   /**
@@ -466,14 +757,105 @@ export class HomePage {
       this.router.navigate([&#x27;/home/incident-data&#x27;, id]);
     }
   }
+
+  /**
+   * Opens the filter modal and applies the selected filter settings.
+   */
+  async openFilterModal() {
+    const mod &#x3D; await this.myModal.create({
+      component: FilterMobileComponent,
+    });
+    await mod.present();
+    const results &#x3D; await mod.onDidDismiss();
+    if (results &amp;&amp; results.data) {
+      if (results.data &#x3D;&#x3D;&#x3D; &#x27;reset&#x27;) {
+        this.showAll();
+      } else if (results.data) {
+        this.onFilterChange(results.data);
+      }
+    }
+  }
+
+  /**
+   * Method executed when the component is initialized.
+   * Initializes the component by showing all incidents and subscribing to changes in the filter state.
+   */
+  ngOnInit() {
+    this.showAll();
+    this.filterService.getFilter().subscribe((filterValues) &#x3D;&gt; {
+      if (filterValues) {
+        this.onFilterChange(filterValues);
+      } else {
+        this.showAll();
+      }
+    });
+  }
+
+  /**
+   * Shows all incidents without applying any filters.
+   */
+  showAll() {
+    this.filteredIncidents$ &#x3D; this.firebaseService.incidents$;
+  }
+
+  /**
+   * Applies the specified filter settings to the incidents.
+   *
+   * @param filterValues - The filter settings to apply.
+   */
+  onFilterChange(filterValues: any) {
+    console.log(&#x27;filterValues:&#x27;, filterValues.controls);
+    this.filteredIncidents$ &#x3D; this.firebaseService.incidents$.pipe(
+      map((incidents) &#x3D;&gt;
+        incidents.filter((incident: incidentInfo) &#x3D;&gt; {
+          const userIdValue &#x3D; filterValues.controls.userId.value;
+          const categoryNameValue &#x3D; filterValues.controls.categoryName.value;
+          const checkedValue &#x3D; filterValues.controls.checked.value;
+          const resolvedValue &#x3D; filterValues.controls.resolved.value;
+
+          if (userIdValue &amp;&amp; !categoryNameValue) {
+            return (
+              incident.checked &#x3D;&#x3D; checkedValue &amp;&amp;
+              incident.resolved &#x3D;&#x3D; resolvedValue &amp;&amp;
+              incident.userId &#x3D;&#x3D; userIdValue
+            );
+          } else if (userIdValue) {
+            return (
+              incident.categoryName &#x3D;&#x3D; categoryNameValue &amp;&amp;
+              incident.checked &#x3D;&#x3D; checkedValue &amp;&amp;
+              incident.resolved &#x3D;&#x3D; resolvedValue &amp;&amp;
+              incident.userId &#x3D;&#x3D; userIdValue
+            );
+          } else if (!userIdValue &amp;&amp; categoryNameValue) {
+            return (
+              incident.categoryName &#x3D;&#x3D; categoryNameValue &amp;&amp;
+              incident.checked &#x3D;&#x3D; checkedValue &amp;&amp;
+              incident.resolved &#x3D;&#x3D; resolvedValue
+            );
+          } else if (!userIdValue &amp;&amp; !categoryNameValue) {
+            return (
+              incident.checked &#x3D;&#x3D; checkedValue &amp;&amp;
+              incident.resolved &#x3D;&#x3D; resolvedValue
+            );
+          } else {
+            return incident;
+          }
+        })
+      )
+    );
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;ion-content&gt;
+    &lt;app-filter class&#x3D;&quot;desktop&quot; (filterChanged)&#x3D;&quot;onFilterChange($event)&quot; (resetRequested)&#x3D;&quot;showAll()&quot;&gt;&lt;/app-filter&gt;
+    &lt;button class&#x3D;&quot;mobile&quot; ion-button (click)&#x3D;&quot;openFilterModal()&quot;&gt;
+        &lt;p&gt;{{&#x27;filter.filter&#x27; | translate}}&lt;/p&gt;
+    &lt;/button&gt;
     &lt;div class&#x3D;&quot;incidents&quot;&gt;
-        &lt;app-incidents-info *ngFor&#x3D;&quot;let incident of firebaseService.incidents$ | async&quot; (onIncidentClicked)&#x3D;&quot;incidentInfo($event)&quot; [incident]&#x3D;&quot;incident&quot;&gt;&lt;/app-incidents-info&gt;
+        &lt;app-incidents-info *ngFor&#x3D;&quot;let incident of filteredIncidents$ | async&quot; (onIncidentClicked)&#x3D;&quot;incidentInfo($event)&quot; [incident]&#x3D;&quot;incident&quot;&gt;&lt;/app-incidents-info&gt;
     &lt;/div&gt;
 &lt;/ion-content&gt;
 </code></pre>
@@ -484,18 +866,53 @@ export class HomePage {
                     <code>home.page.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">.incidents {
-  justify-content: flex-start;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
   row-gap: 20px;
   column-gap: 30px;
   width: 100%;
-  margin: 5% auto;
-  padding: 2%;
+  padding: 20px;
 
+  app-incidents-info {
+    flex: 0 0 calc(33.333% - 40px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 
   @media (max-width: 850px) {
-    flex-direction: column;
+    app-incidents-info {
+      flex: 0 0 100%;
+    }
+  }
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    box-shadow: 0px 2px 15px -2px rgba(71, 71, 71, 0.24);
+    border-radius: 0.5rem;
+    margin: 2% auto;
+    background-color: #BD1E1E;
+
+    p {
+      font-weight: bold;
+      color: #fff;
+    }
+  }
+
+  .desktop {
+    display: none;
   }
 }</code></pre>
     </div>
@@ -525,8 +942,8 @@ export class HomePage {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-content>    <div class="incidents">        <app-incidents-info *ngFor="let incident of firebaseService.incidents$ | async" (onIncidentClicked)="incidentInfo($event)" [incident]="incident"></app-incidents-info>    </div></ion-content></div>'
-    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AccessPage', 'selector': 'app-access'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriesInfoComponent', 'selector': 'app-categories-info'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'DataPage', 'selector': 'app-data'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'IncidentDataPage', 'selector': 'app-incident-data'},{'name': 'IncidentsCircleGraphicComponent', 'selector': 'app-incidents-circle-graphic'},{'name': 'IncidentsInfoComponent', 'selector': 'app-incidents-info'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'ModalCategoryComponent', 'selector': 'app-modal-category'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'UpdateUserComponent', 'selector': 'app-update-user'},{'name': 'UserCircleGraphicComponent', 'selector': 'app-user-circle-graphic'},{'name': 'UserDataPage', 'selector': 'app-user-data'},{'name': 'UsersInfoComponent', 'selector': 'app-users-info'}];
+        var COMPONENT_TEMPLATE = '<div><ion-content>    <app-filter class="desktop" (filterChanged)="onFilterChange($event)" (resetRequested)="showAll()"></app-filter>    <button class="mobile" ion-button (click)="openFilterModal()">        <p>{{\'filter.filter\' | translate}}</p>    </button>    <div class="incidents">        <app-incidents-info *ngFor="let incident of filteredIncidents$ | async" (onIncidentClicked)="incidentInfo($event)" [incident]="incident"></app-incidents-info>    </div></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AccessPage', 'selector': 'app-access'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriesInfoComponent', 'selector': 'app-categories-info'},{'name': 'CategorySelectableComponent', 'selector': 'app-category-selectable'},{'name': 'CategorySelectableMobileComponent', 'selector': 'app-category-selectable-mobile'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'DataPage', 'selector': 'app-data'},{'name': 'FilterComponent', 'selector': 'app-filter'},{'name': 'FilterMobileComponent', 'selector': 'app-filter-mobile'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'IncidentDataPage', 'selector': 'app-incident-data'},{'name': 'IncidentsCircleGraphicComponent', 'selector': 'app-incidents-circle-graphic'},{'name': 'IncidentsInfoComponent', 'selector': 'app-incidents-info'},{'name': 'ItemCategoryComponent', 'selector': 'app-item-category'},{'name': 'ItemUserComponent', 'selector': 'app-item-user'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'ModalCategoryComponent', 'selector': 'app-modal-category'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'UpdateUserComponent', 'selector': 'app-update-user'},{'name': 'UserCircleGraphicComponent', 'selector': 'app-user-circle-graphic'},{'name': 'UserDataPage', 'selector': 'app-user-data'},{'name': 'UserSelectableComponent', 'selector': 'app-user-selectable'},{'name': 'UserSelectableMobileComponent', 'selector': 'app-user-selectable-mobile'},{'name': 'UsersInfoComponent', 'selector': 'app-users-info'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomePage'};
 </script>

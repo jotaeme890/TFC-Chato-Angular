@@ -124,6 +124,12 @@
 
 
 
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
 
 
 <section data-compodoc="block-metadata">
@@ -185,6 +191,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#initialAuthResolved" >initialAuthResolved</a>
+                            </li>
+                            <li>
                                 <a href="#isSplash" >isSplash</a>
                             </li>
                         </ul>
@@ -204,6 +213,13 @@
                             </li>
                             <li>
                                 <a href="#logOut" >logOut</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setTheme" >setTheme</a>
                             </li>
                             <li>
                                 <a href="#toAbout" >toAbout</a>
@@ -235,12 +251,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router, localLang: <a href="../injectables/LocalService.html" target="_self">LocalService</a>)</code>
+<code>constructor(auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router, localLang: <a href="../injectables/LocalService.html" target="_self">LocalService</a>, themeService: <a href="../injectables/ThemeService.html" target="_self">ThemeService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/app.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/app.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -323,6 +339,20 @@ is likely used for handling localization or language-related functionalities in 
 
                                                         </td>
                                                 </tr>
+                                                <tr>
+                                                        <td>themeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ThemeService.html" target="_self" >ThemeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -361,8 +391,8 @@ is likely used for handling localization or language-related functionalities in 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="51"
-                                    class="link-to-prism">src/app/app.component.ts:51</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/app.component.ts:65</a></div>
                         </td>
                     </tr>
 
@@ -441,8 +471,8 @@ specified URL string.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="79"
-                                    class="link-to-prism">src/app/app.component.ts:79</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/app.component.ts:93</a></div>
                         </td>
                     </tr>
 
@@ -451,6 +481,82 @@ specified URL string.</p>
                 <td class="col-md-4">
                         <div class="io-description"><p>The <code>logOut</code> function calls the <code>logout</code> method of the <code>auth</code> object.</p>
 </div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/app.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setTheme"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setTheme</b></span>
+                        <a href="#setTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">src/app/app.component.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -480,8 +586,8 @@ specified URL string.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="90"
-                                    class="link-to-prism">src/app/app.component.ts:90</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/app/app.component.ts:105</a></div>
                         </td>
                     </tr>
 
@@ -554,8 +660,8 @@ specified URL string.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="72"
-                                    class="link-to-prism">src/app/app.component.ts:72</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">src/app/app.component.ts:86</a></div>
                         </td>
                     </tr>
 
@@ -593,8 +699,8 @@ specified URL string.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="58"
-                                    class="link-to-prism">src/app/app.component.ts:58</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/app.component.ts:72</a></div>
                         </td>
                     </tr>
 
@@ -632,8 +738,8 @@ specified URL string.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="65"
-                                    class="link-to-prism">src/app/app.component.ts:65</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">src/app/app.component.ts:79</a></div>
                         </td>
                     </tr>
 
@@ -661,6 +767,31 @@ specified URL string.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="initialAuthResolved"></a>
+                    <span class="name">
+                        <span ><b>initialAuthResolved</b></span>
+                        <a href="#initialAuthResolved"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/app.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="isSplash"></a>
                     <span class="name">
                         <span ><b>isSplash</b></span>
@@ -681,7 +812,7 @@ specified URL string.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/app.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/app.component.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -694,20 +825,23 @@ specified URL string.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { LocalService } from &#x27;./core/services/translate/local.service&#x27;;
 import { NavigationEnd, Router } from &#x27;@angular/router&#x27;;
 import { AuthService } from &#x27;./core/services/auth.service&#x27;;
 import { filter } from &#x27;rxjs&#x27;;
 import { IonMenu, MenuController } from &#x27;@ionic/angular&#x27;;
+import { Haptics, ImpactStyle } from &#x27;@capacitor/haptics&#x27;;
+import { ThemeService } from &#x27;./core/services/theme/theme.service&#x27;;
 
 @Component({
   selector: &#x27;app-root&#x27;,
   templateUrl: &#x27;app.component.html&#x27;,
   styleUrls: [&#x27;app.component.scss&#x27;],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   isSplash: boolean &#x3D; false;
+  initialAuthResolved &#x3D; false;
 
   /**
    * The constructor initializes subscriptions to authentication and router events in a TypeScript
@@ -727,12 +861,23 @@ export class AppComponent {
   constructor(
     protected auth: AuthService,
     private router: Router,
-    private localLang: LocalService
+    private localLang: LocalService,
+    private themeService: ThemeService
   ) {
     this.auth.isLogged$.subscribe((logged) &#x3D;&gt; {
-      if (logged) this.router.navigate([&#x27;/home&#x27;]);
-      else this.router.navigate([&#x27;/access&#x27;]);
+      if (this.initialAuthResolved) {
+        if (logged) {
+          this.router.navigate([&#x27;/home&#x27;]).catch(err &#x3D;&gt; console.error(err));
+        } else {
+          this.router.navigate([&#x27;/access&#x27;]).catch(err &#x3D;&gt; console.error(err));
+        }
+      } else {
+        this.initialAuthResolved &#x3D; true;
+      }
     });
+  }
+  ngOnInit(): void {
+    this.setTheme()
   }
 
   /**
@@ -775,6 +920,7 @@ export class AppComponent {
   logOut() {
     this.auth.logout().subscribe(async (_) &#x3D;&gt; {
       await this.router.navigate([&#x27;/access&#x27;]);
+      await Haptics.impact({ style: ImpactStyle.Heavy });
     });
   }
 
@@ -786,6 +932,15 @@ export class AppComponent {
   toAbout(menu: IonMenu) {
     this.router.navigate([&#x27;/about&#x27;]);
     menu.close();
+  }
+
+  private setTheme() {
+    const themeCodes: string[] &#x3D; [
+      &quot;light&quot;,
+      &quot;dark&quot;
+    ];
+
+    this.themeService.switchTheme(&#x27;light&#x27;)
   }
 }
 </code></pre>
@@ -842,6 +997,7 @@ export class AppComponent {
           &lt;/ion-item&gt;
           
         &lt;/ion-menu-toggle&gt;
+
       &lt;/ion-list&gt;
       &lt;div (click)&#x3D;&quot;toAbout(menu)&quot; class&#x3D;&quot;menu-footer&quot;&gt;
         &lt;p&gt;{{&#x27;menu.about&#x27; | translate}}&lt;/p&gt;
@@ -982,7 +1138,7 @@ ion-header {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><ion-app>  <ion-header *ngIf="auth.user$ | async">    <ion-toolbar>      <ion-buttons slot="start">        <ion-menu-button autoHide="false"></ion-menu-button>      </ion-buttons>      <ion-img slot="end" src="../../../../assets/images/logo.png" class="app-logo"></ion-img>    </ion-toolbar>  </ion-header>    <ion-menu #menu contentId="main-content" side="start">        <ion-toolbar>      <div class="menu--header__toolbar">        <ion-avatar>          <img [src]="(auth.user$|async)?.picture" alt="{{\'menu.avatar\' | translate}}"/>        </ion-avatar>        <ion-label>          <span>{{(auth.user$ | async)?.name }} {{ (auth.user$ | async)?.surname | capitalizeInitial}}</span>        </ion-label>      </div>    </ion-toolbar>      <p-divider></p-divider>    <ion-content>      <ion-list>        <ion-menu-toggle>          <ion-item [class.active]="isActive(\'/home\')" (click)="toHome()">            <ion-icon name="home-outline"></ion-icon>            <ion-label>{{\'menu.home\' | translate}}</ion-label>          </ion-item>          <ion-item [class.active]="isActive(\'/settings\')" (click)="toSettings()">            <ion-icon name="settings-outline"></ion-icon>            <ion-label>{{\'menu.settings\' | translate}}</ion-label>          </ion-item>                    <ion-item [class.active]="isActive(\'/data\')" (click)="toData()">            <ion-icon name="cellular-outline"></ion-icon>            <ion-label>{{\'menu.graphics\' | translate}}</ion-label>          </ion-item>          <ion-item (click)="logOut()">            <ion-icon name="log-out-outline"></ion-icon>            <ion-label>{{\'menu.logOut\' | translate}}</ion-label>          </ion-item>                  </ion-menu-toggle>      </ion-list>      <div (click)="toAbout(menu)" class="menu-footer">        <p>{{\'menu.about\' | translate}}</p>      </div>    </ion-content>  </ion-menu>  <ion-content>    <ion-router-outlet  id="main-content"></ion-router-outlet>  </ion-content></ion-app></div>'
-    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AccessPage', 'selector': 'app-access'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriesInfoComponent', 'selector': 'app-categories-info'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'DataPage', 'selector': 'app-data'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'IncidentDataPage', 'selector': 'app-incident-data'},{'name': 'IncidentsCircleGraphicComponent', 'selector': 'app-incidents-circle-graphic'},{'name': 'IncidentsInfoComponent', 'selector': 'app-incidents-info'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'ModalCategoryComponent', 'selector': 'app-modal-category'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'UpdateUserComponent', 'selector': 'app-update-user'},{'name': 'UserCircleGraphicComponent', 'selector': 'app-user-circle-graphic'},{'name': 'UserDataPage', 'selector': 'app-user-data'},{'name': 'UsersInfoComponent', 'selector': 'app-users-info'}];
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AccessPage', 'selector': 'app-access'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriesInfoComponent', 'selector': 'app-categories-info'},{'name': 'CategorySelectableComponent', 'selector': 'app-category-selectable'},{'name': 'CategorySelectableMobileComponent', 'selector': 'app-category-selectable-mobile'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'DataPage', 'selector': 'app-data'},{'name': 'FilterComponent', 'selector': 'app-filter'},{'name': 'FilterMobileComponent', 'selector': 'app-filter-mobile'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'IncidentDataPage', 'selector': 'app-incident-data'},{'name': 'IncidentsCircleGraphicComponent', 'selector': 'app-incidents-circle-graphic'},{'name': 'IncidentsInfoComponent', 'selector': 'app-incidents-info'},{'name': 'ItemCategoryComponent', 'selector': 'app-item-category'},{'name': 'ItemUserComponent', 'selector': 'app-item-user'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'ModalCategoryComponent', 'selector': 'app-modal-category'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'UpdateUserComponent', 'selector': 'app-update-user'},{'name': 'UserCircleGraphicComponent', 'selector': 'app-user-circle-graphic'},{'name': 'UserDataPage', 'selector': 'app-user-data'},{'name': 'UserSelectableComponent', 'selector': 'app-user-selectable'},{'name': 'UserSelectableMobileComponent', 'selector': 'app-user-selectable-mobile'},{'name': 'UsersInfoComponent', 'selector': 'app-users-info'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>

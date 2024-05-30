@@ -984,72 +984,72 @@ export class IncidentsInfoComponent implements OnInit {
                 <p class="comment">
                     <code>./incidents-info.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.card {
-  padding: 15px;
-  border-radius: 0.5rem;
-  box-shadow: 0px 2px 15px -2px rgba(71, 71, 71, 0.24);
-  width: calc((100vw / 3) - (30px * 2) + 10px);
-  height: 190px;
-
-  &amp;--header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    &amp;__title {
-      font-weight: bold;
-    }
-
-    &amp;__status {
-      background-color: #bd1e1e;
-      padding: 2% 5%;
-      border-radius: 2em;
-
-      span {
-        color: #ffffff;
-        font-weight: bold;
-      }
-    }
-  }
-
-  ion-icon {
-    color: #bd1e1e;
-  }
-
-  &amp;--info {
-    margin-top: 5%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-
-    span {
-      margin-left: 3%;
-      font-weight: bold;
-    }
-  }
-
-  &amp;:hover {
-    cursor: pointer;
-  }
-
-  @media (max-width: 850px) {
-    width: 100% !important;
+                <pre class="line-numbers"><code class="language-scss">  .card {
+    padding: 15px;
+    border-radius: 0.5rem;
+    box-shadow: 0px 2px 15px -2px rgba(71, 71, 71, 0.24);
+    width: calc((100vw / 3) - (30px * 2) + 10px);
+    height: 190px;
 
     &amp;--header {
-      &amp;__status {
-        margin-left: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &amp;__title {
+        font-weight: bold;
       }
+
+      &amp;__status {
+        background-color: #bd1e1e;
+        padding: 2% 5%;
+        border-radius: 2em;
+
+        span {
+          color: #ffffff;
+          font-weight: bold;
+        }
+      }
+    }
+
+    ion-icon {
+      color: #bd1e1e;
     }
 
     &amp;--info {
-      margin-top: 0;
+      margin-top: 5%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      span {
+        margin-left: 3%;
+        font-weight: bold;
+      }
+    }
+
+    &amp;:hover {
+      cursor: pointer;
+    }
+
+    @media (max-width: 850px) {
+      width: 100% !important;
+
+      &amp;--header {
+        &amp;__status {
+          margin-left: 1rem;
+        }
+      }
+
+      &amp;--info {
+        margin-top: 0;
+      }
     }
   }
-}
 
-.noCheck {
-  background-color: #BBBBBB;
-}
+  .noCheck {
+    background-color: #BBBBBB;
+  }
 </code></pre>
     </div>
 
@@ -1079,7 +1079,7 @@ export class IncidentsInfoComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div (click)="onIncidentClick($event)" [ngClass]="{\'card\': true, \'checked\': incident?.checked, \'noCheck\': !incident?.checked}" >  <div class="card--header">    <h3 *ngIf="!isScreenSmall" class="card--header__title">{{incident?.title}}</h3>    <h3 *ngIf="isScreenSmall" class="card--header__title">{{incident?.title | shortenText}}</h3>    <div *ngIf="!incident?.resolved" class="card--header__status">      <span>{{\'incidents.unresolved\' | translate}}</span>    </div>  </div>  <div class="card--info">    <div>      <ion-icon name="calendar-clear-outline"></ion-icon>      <span>        {{\'incidents.day\' |translate}}: {{formattedDay}}      </span>    </div>    <div>      <ion-icon name="time-outline"></ion-icon>      <span>        {{\'incidents.hour\' |translate}}: {{formattedTime}}      </span>    </div>    <div>      <ion-icon name="person-outline"></ion-icon>      <span>        {{\'incidents.user\' |translate}}: {{userName ? userName : (\'incidents.anonymous\' | translate)}}      </span>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AccessPage', 'selector': 'app-access'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriesInfoComponent', 'selector': 'app-categories-info'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'DataPage', 'selector': 'app-data'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'IncidentDataPage', 'selector': 'app-incident-data'},{'name': 'IncidentsCircleGraphicComponent', 'selector': 'app-incidents-circle-graphic'},{'name': 'IncidentsInfoComponent', 'selector': 'app-incidents-info'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'ModalCategoryComponent', 'selector': 'app-modal-category'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'UpdateUserComponent', 'selector': 'app-update-user'},{'name': 'UserCircleGraphicComponent', 'selector': 'app-user-circle-graphic'},{'name': 'UserDataPage', 'selector': 'app-user-data'},{'name': 'UsersInfoComponent', 'selector': 'app-users-info'}];
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AccessPage', 'selector': 'app-access'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriesInfoComponent', 'selector': 'app-categories-info'},{'name': 'CategorySelectableComponent', 'selector': 'app-category-selectable'},{'name': 'CategorySelectableMobileComponent', 'selector': 'app-category-selectable-mobile'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'DataPage', 'selector': 'app-data'},{'name': 'FilterComponent', 'selector': 'app-filter'},{'name': 'FilterMobileComponent', 'selector': 'app-filter-mobile'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'IncidentDataPage', 'selector': 'app-incident-data'},{'name': 'IncidentsCircleGraphicComponent', 'selector': 'app-incidents-circle-graphic'},{'name': 'IncidentsInfoComponent', 'selector': 'app-incidents-info'},{'name': 'ItemCategoryComponent', 'selector': 'app-item-category'},{'name': 'ItemUserComponent', 'selector': 'app-item-user'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'ModalCategoryComponent', 'selector': 'app-modal-category'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'UpdateUserComponent', 'selector': 'app-update-user'},{'name': 'UserCircleGraphicComponent', 'selector': 'app-user-circle-graphic'},{'name': 'UserDataPage', 'selector': 'app-user-data'},{'name': 'UserSelectableComponent', 'selector': 'app-user-selectable'},{'name': 'UserSelectableMobileComponent', 'selector': 'app-user-selectable-mobile'},{'name': 'UsersInfoComponent', 'selector': 'app-users-info'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'IncidentsInfoComponent'};
 </script>

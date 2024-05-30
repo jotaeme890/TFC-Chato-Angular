@@ -252,7 +252,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/access/access.page.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/access/access.page.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -411,8 +411,8 @@ on the defined routes.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="58"
-                                    class="link-to-prism">src/app/pages/access/access.page.ts:58</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/pages/access/access.page.ts:60</a></div>
                         </td>
                     </tr>
 
@@ -450,8 +450,8 @@ on the defined routes.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="101"
-                                    class="link-to-prism">src/app/pages/access/access.page.ts:101</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">src/app/pages/access/access.page.ts:106</a></div>
                         </td>
                     </tr>
 
@@ -525,8 +525,8 @@ errors, displaying a specific error message for invalid email.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="52"
-                                    class="link-to-prism">src/app/pages/access/access.page.ts:52</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/app/pages/access/access.page.ts:55</a></div>
                         </td>
                     </tr>
 
@@ -562,8 +562,8 @@ errors, displaying a specific error message for invalid email.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="70"
-                                    class="link-to-prism">src/app/pages/access/access.page.ts:70</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/pages/access/access.page.ts:72</a></div>
                         </td>
                     </tr>
 
@@ -641,8 +641,8 @@ email, password, and any other relevant details.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="138"
-                                    class="link-to-prism">src/app/pages/access/access.page.ts:138</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="146"
+                                    class="link-to-prism">src/app/pages/access/access.page.ts:146</a></div>
                         </td>
                     </tr>
 
@@ -718,8 +718,8 @@ message to be displayed.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="121"
-                                    class="link-to-prism">src/app/pages/access/access.page.ts:121</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">src/app/pages/access/access.page.ts:129</a></div>
                         </td>
                     </tr>
 
@@ -798,7 +798,7 @@ message to be displayed as a success toast notification.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/access/access.page.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/access/access.page.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -814,147 +814,160 @@ message to be displayed as a success toast notification.</p>
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
 import { MessageService } from &#x27;primeng/api&#x27;;
-import { UserCredentials, UserRegisterInfo } from &#x27;src/app/core/interfaces/user-info&#x27;;
+import {
+  UserCredentials,
+  UserRegisterInfo,
+} from &#x27;src/app/core/interfaces/user-info&#x27;;
 import { AuthService } from &#x27;src/app/core/services/auth.service&#x27;;
 import { CustomTranslateService } from &#x27;src/app/core/services/translate/translate.service&#x27;;
+import { Haptics, ImpactStyle } from &#x27;@capacitor/haptics&#x27;;
 
 @Component({
   selector: &#x27;app-access&#x27;,
   templateUrl: &#x27;./access.page.html&#x27;,
   styleUrls: [&#x27;./access.page.scss&#x27;],
-  providers: [MessageService]
+  providers: [MessageService],
 })
 export class AccessPage implements OnInit {
-
   login &#x3D; true;
 
   /**
-  * The constructor function subscribes to query parameters and displays an error message if the
-  * &#x27;error&#x27; parameter is &#x27;notAdmin&#x27;.
-  * 
-  * @param auth AuthService - a service for handling authentication and user authorization.
-  * @param translate The &#x60;translate&#x60; parameter in the constructor is of type &#x60;CustomTranslateService&#x60;.
-  * It is used for handling translation services within the component or service where it is injected.
-  * This service likely provides methods for translating text or messages into different languages or
-  * for managing localization in the application.
-  * @param messageService The &#x60;messageService&#x60; parameter in the constructor is of type
-  * &#x60;MessageService&#x60;. It is likely used for displaying messages or notifications to the user within
-  * the application.
-  * @param route The &#x60;route&#x60; parameter in the constructor is of type &#x60;ActivatedRoute&#x60;, which is a
-  * service provided by Angular that gives access to information about a route associated with a
-  * component loaded in an outlet. It allows you to access route parameters, query parameters, and
-  * other information related to the current route.
-  * @param router The &#x60;router&#x60; parameter in the constructor is an instance of the Angular Router
-  * service. It is used for navigating between different components in your Angular application based
-  * on the defined routes.
-  */
+   * The constructor function subscribes to query parameters and displays an error message if the
+   * &#x27;error&#x27; parameter is &#x27;notAdmin&#x27;.
+   *
+   * @param auth AuthService - a service for handling authentication and user authorization.
+   * @param translate The &#x60;translate&#x60; parameter in the constructor is of type &#x60;CustomTranslateService&#x60;.
+   * It is used for handling translation services within the component or service where it is injected.
+   * This service likely provides methods for translating text or messages into different languages or
+   * for managing localization in the application.
+   * @param messageService The &#x60;messageService&#x60; parameter in the constructor is of type
+   * &#x60;MessageService&#x60;. It is likely used for displaying messages or notifications to the user within
+   * the application.
+   * @param route The &#x60;route&#x60; parameter in the constructor is of type &#x60;ActivatedRoute&#x60;, which is a
+   * service provided by Angular that gives access to information about a route associated with a
+   * component loaded in an outlet. It allows you to access route parameters, query parameters, and
+   * other information related to the current route.
+   * @param router The &#x60;router&#x60; parameter in the constructor is an instance of the Angular Router
+   * service. It is used for navigating between different components in your Angular application based
+   * on the defined routes.
+   */
   constructor(
     private auth: AuthService,
     private translate: CustomTranslateService,
     private messageService: MessageService,
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private router: Router
   ) {
-    this.route.queryParams.subscribe(params &#x3D;&gt; {
+    this.route.queryParams.subscribe((params) &#x3D;&gt; {
       if (params[&#x27;error&#x27;] &#x3D;&#x3D;&#x3D; &#x27;notAdmin&#x27;) {
-        this.showError( &#x27;waitAdmin&#x27; );
+        this.showError(&#x27;waitAdmin&#x27;);
       }
     });
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  /**
+   * The function toggles the value of the &#x60;login&#x60; property.
+   */
+  changeForm() {
+    this.login &#x3D; !this.login;
   }
 
   /**
-  * The function toggles the value of the &#x60;login&#x60; property.
-  */
-  changeForm(){
-    this.login &#x3D; !this.login
-  }
-
-  /**
-  * The function &#x60;registerUser&#x60; registers a user with the role &#x27;user&#x27; and handles different error
-  * cases during the registration process.
-  * 
-  * @param data The &#x60;registerUser&#x60; function takes in a parameter &#x60;data&#x60; of type &#x60;UserRegisterInfo&#x60;.
-  * This parameter likely contains information about a user that is being registered, such as their
-  * email, password, and any other relevant details.
-  */
-  registerUser( data:UserRegisterInfo ){
-    let _data:UserRegisterInfo &#x3D; { ...data };
+   * The function &#x60;registerUser&#x60; registers a user with the role &#x27;user&#x27; and handles different error
+   * cases during the registration process.
+   *
+   * @param data The &#x60;registerUser&#x60; function takes in a parameter &#x60;data&#x60; of type &#x60;UserRegisterInfo&#x60;.
+   * This parameter likely contains information about a user that is being registered, such as their
+   * email, password, and any other relevant details.
+   */
+  registerUser(data: UserRegisterInfo) {
+    let _data: UserRegisterInfo &#x3D; { ...data };
     _data.role &#x3D; &#x27;user&#x27;;
-    this.auth.register( _data ).subscribe({
-      next:( data )&#x3D;&gt;{
-        console.log( &#x27;ALL WAS GOOD&#x27; );
-        this.showSuccess( &#x27;waitAdmin&#x27; );
+    this.auth.register(_data).subscribe({
+      next: async (data) &#x3D;&gt; {
+        console.log(&#x27;ALL WAS GOOD&#x27;);
+        this.showSuccess(&#x27;waitAdmin&#x27;);
+        await Haptics.impact({ style: ImpactStyle.Medium });
       },
-      error:( err )&#x3D;&gt;{
-        if ( err.code ) {
-          switch ( err.code ) {
+      error: async (err) &#x3D;&gt; {
+        if (err.code) {
+          switch (err.code) {
             case &#x27;auth/email-already-in-use&#x27;:
-              this.showError( &#x27;emailUser&#x27; );
+              this.showError(&#x27;emailUser&#x27;);
+              await Haptics.impact({ style: ImpactStyle.Heavy });
               break;
             case &#x27;post-registration-error&#x27;:
-              this.showError( &#x27;failRegister&#x27; );
+              this.showError(&#x27;failRegister&#x27;);
+              await Haptics.impact({ style: ImpactStyle.Heavy });
               break;
           }
         } else {
-          this.showError( &#x27;Unknown registration error&#x27; );
+          this.showError(&#x27;Unknown registration error&#x27;);
         }
-      }
+      },
     });
   }
 
   /**
-  * The &#x60;loginUser&#x60; function in TypeScript logs in a user with provided credentials and handles
-  * errors, displaying a specific error message for invalid email.
-  * 
-  * @param data UserCredentials object containing user login information, such as email and password
-  */
-  loginUser( data:UserCredentials ){
-    let _data:UserCredentials &#x3D; { ...data };
-    this.auth.login( _data ).subscribe({
-      next:( data )&#x3D;&gt;{
-        console.log( &#x27;ALL WAS GOOD&#x27; );
+   * The &#x60;loginUser&#x60; function in TypeScript logs in a user with provided credentials and handles
+   * errors, displaying a specific error message for invalid email.
+   *
+   * @param data UserCredentials object containing user login information, such as email and password
+   */
+  loginUser(data: UserCredentials) {
+    let _data: UserCredentials &#x3D; { ...data };
+    this.auth.login(_data).subscribe({
+      next: async (data) &#x3D;&gt; {
+        console.log(&#x27;ALL WAS GOOD&#x27;);
+        await Haptics.impact({ style: ImpactStyle.Medium });
       },
-      error:( err )&#x3D;&gt;{
-        console.log( &#x27;BAD&#x27;, err );
-        if( err.code &#x3D;&#x3D;&#x3D; &#x27;auth/invalid-email&#x27; )
-          this.showError( &#x27;loginError&#x27; )
-      }
-    })
+      error: async (err) &#x3D;&gt; {
+        console.log(&#x27;BAD&#x27;, err);
+        if (err.code &#x3D;&#x3D;&#x3D; &#x27;auth/invalid-email&#x27;) {
+          this.showError(&#x27;loginError&#x27;);
+          await Haptics.impact({ style: ImpactStyle.Heavy });
+        }
+      },
+    });
   }
 
   /**
-  * The function &#x60;showSuccess&#x60; displays a success message after translating the input text.
-  * 
-  * @param text The &#x60;text&#x60; parameter in the &#x60;showSuccess&#x60; function is a string that represents the
-  * message to be displayed as a success toast notification.
-  */
+   * The function &#x60;showSuccess&#x60; displays a success message after translating the input text.
+   *
+   * @param text The &#x60;text&#x60; parameter in the &#x60;showSuccess&#x60; function is a string that represents the
+   * message to be displayed as a success toast notification.
+   */
   showSuccess(text: string) {
-    let message &#x3D; &#x60;toast.${text}&#x60;
-    this.translate.get( message ).subscribe({
-      next: ( text: string ) &#x3D;&gt; {
+    let message &#x3D; &#x60;toast.${text}&#x60;;
+    this.translate.get(message).subscribe({
+      next: (text: string) &#x3D;&gt; {
         this.messageService.add({ key: &#x27;tl&#x27;, severity: &#x27;info&#x27;, detail: text });
         this.login &#x3D; true;
-      }
+      },
     });
   }
 
   /**
-  * The function &#x60;showError&#x60; displays an error message using a translation service and a message
-  * service.
-  * 
-  * @param text The &#x60;text&#x60; parameter in the &#x60;showError&#x60; function is a string that represents the error
-  * message to be displayed.
-  */
+   * The function &#x60;showError&#x60; displays an error message using a translation service and a message
+   * service.
+   *
+   * @param text The &#x60;text&#x60; parameter in the &#x60;showError&#x60; function is a string that represents the error
+   * message to be displayed.
+   */
   showError(text: string) {
-    let message &#x3D; &#x60;toast.${text}&#x60;
-    this.translate.get( message ).subscribe({
-      next: ( text: string ) &#x3D;&gt; {
-        this.messageService.add({ key: &#x27;tl&#x27;, severity: &#x27;error&#x27;, detail: text, life: 6000 });
+    let message &#x3D; &#x60;toast.${text}&#x60;;
+    this.translate.get(message).subscribe({
+      next: (text: string) &#x3D;&gt; {
+        this.messageService.add({
+          key: &#x27;tl&#x27;,
+          severity: &#x27;error&#x27;,
+          detail: text,
+          life: 6000,
+        });
         this.login &#x3D; true;
-      }
+      },
     });
   }
 }
@@ -1088,7 +1101,7 @@ export class AccessPage implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><ion-content [fullscreen]="true">  <div class="access">    <div class="access__forms">      <img class="access__forms--logo" src="../../../assets/images/logo.png">      <app-login-form (onsubmit)="loginUser($event)" *ngIf="login"></app-login-form>      <app-register-form (onsubmit)="registerUser($event)" *ngIf="!login"></app-register-form>            <button *ngIf="login" (click)="changeForm()">{{\'access.toRegister\' | translate}}</button>          <button *ngIf="!login" (click)="changeForm()">{{\'access.toLogin\' | translate}}</button>    </div>    <div class="access__image"></div>  </div>  <p-toast [breakpoints]="{\'600px\': {width: \'96%\', right: \'1%\', left: \'1%\'}}" position="top-left" key="tl"></p-toast></ion-content></div>'
-    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AccessPage', 'selector': 'app-access'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriesInfoComponent', 'selector': 'app-categories-info'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'DataPage', 'selector': 'app-data'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'IncidentDataPage', 'selector': 'app-incident-data'},{'name': 'IncidentsCircleGraphicComponent', 'selector': 'app-incidents-circle-graphic'},{'name': 'IncidentsInfoComponent', 'selector': 'app-incidents-info'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'ModalCategoryComponent', 'selector': 'app-modal-category'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'UpdateUserComponent', 'selector': 'app-update-user'},{'name': 'UserCircleGraphicComponent', 'selector': 'app-user-circle-graphic'},{'name': 'UserDataPage', 'selector': 'app-user-data'},{'name': 'UsersInfoComponent', 'selector': 'app-users-info'}];
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AccessPage', 'selector': 'app-access'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriesInfoComponent', 'selector': 'app-categories-info'},{'name': 'CategorySelectableComponent', 'selector': 'app-category-selectable'},{'name': 'CategorySelectableMobileComponent', 'selector': 'app-category-selectable-mobile'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'DataPage', 'selector': 'app-data'},{'name': 'FilterComponent', 'selector': 'app-filter'},{'name': 'FilterMobileComponent', 'selector': 'app-filter-mobile'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'IncidentDataPage', 'selector': 'app-incident-data'},{'name': 'IncidentsCircleGraphicComponent', 'selector': 'app-incidents-circle-graphic'},{'name': 'IncidentsInfoComponent', 'selector': 'app-incidents-info'},{'name': 'ItemCategoryComponent', 'selector': 'app-item-category'},{'name': 'ItemUserComponent', 'selector': 'app-item-user'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'ModalCategoryComponent', 'selector': 'app-modal-category'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'UpdateUserComponent', 'selector': 'app-update-user'},{'name': 'UserCircleGraphicComponent', 'selector': 'app-user-circle-graphic'},{'name': 'UserDataPage', 'selector': 'app-user-data'},{'name': 'UserSelectableComponent', 'selector': 'app-user-selectable'},{'name': 'UserSelectableMobileComponent', 'selector': 'app-user-selectable-mobile'},{'name': 'UsersInfoComponent', 'selector': 'app-users-info'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AccessPage'};
 </script>

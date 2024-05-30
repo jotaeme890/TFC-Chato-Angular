@@ -77,7 +77,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content guard">
+               <div class="content injectable">
                    <div class="content-data">
 
 
@@ -87,11 +87,9 @@
 
 
 
-
-
 <ol class="breadcrumb">
-    <li class="breadcrumb-item">Guards</li>
-    <li class="breadcrumb-item" >AuthGuard</li>
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >FilterService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -110,20 +108,19 @@
 </ul>
 
 <div class="tab-content">
-        <div class="tab-pane fade active in" id="info">
-            <p class="comment">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
             <h3>File</h3>
-            </p>
-            <p class="comment">
-                <code>src/app/core/guards/auth.guard.ts</code>
-            </p>
+        </p>
+        <p class="comment">
+            <code>src/app/core/services/filter/filter.service.ts</code>
+        </p>
 
 
 
 
 
-
-                <section data-compodoc="block-index">
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -137,11 +134,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#homeUrl" >homeUrl</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#loginUrl" >loginUrl</a>
+                                <a href="#filterState" >filterState</a>
                             </li>
                         </ul>
                     </td>
@@ -156,7 +149,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#canActivate" >canActivate</a>
+                                <a href="#getFilter" >getFilter</a>
+                            </li>
+                            <li>
+                                <a href="#initializeState" >initializeState</a>
+                            </li>
+                            <li>
+                                <a href="#updateFilterState" >updateFilterState</a>
                             </li>
                         </ul>
                     </td>
@@ -170,68 +169,8 @@
     </table>
 </section>
 
-                <section data-compodoc="block-constructor">
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/core/guards/auth.guard.ts:17</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>auth</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>router</td>
-                                                  
-                                                        <td>
-                                                                    <code>Router</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-
-                <section data-compodoc="block-methods">
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -240,30 +179,114 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="canActivate"></a>
+                    <a name="getFilter"></a>
                     <span class="name">
-                        <span ><b>canActivate</b></span>
-                        <a href="#canActivate"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getFilter</b></span>
+                        <a href="#getFilter"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot)</code>
+<code>getFilter()</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="24"
-                                    class="link-to-prism">src/app/core/guards/auth.guard.ts:24</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">src/app/core/services/filter/filter.service.ts:25</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves the current filter state as a BehaviorSubject.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>BehaviorSubject&lt;FormGroup | null&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A BehaviorSubject containing the current filter state.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeState"></a>
+                    <span class="name">
+                        <span ><b>initializeState</b></span>
+                        <a href="#initializeState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeState()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">src/app/core/services/filter/filter.service.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Initializes the filter state with default values.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateFilterState"></a>
+                    <span class="name">
+                        <span ><b>updateFilterState</b></span>
+                        <a href="#updateFilterState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateFilterState(form: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="16"
+                                    class="link-to-prism">src/app/core/services/filter/filter.service.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the filter state with the provided form.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -274,13 +297,14 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>route</td>
+                                                <td>form</td>
                                             <td>
-                                                        <code>ActivatedRouteSnapshot</code>
+                                                        <code>FormGroup</code>
                                             </td>
 
                                             <td>
@@ -288,24 +312,18 @@
                                             </td>
 
 
-                                        </tr>
-                                        <tr>
-                                                <td>state</td>
                                             <td>
-                                                        <code>RouterStateSnapshot</code>
+                                                    <ul>
+<li>The form containing the updated filter settings.</li>
+</ul>
+
                                             </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>Observable | Promise | boolean | UrlTree</code>
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
                             <div class="io-description">
@@ -316,51 +334,90 @@
         </tbody>
     </table>
 </section>
-        </div>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterState"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>filterState</b></span>
+                        <a href="#filterState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;FormGroup | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/core/services/filter/filter.service.ts:9</a></div>
+                        </td>
+                    </tr>
 
 
-        <div class="tab-pane fade  tab-source-code" id="source">
-            <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot,
-  UrlTree,
-} from &#x27;@angular/router&#x27;;
-import { Observable, map, tap } from &#x27;rxjs&#x27;;
-import { AuthService } from &#x27;../services/auth.service&#x27;;
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { FormControl, FormGroup } from &#x27;@angular/forms&#x27;;
+import { BehaviorSubject } from &#x27;rxjs&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
-export class AuthGuard implements CanActivate {
-  private loginUrl: string &#x3D; &#x27;/access&#x27;;
-  private homeUrl: string &#x3D; &#x27;/home&#x27;;
+export class FilterService {
+  private filterState &#x3D; new BehaviorSubject&lt;FormGroup | null&gt;(null);
 
-  constructor(
-    private auth: AuthService,
-    private router: Router
-  ) {}
+  /**
+   * Updates the filter state with the provided form.
+   *
+   * @param form - The form containing the updated filter settings.
+   */
+  updateFilterState(form: FormGroup) {
+    this.filterState.next(form);
+  }
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable&lt;boolean | UrlTree&gt; | Promise&lt;boolean | UrlTree&gt; | boolean | UrlTree {
-    return this.auth.isLogged$.pipe(
-      tap(logged &#x3D;&gt; {
-        if (logged) {
-          return this.router.createUrlTree([this.homeUrl]);
-        } else {
-          return this.router.createUrlTree([this.loginUrl]);
-        }
-      })
-    );
+  /**
+   * Retrieves the current filter state as a BehaviorSubject.
+   *
+   * @returns A BehaviorSubject containing the current filter state.
+   */
+  getFilter(): BehaviorSubject&lt;FormGroup | null&gt; {
+    return this.filterState;
+  }
+
+  /**
+   * Initializes the filter state with default values.
+   */
+  initializeState() {
+    const initialForm &#x3D; new FormGroup({
+      categoryName: new FormControl(undefined),
+      userId: new FormControl(undefined),
+      checked: new FormControl(false),
+      resolved: new FormControl(false),
+    });
+    this.filterState.next(initialForm);
   }
 }
 </code></pre>
-        </div>
+    </div>
+
 </div>
+
+
 
 
 
@@ -397,8 +454,8 @@ export class AuthGuard implements CanActivate {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'guard';
-            var COMPODOC_CURRENT_PAGE_URL = 'AuthGuard.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'FilterService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

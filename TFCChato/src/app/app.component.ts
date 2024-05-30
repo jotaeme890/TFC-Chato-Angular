@@ -14,6 +14,7 @@ import { ThemeService } from './core/services/theme/theme.service';
 })
 export class AppComponent implements OnInit{
   isSplash: boolean = false;
+  initialAuthResolved = false;
 
   /**
    * The constructor initializes subscriptions to authentication and router events in a TypeScript
@@ -37,7 +38,15 @@ export class AppComponent implements OnInit{
     private themeService: ThemeService
   ) {
     this.auth.isLogged$.subscribe((logged) => {
-      if (logged) this.router.navigate(['/home']);
+      if (this.initialAuthResolved) {
+        if (logged) {
+          this.router.navigate(['/home']).catch(err => console.error(err));
+        } else {
+          this.router.navigate(['/access']).catch(err => console.error(err));
+        }
+      } else {
+        this.initialAuthResolved = true;
+      }
     });
   }
   ngOnInit(): void {

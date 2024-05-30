@@ -237,6 +237,7 @@ import { IncidentDataPage } from &#x27;./incident-data.page&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { TranslateModule, TranslateLoader } from &#x27;@ngx-translate/core&#x27;;
 import { createTranslateLoader } from &#x27;src/app/core/translate/translate&#x27;;
+import { ToastModule } from &#x27;primeng/toast&#x27;;
 
 @NgModule({
   imports: [
@@ -252,6 +253,7 @@ import { createTranslateLoader } from &#x27;src/app/core/translate/translate&#x2
       deps: [HttpClient]
       }
     }),
+    ToastModule,
   ],
   declarations: [IncidentDataPage]
 })

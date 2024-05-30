@@ -77,7 +77,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content guard">
+               <div class="content injectable">
                    <div class="content-data">
 
 
@@ -87,11 +87,9 @@
 
 
 
-
-
 <ol class="breadcrumb">
-    <li class="breadcrumb-item">Guards</li>
-    <li class="breadcrumb-item" >AuthGuard</li>
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ThemeService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -110,20 +108,19 @@
 </ul>
 
 <div class="tab-content">
-        <div class="tab-pane fade active in" id="info">
-            <p class="comment">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
             <h3>File</h3>
-            </p>
-            <p class="comment">
-                <code>src/app/core/guards/auth.guard.ts</code>
-            </p>
+        </p>
+        <p class="comment">
+            <code>src/app/core/services/theme/theme.service.ts</code>
+        </p>
 
 
 
 
 
-
-                <section data-compodoc="block-index">
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -137,11 +134,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#homeUrl" >homeUrl</a>
+                                <a href="#renderer" >renderer</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#loginUrl" >loginUrl</a>
+                                <a href="#themeLink" >themeLink</a>
                             </li>
                         </ul>
                     </td>
@@ -156,7 +153,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#canActivate" >canActivate</a>
+                                <a href="#switchTheme" >switchTheme</a>
                             </li>
                         </ul>
                     </td>
@@ -170,18 +167,18 @@
     </table>
 </section>
 
-                <section data-compodoc="block-constructor">
+            <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router)</code>
+<code>constructor(rendererFactory: RendererFactory2)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/core/guards/auth.guard.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/core/services/theme/theme.service.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -199,22 +196,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>auth</td>
+                                                        <td>rendererFactory</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>router</td>
-                                                  
-                                                        <td>
-                                                                    <code>Router</code>
+                                                                    <code>RendererFactory2</code>
                                                         </td>
                                                   
                                                     <td>
@@ -231,7 +216,7 @@
         </table>
 </section>
 
-                <section data-compodoc="block-methods">
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -240,24 +225,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="canActivate"></a>
+                    <a name="switchTheme"></a>
                     <span class="name">
-                        <span ><b>canActivate</b></span>
-                        <a href="#canActivate"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>switchTheme</b></span>
+                        <a href="#switchTheme"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot)</code>
+<code>switchTheme(theme: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="24"
-                                    class="link-to-prism">src/app/core/guards/auth.guard.ts:24</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/app/core/services/theme/theme.service.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -278,21 +263,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>route</td>
+                                                <td>theme</td>
                                             <td>
-                                                        <code>ActivatedRouteSnapshot</code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                        <tr>
-                                                <td>state</td>
-                                            <td>
-                                                        <code>RouterStateSnapshot</code>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                             </td>
 
                                             <td>
@@ -305,7 +278,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>Observable | Promise | boolean | UrlTree</code>
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
                             <div class="io-description">
@@ -316,51 +289,110 @@
         </tbody>
     </table>
 </section>
-        </div>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="renderer"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>renderer</b></span>
+                        <a href="#renderer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Renderer2</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/core/services/theme/theme.service.ts:8</a></div>
+                        </td>
+                    </tr>
 
 
-        <div class="tab-pane fade  tab-source-code" id="source">
-            <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot,
-  UrlTree,
-} from &#x27;@angular/router&#x27;;
-import { Observable, map, tap } from &#x27;rxjs&#x27;;
-import { AuthService } from &#x27;../services/auth.service&#x27;;
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="themeLink"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>themeLink</b></span>
+                        <a href="#themeLink"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HTMLLinkElement</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/core/services/theme/theme.service.ts:9</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DOCUMENT } from &#x27;@angular/common&#x27;;
+import { Inject, Injectable, Renderer2, RendererFactory2 } from &#x27;@angular/core&#x27;;
 
 @Injectable({
-  providedIn: &#x27;root&#x27;,
+  providedIn: &#x27;root&#x27;
 })
-export class AuthGuard implements CanActivate {
-  private loginUrl: string &#x3D; &#x27;/access&#x27;;
-  private homeUrl: string &#x3D; &#x27;/home&#x27;;
+export class ThemeService {
+  private renderer: Renderer2;
+  private themeLink: HTMLLinkElement;
 
   constructor(
-    private auth: AuthService,
-    private router: Router
-  ) {}
+    private rendererFactory: RendererFactory2
+  ) {
+    this.renderer &#x3D; this.rendererFactory.createRenderer(null, null);
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable&lt;boolean | UrlTree&gt; | Promise&lt;boolean | UrlTree&gt; | boolean | UrlTree {
-    return this.auth.isLogged$.pipe(
-      tap(logged &#x3D;&gt; {
-        if (logged) {
-          return this.router.createUrlTree([this.homeUrl]);
-        } else {
-          return this.router.createUrlTree([this.loginUrl]);
-        }
-      })
-    );
+    const linkElement &#x3D; document.getElementById(&#x27;app-theme&#x27;) as HTMLLinkElement;
+    if (linkElement) {
+      this.themeLink &#x3D; linkElement;
+    } else {
+      this.themeLink &#x3D; this.renderer.createElement(&#x27;link&#x27;);
+      this.themeLink.id &#x3D; &#x27;app-theme&#x27;;
+      this.themeLink.rel &#x3D; &#x27;stylesheet&#x27;;
+      this.themeLink.type &#x3D; &#x27;text/css&#x27;;
+      this.renderer.appendChild(document.head, this.themeLink);
+      console.log(this.themeLink);
+    }
+  }
+
+  switchTheme(theme: string) {
+    this.themeLink.href &#x3D; &#x60;${theme}.css&#x60;;
+    console.log(this.themeLink.href);
   }
 }
 </code></pre>
-        </div>
+    </div>
+
 </div>
+
+
 
 
 
@@ -397,8 +429,8 @@ export class AuthGuard implements CanActivate {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'guard';
-            var COMPODOC_CURRENT_PAGE_URL = 'AuthGuard.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ThemeService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

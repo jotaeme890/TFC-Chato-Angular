@@ -13,15 +13,27 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  // Puedes inyectar las URL o simplemente usar strings directamente
-  private loginUrl: string = '/access'; // Página para iniciar sesión o acceso
-  private homeUrl: string = '/home'; // Página de inicio post-login
+  private loginUrl: string = '/access';
+  private homeUrl: string = '/home';
 
+  /**
+   * Creates an instance of AuthGuard.
+   * 
+   * @param auth - The AuthService for checking the user's authentication status.
+   * @param router - The Router for navigation.
+   */
   constructor(
     private auth: AuthService,
     private router: Router
   ) {}
 
+  /**
+   * Checks if the user is logged in and redirects accordingly.
+   * 
+   * @param route - The activated route snapshot.
+   * @param state - The router state snapshot.
+   * @returns An observable, promise, boolean, or URL tree representing the result of the canActivate operation.
+   */
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -29,10 +41,8 @@ export class AuthGuard implements CanActivate {
     return this.auth.isLogged$.pipe(
       tap(logged => {
         if (logged) {
-          // Si el usuario está autenticado, redirige a Home
           return this.router.createUrlTree([this.homeUrl]);
         } else {
-          // Si el usuario no está autenticado, redirige a Access
           return this.router.createUrlTree([this.loginUrl]);
         }
       })

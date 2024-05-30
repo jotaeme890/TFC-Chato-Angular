@@ -156,6 +156,9 @@
                                 <a href="#get" >get</a>
                             </li>
                             <li>
+                                <a href="#getCurrentLang" >getCurrentLang</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#init" >init</a>
@@ -260,8 +263,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="53"
-                                    class="link-to-prism">src/app/core/services/translate/translate.service.ts:53</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/core/services/translate/translate.service.ts:57</a></div>
                         </td>
                     </tr>
 
@@ -315,6 +318,43 @@ translation value from the translation service.</li>
                                 <p>An Observable of type string is being returned.</p>
 
                             </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCurrentLang"></a>
+                    <span class="name">
+                        <span ><b>getCurrentLang</b></span>
+                        <a href="#getCurrentLang"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCurrentLang()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/app/core/services/translate/translate.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -557,6 +597,10 @@ export class CustomTranslateService {
       .catch((err) &#x3D;&gt; {
         console.error(err);
       });
+  }
+
+  getCurrentLang(): string {
+    return this._language.getValue();
   }
 
   /**

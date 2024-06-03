@@ -287,7 +287,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -395,9 +395,15 @@ constructor subscribes to this observable and navigates</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:27</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Represents the input property for passing user information to the component.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -419,9 +425,15 @@ constructor subscribes to this observable and navigates</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:32</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Represents the output property for emitting events when a user is clicked.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -452,8 +464,8 @@ constructor subscribes to this observable and navigates</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="79"
-                                    class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:79</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:85</a></div>
                         </td>
                     </tr>
 
@@ -523,8 +535,8 @@ constructor subscribes to this observable and navigates</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="88"
-                                    class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:88</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:94</a></div>
                         </td>
                     </tr>
 
@@ -597,8 +609,8 @@ constructor subscribes to this observable and navigates</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="69"
-                                    class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:69</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:75</a></div>
                         </td>
                     </tr>
 
@@ -671,8 +683,8 @@ constructor subscribes to this observable and navigates</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="53"
-                                    class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:53</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:59</a></div>
                         </td>
                     </tr>
 
@@ -720,8 +732,8 @@ Retrieves and filters user data from Firebase and the authentication service.</p
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="79"
-                                    class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:79</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/shared/components/users-info/users-info.component.ts:85</a></div>
                         </td>
                     </tr>
 
@@ -871,7 +883,14 @@ export class UsersInfoComponent implements OnInit {
   users$: Observable&lt;any[]&gt; | null &#x3D; null;
   isScreenSmall: boolean &#x3D; false;
 
+  /**
+   * Represents the input property for passing user information to the component.
+   */
   @Input() users: UserInfo[] | null | undefined;
+
+  /**
+   * Represents the output property for emitting events when a user is clicked.
+   */
   @Output() onUserClicked: EventEmitter&lt;string&gt; &#x3D; new EventEmitter&lt;string&gt;();
 
   /**
@@ -891,22 +910,21 @@ export class UsersInfoComponent implements OnInit {
     private router: Router,
     protected auth: AuthService,
     protected firebaseService: FirebaseService
-
   ) {
     this.checkScreenSize(window.innerWidth);
   }
 
   /**
- * Method executed when the component is initialized.
- * Retrieves and filters user data from Firebase and the authentication service.
- */
+   * Method executed when the component is initialized.
+   * Retrieves and filters user data from Firebase and the authentication service.
+   */
   ngOnInit() {
     this.users$ &#x3D; combineLatest([
       this.firebaseService.users$,
-      this.auth.user$
+      this.auth.user$,
     ]).pipe(
       map(([users, currentUser]) &#x3D;&gt;
-        users.filter(user &#x3D;&gt; user.uuid !&#x3D;&#x3D; currentUser?.uuid)
+        users.filter((user) &#x3D;&gt; user.uuid !&#x3D;&#x3D; currentUser?.uuid)
       )
     );
   }

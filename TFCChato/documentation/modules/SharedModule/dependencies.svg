@@ -24,209 +24,209 @@
 <title>cluster_SharedModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 1483,-268 1483,-70 8,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SharedModule_declarations</title>
-<polygon fill="none" stroke="black" points="150,-78 150,-130 1475,-130 1475,-78 150,-78"/>
-</g>
 <g id="clust10" class="cluster">
 <title>cluster_SharedModule_imports</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 142,-130 142,-78 16,-78"/>
+<polygon fill="none" stroke="black" points="1349,-78 1349,-130 1475,-130 1475,-78 1349,-78"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_SharedModule_declarations</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 1341,-130 1341,-78 16,-78"/>
 </g>
 <g id="clust11" class="cluster">
 <title>cluster_SharedModule_exports</title>
-<polygon fill="none" stroke="black" points="16,-208 16,-260 1365,-260 1365,-208 16,-208"/>
+<polygon fill="none" stroke="black" points="126,-208 126,-260 1475,-260 1475,-208 126,-208"/>
 </g>
 <!-- CategoriesInfoComponent -->
 <g id="node1" class="node">
 <title>CategoriesInfoComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1467.02,-122 1302.98,-122 1302.98,-86 1467.02,-86 1467.02,-122"/>
-<text text-anchor="middle" x="1385" y="-99.8" font-family="Times,serif" font-size="14.00">CategoriesInfoComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="1333.02,-122 1168.98,-122 1168.98,-86 1333.02,-86 1333.02,-122"/>
+<text text-anchor="middle" x="1251" y="-99.8" font-family="Times,serif" font-size="14.00">CategoriesInfoComponent</text>
 </g>
 <!-- SharedModule -->
 <g id="node8" class="node">
 <title>SharedModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="687.42,-187 684.42,-191 663.42,-191 660.42,-187 588.58,-187 588.58,-151 687.42,-151 687.42,-187"/>
-<text text-anchor="middle" x="638" y="-164.8" font-family="Times,serif" font-size="14.00">SharedModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="869.42,-187 866.42,-191 845.42,-191 842.42,-187 770.58,-187 770.58,-151 869.42,-151 869.42,-187"/>
+<text text-anchor="middle" x="820" y="-164.8" font-family="Times,serif" font-size="14.00">SharedModule</text>
 </g>
 <!-- CategoriesInfoComponent&#45;&gt;SharedModule -->
 <g id="edge1" class="edge">
 <title>CategoriesInfoComponent&#45;&gt;SharedModule</title>
-<path fill="none" stroke="black" d="M1329.88,-122.11C1329.88,-141.34 1329.88,-169 1329.88,-169 1329.88,-169 697.48,-169 697.48,-169"/>
-<polygon fill="black" stroke="black" points="697.48,-165.5 687.48,-169 697.48,-172.5 697.48,-165.5"/>
+<path fill="none" stroke="black" d="M1224.96,-122.03C1224.96,-139.06 1224.96,-162 1224.96,-162 1224.96,-162 879.25,-162 879.25,-162"/>
+<polygon fill="black" stroke="black" points="879.25,-158.5 869.25,-162 879.25,-165.5 879.25,-158.5"/>
 </g>
 <!-- ConfirmDialogComponent -->
 <g id="node2" class="node">
 <title>ConfirmDialogComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1284.37,-122 1117.63,-122 1117.63,-86 1284.37,-86 1284.37,-122"/>
-<text text-anchor="middle" x="1201" y="-99.8" font-family="Times,serif" font-size="14.00">ConfirmDialogComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="1150.37,-122 983.63,-122 983.63,-86 1150.37,-86 1150.37,-122"/>
+<text text-anchor="middle" x="1067" y="-99.8" font-family="Times,serif" font-size="14.00">ConfirmDialogComponent</text>
 </g>
 <!-- ConfirmDialogComponent&#45;&gt;SharedModule -->
 <g id="edge2" class="edge">
 <title>ConfirmDialogComponent&#45;&gt;SharedModule</title>
-<path fill="none" stroke="black" d="M1144.38,-122.3C1144.38,-140.27 1144.38,-165 1144.38,-165 1144.38,-165 697.48,-165 697.48,-165"/>
-<polygon fill="black" stroke="black" points="697.48,-161.5 687.48,-165 697.48,-168.5 697.48,-161.5"/>
+<path fill="none" stroke="black" d="M1038.14,-122.24C1038.14,-137.57 1038.14,-157 1038.14,-157 1038.14,-157 879.23,-157 879.23,-157"/>
+<polygon fill="black" stroke="black" points="879.23,-153.5 869.23,-157 879.23,-160.5 879.23,-153.5"/>
 </g>
 <!-- IncidentsCircleGraphicComponent -->
 <g id="node3" class="node">
 <title>IncidentsCircleGraphicComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1099.94,-122 888.06,-122 888.06,-86 1099.94,-86 1099.94,-122"/>
-<text text-anchor="middle" x="994" y="-99.8" font-family="Times,serif" font-size="14.00">IncidentsCircleGraphicComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="965.94,-122 754.06,-122 754.06,-86 965.94,-86 965.94,-122"/>
+<text text-anchor="middle" x="860" y="-99.8" font-family="Times,serif" font-size="14.00">IncidentsCircleGraphicComponent</text>
 </g>
 <!-- IncidentsCircleGraphicComponent&#45;&gt;SharedModule -->
 <g id="edge3" class="edge">
 <title>IncidentsCircleGraphicComponent&#45;&gt;SharedModule</title>
-<path fill="none" stroke="black" d="M935.38,-122.03C935.38,-138.4 935.38,-160 935.38,-160 935.38,-160 697.44,-160 697.44,-160"/>
-<polygon fill="black" stroke="black" points="697.44,-156.5 687.44,-160 697.44,-163.5 697.44,-156.5"/>
+<path fill="none" stroke="black" d="M820,-122.11C820,-122.11 820,-140.99 820,-140.99"/>
+<polygon fill="black" stroke="black" points="816.5,-140.99 820,-150.99 823.5,-140.99 816.5,-140.99"/>
 </g>
 <!-- IncidentsInfoComponent -->
 <g id="node4" class="node">
 <title>IncidentsInfoComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="869.97,-122 714.03,-122 714.03,-86 869.97,-86 869.97,-122"/>
-<text text-anchor="middle" x="792" y="-99.8" font-family="Times,serif" font-size="14.00">IncidentsInfoComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="735.97,-122 580.03,-122 580.03,-86 735.97,-86 735.97,-122"/>
+<text text-anchor="middle" x="658" y="-99.8" font-family="Times,serif" font-size="14.00">IncidentsInfoComponent</text>
 </g>
 <!-- IncidentsInfoComponent&#45;&gt;SharedModule -->
 <g id="edge4" class="edge">
 <title>IncidentsInfoComponent&#45;&gt;SharedModule</title>
-<path fill="none" stroke="black" d="M731.88,-122.19C731.88,-137.18 731.88,-156 731.88,-156 731.88,-156 697.41,-156 697.41,-156"/>
-<polygon fill="black" stroke="black" points="697.41,-152.5 687.41,-156 697.41,-159.5 697.41,-152.5"/>
+<path fill="none" stroke="black" d="M718.12,-122.19C718.12,-137.18 718.12,-156 718.12,-156 718.12,-156 760.55,-156 760.55,-156"/>
+<polygon fill="black" stroke="black" points="760.55,-159.5 770.55,-156 760.55,-152.5 760.55,-159.5"/>
 </g>
 <!-- PictureSelectableComponent -->
 <g id="node5" class="node">
 <title>PictureSelectableComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="696.01,-122 517.99,-122 517.99,-86 696.01,-86 696.01,-122"/>
-<text text-anchor="middle" x="607" y="-99.8" font-family="Times,serif" font-size="14.00">PictureSelectableComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="562.01,-122 383.99,-122 383.99,-86 562.01,-86 562.01,-122"/>
+<text text-anchor="middle" x="473" y="-99.8" font-family="Times,serif" font-size="14.00">PictureSelectableComponent</text>
 </g>
 <!-- PictureSelectableComponent&#45;&gt;SharedModule -->
 <g id="edge5" class="edge">
 <title>PictureSelectableComponent&#45;&gt;SharedModule</title>
-<path fill="none" stroke="black" d="M638,-122.11C638,-122.11 638,-140.99 638,-140.99"/>
-<polygon fill="black" stroke="black" points="634.5,-140.99 638,-150.99 641.5,-140.99 634.5,-140.99"/>
+<path fill="none" stroke="black" d="M531.12,-122.03C531.12,-138.4 531.12,-160 531.12,-160 531.12,-160 760.67,-160 760.67,-160"/>
+<polygon fill="black" stroke="black" points="760.67,-163.5 770.67,-160 760.67,-156.5 760.67,-163.5"/>
 </g>
 <!-- UserCircleGraphicComponent -->
 <g id="node6" class="node">
 <title>UserCircleGraphicComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="499.55,-122 312.45,-122 312.45,-86 499.55,-86 499.55,-122"/>
-<text text-anchor="middle" x="406" y="-99.8" font-family="Times,serif" font-size="14.00">UserCircleGraphicComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="365.55,-122 178.45,-122 178.45,-86 365.55,-86 365.55,-122"/>
+<text text-anchor="middle" x="272" y="-99.8" font-family="Times,serif" font-size="14.00">UserCircleGraphicComponent</text>
 </g>
 <!-- UserCircleGraphicComponent&#45;&gt;SharedModule -->
 <g id="edge6" class="edge">
 <title>UserCircleGraphicComponent&#45;&gt;SharedModule</title>
-<path fill="none" stroke="black" d="M444.76,-122.19C444.76,-137.18 444.76,-156 444.76,-156 444.76,-156 578.74,-156 578.74,-156"/>
-<polygon fill="black" stroke="black" points="578.74,-159.5 588.74,-156 578.74,-152.5 578.74,-159.5"/>
+<path fill="none" stroke="black" d="M328.62,-122.3C328.62,-140.27 328.62,-165 328.62,-165 328.62,-165 760.64,-165 760.64,-165"/>
+<polygon fill="black" stroke="black" points="760.64,-168.5 770.64,-165 760.64,-161.5 760.64,-168.5"/>
 </g>
 <!-- UsersInfoComponent -->
 <g id="node7" class="node">
 <title>UsersInfoComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="294.03,-122 157.97,-122 157.97,-86 294.03,-86 294.03,-122"/>
-<text text-anchor="middle" x="226" y="-99.8" font-family="Times,serif" font-size="14.00">UsersInfoComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="160.03,-122 23.97,-122 23.97,-86 160.03,-86 160.03,-122"/>
+<text text-anchor="middle" x="92" y="-99.8" font-family="Times,serif" font-size="14.00">UsersInfoComponent</text>
 </g>
 <!-- UsersInfoComponent&#45;&gt;SharedModule -->
 <g id="edge7" class="edge">
 <title>UsersInfoComponent&#45;&gt;SharedModule</title>
-<path fill="none" stroke="black" d="M237.99,-122.03C237.99,-138.4 237.99,-160 237.99,-160 237.99,-160 578.55,-160 578.55,-160"/>
-<polygon fill="black" stroke="black" points="578.55,-163.5 588.55,-160 578.55,-156.5 578.55,-163.5"/>
+<path fill="none" stroke="black" d="M147.12,-122.11C147.12,-141.34 147.12,-169 147.12,-169 147.12,-169 760.52,-169 760.52,-169"/>
+<polygon fill="black" stroke="black" points="760.52,-172.5 770.52,-169 760.52,-165.5 760.52,-172.5"/>
 </g>
 <!-- CategoriesInfoComponent  -->
 <g id="node10" class="node">
 <title>CategoriesInfoComponent </title>
-<polygon fill="#fb8072" stroke="black" points="1357.02,-252 1188.98,-252 1188.98,-216 1357.02,-216 1357.02,-252"/>
-<text text-anchor="middle" x="1273" y="-229.8" font-family="Times,serif" font-size="14.00">CategoriesInfoComponent </text>
+<polygon fill="#fb8072" stroke="black" points="1467.02,-252 1298.98,-252 1298.98,-216 1467.02,-216 1467.02,-252"/>
+<text text-anchor="middle" x="1383" y="-229.8" font-family="Times,serif" font-size="14.00">CategoriesInfoComponent </text>
 </g>
 <!-- SharedModule&#45;&gt;CategoriesInfoComponent  -->
 <g id="edge10" class="edge">
 <title>SharedModule&#45;&gt;CategoriesInfoComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M687.25,-174C830.47,-174 1236.71,-174 1236.71,-174 1236.71,-174 1236.71,-206 1236.71,-206"/>
-<polygon fill="black" stroke="black" points="1233.21,-206 1236.71,-216 1240.21,-206 1233.21,-206"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M869.38,-177C994.87,-177 1316.12,-177 1316.12,-177 1316.12,-177 1316.12,-205.96 1316.12,-205.96"/>
+<polygon fill="black" stroke="black" points="1312.63,-205.96 1316.12,-215.96 1319.63,-205.96 1312.63,-205.96"/>
 </g>
 <!-- ConfirmDialogComponent  -->
 <g id="node11" class="node">
 <title>ConfirmDialogComponent </title>
-<polygon fill="#fb8072" stroke="black" points="1171.37,-252 1000.63,-252 1000.63,-216 1171.37,-216 1171.37,-252"/>
-<text text-anchor="middle" x="1086" y="-229.8" font-family="Times,serif" font-size="14.00">ConfirmDialogComponent </text>
+<polygon fill="#fb8072" stroke="black" points="1281.37,-252 1110.63,-252 1110.63,-216 1281.37,-216 1281.37,-252"/>
+<text text-anchor="middle" x="1196" y="-229.8" font-family="Times,serif" font-size="14.00">ConfirmDialogComponent </text>
 </g>
 <!-- SharedModule&#45;&gt;ConfirmDialogComponent  -->
 <g id="edge11" class="edge">
 <title>SharedModule&#45;&gt;ConfirmDialogComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M687.33,-178C796.8,-178 1050.39,-178 1050.39,-178 1050.39,-178 1050.39,-205.97 1050.39,-205.97"/>
-<polygon fill="black" stroke="black" points="1046.89,-205.97 1050.39,-215.97 1053.89,-205.97 1046.89,-205.97"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M869.22,-182C956.81,-182 1130.62,-182 1130.62,-182 1130.62,-182 1130.62,-205.81 1130.62,-205.81"/>
+<polygon fill="black" stroke="black" points="1127.13,-205.81 1130.62,-215.81 1134.13,-205.81 1127.13,-205.81"/>
 </g>
 <!-- IncidentsCircleGraphicComponent  -->
 <g id="node12" class="node">
 <title>IncidentsCircleGraphicComponent </title>
-<polygon fill="#fb8072" stroke="black" points="982.94,-252 767.06,-252 767.06,-216 982.94,-216 982.94,-252"/>
-<text text-anchor="middle" x="875" y="-229.8" font-family="Times,serif" font-size="14.00">IncidentsCircleGraphicComponent </text>
+<polygon fill="#fb8072" stroke="black" points="1092.94,-252 877.06,-252 877.06,-216 1092.94,-216 1092.94,-252"/>
+<text text-anchor="middle" x="985" y="-229.8" font-family="Times,serif" font-size="14.00">IncidentsCircleGraphicComponent </text>
 </g>
 <!-- SharedModule&#45;&gt;IncidentsCircleGraphicComponent  -->
 <g id="edge12" class="edge">
 <title>SharedModule&#45;&gt;IncidentsCircleGraphicComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M687.36,-183C740.84,-183 818.63,-183 818.63,-183 818.63,-183 818.63,-205.88 818.63,-205.88"/>
-<polygon fill="black" stroke="black" points="815.13,-205.88 818.63,-215.88 822.13,-205.88 815.13,-205.88"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M864.47,-187.11C864.47,-206.34 864.47,-234 864.47,-234 864.47,-234 866.92,-234 866.92,-234"/>
+<polygon fill="black" stroke="black" points="866.92,-237.5 876.92,-234 866.92,-230.5 866.92,-237.5"/>
 </g>
 <!-- IncidentsInfoComponent  -->
 <g id="node13" class="node">
 <title>IncidentsInfoComponent </title>
-<polygon fill="#fb8072" stroke="black" points="749.97,-252 590.03,-252 590.03,-216 749.97,-216 749.97,-252"/>
-<text text-anchor="middle" x="670" y="-229.8" font-family="Times,serif" font-size="14.00">IncidentsInfoComponent </text>
+<polygon fill="#fb8072" stroke="black" points="859.97,-252 700.03,-252 700.03,-216 859.97,-216 859.97,-252"/>
+<text text-anchor="middle" x="780" y="-229.8" font-family="Times,serif" font-size="14.00">IncidentsInfoComponent </text>
 </g>
 <!-- SharedModule&#45;&gt;IncidentsInfoComponent  -->
 <g id="edge13" class="edge">
 <title>SharedModule&#45;&gt;IncidentsInfoComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M638.74,-187.11C638.74,-187.11 638.74,-205.99 638.74,-205.99"/>
-<polygon fill="black" stroke="black" points="635.24,-205.99 638.74,-215.99 642.24,-205.99 635.24,-205.99"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M815.26,-187.11C815.26,-187.11 815.26,-205.99 815.26,-205.99"/>
+<polygon fill="black" stroke="black" points="811.76,-205.99 815.26,-215.99 818.76,-205.99 811.76,-205.99"/>
 </g>
 <!-- PictureSelectableComponent  -->
 <g id="node14" class="node">
 <title>PictureSelectableComponent </title>
-<polygon fill="#fb8072" stroke="black" points="572.01,-252 389.99,-252 389.99,-216 572.01,-216 572.01,-252"/>
-<text text-anchor="middle" x="481" y="-229.8" font-family="Times,serif" font-size="14.00">PictureSelectableComponent </text>
+<polygon fill="#fb8072" stroke="black" points="682.01,-252 499.99,-252 499.99,-216 682.01,-216 682.01,-252"/>
+<text text-anchor="middle" x="591" y="-229.8" font-family="Times,serif" font-size="14.00">PictureSelectableComponent </text>
 </g>
 <!-- SharedModule&#45;&gt;PictureSelectableComponent  -->
 <g id="edge14" class="edge">
 <title>SharedModule&#45;&gt;PictureSelectableComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M588.71,-183C566.37,-183 544.88,-183 544.88,-183 544.88,-183 544.88,-205.88 544.88,-205.88"/>
-<polygon fill="black" stroke="black" points="541.38,-205.88 544.88,-215.88 548.38,-205.88 541.38,-205.88"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M770.35,-183C714.35,-183 631.01,-183 631.01,-183 631.01,-183 631.01,-205.88 631.01,-205.88"/>
+<polygon fill="black" stroke="black" points="627.51,-205.88 631.01,-215.88 634.51,-205.88 627.51,-205.88"/>
 </g>
 <!-- UserCircleGraphicComponent  -->
 <g id="node15" class="node">
 <title>UserCircleGraphicComponent </title>
-<polygon fill="#fb8072" stroke="black" points="372.05,-252 181.95,-252 181.95,-216 372.05,-216 372.05,-252"/>
-<text text-anchor="middle" x="277" y="-229.8" font-family="Times,serif" font-size="14.00">UserCircleGraphicComponent </text>
+<polygon fill="#fb8072" stroke="black" points="482.05,-252 291.95,-252 291.95,-216 482.05,-216 482.05,-252"/>
+<text text-anchor="middle" x="387" y="-229.8" font-family="Times,serif" font-size="14.00">UserCircleGraphicComponent </text>
 </g>
 <!-- SharedModule&#45;&gt;UserCircleGraphicComponent  -->
 <g id="edge15" class="edge">
 <title>SharedModule&#45;&gt;UserCircleGraphicComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M588.52,-178C504.36,-178 342.38,-178 342.38,-178 342.38,-178 342.38,-205.97 342.38,-205.97"/>
-<polygon fill="black" stroke="black" points="338.88,-205.97 342.38,-215.97 345.88,-205.97 338.88,-205.97"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M770.59,-178C666.27,-178 433.01,-178 433.01,-178 433.01,-178 433.01,-205.97 433.01,-205.97"/>
+<polygon fill="black" stroke="black" points="429.51,-205.97 433.01,-215.97 436.51,-205.97 429.51,-205.97"/>
 </g>
 <!-- UsersInfoComponent  -->
 <g id="node16" class="node">
 <title>UsersInfoComponent </title>
-<polygon fill="#fb8072" stroke="black" points="164.02,-252 23.98,-252 23.98,-216 164.02,-216 164.02,-252"/>
-<text text-anchor="middle" x="94" y="-229.8" font-family="Times,serif" font-size="14.00">UsersInfoComponent </text>
+<polygon fill="#fb8072" stroke="black" points="274.02,-252 133.98,-252 133.98,-216 274.02,-216 274.02,-252"/>
+<text text-anchor="middle" x="204" y="-229.8" font-family="Times,serif" font-size="14.00">UsersInfoComponent </text>
 </g>
 <!-- SharedModule&#45;&gt;UsersInfoComponent  -->
 <g id="edge16" class="edge">
 <title>SharedModule&#45;&gt;UsersInfoComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M588.56,-174C463.77,-174 145.89,-174 145.89,-174 145.89,-174 145.89,-206 145.89,-206"/>
-<polygon fill="black" stroke="black" points="142.39,-206 145.89,-216 149.39,-206 142.39,-206"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M770.65,-174C628.17,-174 226.24,-174 226.24,-174 226.24,-174 226.24,-206 226.24,-206"/>
+<polygon fill="black" stroke="black" points="222.74,-206 226.24,-216 229.74,-206 222.74,-206"/>
 </g>
 <!-- ShortenTextPipe -->
 <g id="node9" class="node">
 <title>ShortenTextPipe</title>
-<polygon fill="#8dd3c7" stroke="black" points="134.09,-122 131.09,-126 110.09,-126 107.09,-122 23.91,-122 23.91,-86 134.09,-86 134.09,-122"/>
-<text text-anchor="middle" x="79" y="-99.8" font-family="Times,serif" font-size="14.00">ShortenTextPipe</text>
+<polygon fill="#8dd3c7" stroke="black" points="1467.09,-122 1464.09,-126 1443.09,-126 1440.09,-122 1356.91,-122 1356.91,-86 1467.09,-86 1467.09,-122"/>
+<text text-anchor="middle" x="1412" y="-99.8" font-family="Times,serif" font-size="14.00">ShortenTextPipe</text>
 </g>
 <!-- ShortenTextPipe&#45;&gt;SharedModule -->
 <g id="edge8" class="edge">
 <title>ShortenTextPipe&#45;&gt;SharedModule</title>
-<path fill="none" stroke="black" d="M97.36,-122.3C97.36,-140.27 97.36,-165 97.36,-165 97.36,-165 578.59,-165 578.59,-165"/>
-<polygon fill="black" stroke="black" points="578.59,-168.5 588.59,-165 578.59,-161.5 578.59,-168.5"/>
+<path fill="none" stroke="black" d="M1393.64,-122.22C1393.64,-140.83 1393.64,-167 1393.64,-167 1393.64,-167 879.4,-167 879.4,-167"/>
+<polygon fill="black" stroke="black" points="879.4,-163.5 869.4,-167 879.4,-170.5 879.4,-163.5"/>
 </g>
 <!-- ShortenTextPipe&#45;&gt;SharedModule -->
 <g id="edge9" class="edge">
 <title>ShortenTextPipe&#45;&gt;SharedModule</title>
-<path fill="none" stroke="black" d="M60.67,-122.11C60.67,-141.34 60.67,-169 60.67,-169 60.67,-169 578.78,-169 578.78,-169"/>
-<polygon fill="black" stroke="black" points="578.78,-172.5 588.78,-169 578.78,-165.5 578.78,-172.5"/>
+<path fill="none" stroke="black" d="M1430.32,-122.22C1430.32,-142.37 1430.32,-172 1430.32,-172 1430.32,-172 879.43,-172 879.43,-172"/>
+<polygon fill="black" stroke="black" points="879.43,-168.5 869.43,-172 879.43,-175.5 879.43,-168.5"/>
 </g>
 </g>
 </svg>

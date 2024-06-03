@@ -251,7 +251,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/pages/access/register-form/register-form.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/access/register-form/register-form.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -318,7 +318,7 @@ Initializes the form with form controls and validators.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/pages/access/register-form/register-form.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/access/register-form/register-form.component.ts:25</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -351,8 +351,8 @@ Initializes the form with form controls and validators.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="52"
-                                    class="link-to-prism">src/app/pages/access/register-form/register-form.component.ts:52</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/pages/access/register-form/register-form.component.ts:56</a></div>
                         </td>
                     </tr>
 
@@ -388,8 +388,8 @@ Initializes the form with form controls and validators.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="59"
-                                    class="link-to-prism">src/app/pages/access/register-form/register-form.component.ts:59</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">src/app/pages/access/register-form/register-form.component.ts:63</a></div>
                         </td>
                     </tr>
 
@@ -492,6 +492,10 @@ export class RegisterFormComponent implements OnInit {
   form: FormGroup;
   hide &#x3D; true;
 
+  /* The &#x60;@Output() onsubmit &#x3D; new EventEmitter&lt;UserRegisterInfo&gt;();&#x60; line in the code snippet is
+  creating an output property named &#x60;onsubmit&#x60; of type &#x60;EventEmitter&lt;UserRegisterInfo&gt;&#x60;. This output
+  property allows the &#x60;RegisterFormComponent&#x60; to emit events containing &#x60;UserRegisterInfo&#x60; data to
+  its parent component or any component that uses this form. */
   @Output() onsubmit &#x3D; new EventEmitter&lt;UserRegisterInfo&gt;();
 
   /**

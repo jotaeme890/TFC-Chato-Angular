@@ -1,4 +1,13 @@
-.user {
+.back {
+    width: auto;
+    margin: 2%;
+
+    ion-icon {
+        cursor: pointer;
+    }
+}
+
+.incident {
     width: 80%;
     margin: 2% auto;
     justify-content: center;
@@ -37,11 +46,11 @@
         font-size: 2rem;
     }
 
-    &--username {
+    &--text {
         margin: 0;
     }
 
-    &--role {
+    &--description {
         margin: 0;
     }
 }

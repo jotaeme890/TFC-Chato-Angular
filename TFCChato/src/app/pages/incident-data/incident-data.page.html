@@ -1,19 +1,23 @@
 <ion-content>
-  <div class="user">
-    <div class="user--image">
+  <div class="back">
+    <ion-icon (click)="goBack()" size="large" name="arrow-back-outline"></ion-icon>
+  </div>
+
+  <div class="incident">
+    <div class="incident--image">
       <img alt="{{'forms.picture' | translate}}" [src]="incident?.image"/>
     </div>
 
-    <div class="user--info">
+    <div class="incident--info">
       <div class="detail">
 
         <h1 class="detail--name">{{incident.title}}</h1>
 
-        <p class="detail--username">{{incident.categoryName}}</p>
+        <p class="detail--text">{{incident.categoryName}}</p>
 
-        <p class="detail--username">{{incident.userName}}</p>
+        <p class="detail--text">{{incident.userName}}</p>
 
-        <p class="detail--role">{{incident.description}}</p>
+        <p class="detail--description">{{incident.description}}</p>
 
         <button *ngIf="!incident.resolved" (click)="setResolvedIncident(incident)">{{"incidents.resolved" | translate}}</button>
       </div> 

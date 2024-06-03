@@ -1,4 +1,7 @@
 <ion-content>
+  <div class="back">
+    <ion-icon (click)="goBack()" size="large" name="arrow-back-outline"></ion-icon>
+  </div>
   <div class="user">
     <div class="user--image">
       <img alt="{{'forms.picture' | translate}}" [src]="user?.picture"/>

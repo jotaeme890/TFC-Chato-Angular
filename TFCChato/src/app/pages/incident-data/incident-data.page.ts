@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { incidentInfo } from 'src/app/core/interfaces/incidents-info';
 import { IncidentsService } from 'src/app/core/services/api/incidents.service';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
@@ -25,6 +25,9 @@ export class IncidentDataPage implements OnInit {
    * @param translate CustomTranslateService - a service for handling translation services within the component or service where it is injected.
    * @param messageService MessageService - a service for displaying messages or notifications to the user within the application.
    * @param dialog MatDialog - a service for displaying dialog boxes.
+   * @param router The `router` parameter in the constructor is an instance of the Angular Router
+   * service. It is used for navigating between different views in the Angular application based on the
+   * specified routes.
    */
   constructor(
     private route: ActivatedRoute,
@@ -32,6 +35,7 @@ export class IncidentDataPage implements OnInit {
     private translate: CustomTranslateService,
     private messageService: MessageService,
     public dialog: MatDialog,
+    public router: Router
   ) {}
 
   /**
@@ -124,5 +128,9 @@ export class IncidentDataPage implements OnInit {
         });
       },
     });
+  }
+
+  goBack() {
+    this.router.navigate(['/home'])
   }
 }

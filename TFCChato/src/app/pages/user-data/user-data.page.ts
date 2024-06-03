@@ -95,4 +95,8 @@ export class UserDataPage implements OnInit {
       }
     }
   }
+
+  goBack() {
+    this._router.navigate(['/data'])
+  }
 }

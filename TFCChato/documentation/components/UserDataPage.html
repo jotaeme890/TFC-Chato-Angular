@@ -209,6 +209,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#goBack" >goBack</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                             <li>
@@ -384,6 +387,45 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goBack"></a>
+                    <span class="name">
+                        <span ><b>goBack</b></span>
+                        <a href="#goBack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goBack()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="102"
+                                    class="link-to-prism">src/app/pages/user-data/user-data.page.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>The <code>goBack</code> function navigates to the &#39;/data&#39; route using the Angular router.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -671,12 +713,22 @@ export class UserDataPage implements OnInit {
       }
     }
   }
+
+  /**
+   * The &#x60;goBack&#x60; function navigates to the &#x27;/data&#x27; route using the Angular router.
+   */
+  goBack() {
+    this._router.navigate([&#x27;/data&#x27;])
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;ion-content&gt;
+  &lt;div class&#x3D;&quot;back&quot;&gt;
+    &lt;ion-icon (click)&#x3D;&quot;goBack()&quot; size&#x3D;&quot;large&quot; name&#x3D;&quot;arrow-back-outline&quot;&gt;&lt;/ion-icon&gt;
+  &lt;/div&gt;
   &lt;div class&#x3D;&quot;user&quot;&gt;
     &lt;div class&#x3D;&quot;user--image&quot;&gt;
       &lt;img alt&#x3D;&quot;{{&#x27;forms.picture&#x27; | translate}}&quot; [src]&#x3D;&quot;user?.picture&quot;/&gt;
@@ -703,7 +755,16 @@ export class UserDataPage implements OnInit {
                 <p class="comment">
                     <code>./user-data.page.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.user {
+                <pre class="line-numbers"><code class="language-scss">.back {
+    width: auto;
+    margin: 2%;
+
+    ion-icon {
+        cursor: pointer;
+    }
+}
+
+.user {
     width: 80%;
     margin: 2% auto;
     justify-content: center;
@@ -819,7 +880,7 @@ button {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-content>  <div class="user">    <div class="user--image">      <img alt="{{\'forms.picture\' | translate}}" [src]="user?.picture"/>    </div>    <div class="user--info">      <div class="detail">        <h1 class="detail--name">{{user.name}} {{user.surname}}</h1>        <p class="detail--username">{{user.username}}</p>        <p *ngIf="user.role === \'user\'" class="detail--role">{{\'forms.user\' | translate}}</p>        <p *ngIf="user.role === \'admin\'" class="detail--role">{{\'forms.admin\' | translate}}</p>        <button (click)="updateUser(user)">{{"data.update" | translate}}</button>      </div>     </div>  </div></ion-content></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-content>  <div class="back">    <ion-icon (click)="goBack()" size="large" name="arrow-back-outline"></ion-icon>  </div>  <div class="user">    <div class="user--image">      <img alt="{{\'forms.picture\' | translate}}" [src]="user?.picture"/>    </div>    <div class="user--info">      <div class="detail">        <h1 class="detail--name">{{user.name}} {{user.surname}}</h1>        <p class="detail--username">{{user.username}}</p>        <p *ngIf="user.role === \'user\'" class="detail--role">{{\'forms.user\' | translate}}</p>        <p *ngIf="user.role === \'admin\'" class="detail--role">{{\'forms.admin\' | translate}}</p>        <button (click)="updateUser(user)">{{"data.update" | translate}}</button>      </div>     </div>  </div></ion-content></div>'
     var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AccessPage', 'selector': 'app-access'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriesInfoComponent', 'selector': 'app-categories-info'},{'name': 'CategorySelectableComponent', 'selector': 'app-category-selectable'},{'name': 'CategorySelectableMobileComponent', 'selector': 'app-category-selectable-mobile'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'DataPage', 'selector': 'app-data'},{'name': 'FilterComponent', 'selector': 'app-filter'},{'name': 'FilterMobileComponent', 'selector': 'app-filter-mobile'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'IncidentDataPage', 'selector': 'app-incident-data'},{'name': 'IncidentsCircleGraphicComponent', 'selector': 'app-incidents-circle-graphic'},{'name': 'IncidentsInfoComponent', 'selector': 'app-incidents-info'},{'name': 'ItemCategoryComponent', 'selector': 'app-item-category'},{'name': 'ItemUserComponent', 'selector': 'app-item-user'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'ModalCategoryComponent', 'selector': 'app-modal-category'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'UpdateUserComponent', 'selector': 'app-update-user'},{'name': 'UserCircleGraphicComponent', 'selector': 'app-user-circle-graphic'},{'name': 'UserDataPage', 'selector': 'app-user-data'},{'name': 'UserSelectableComponent', 'selector': 'app-user-selectable'},{'name': 'UserSelectableMobileComponent', 'selector': 'app-user-selectable-mobile'},{'name': 'UsersInfoComponent', 'selector': 'app-users-info'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'UserDataPage'};

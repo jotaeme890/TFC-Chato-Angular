@@ -96,6 +96,9 @@ export class UserDataPage implements OnInit {
     }
   }
 
+  /**
+   * The `goBack` function navigates to the '/data' route using the Angular router.
+   */
   goBack() {
     this._router.navigate(['/data'])
   }

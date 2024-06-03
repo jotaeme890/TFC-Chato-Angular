@@ -130,6 +130,9 @@ export class IncidentDataPage implements OnInit {
     });
   }
 
+  /**
+   * The `goBack` function navigates to the home route using the Angular router.
+   */
   goBack() {
     this.router.navigate(['/home'])
   }

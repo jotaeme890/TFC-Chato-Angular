@@ -18,6 +18,10 @@ export class RegisterFormComponent implements OnInit {
   form: FormGroup;
   hide = true;
 
+  /* The `@Output() onsubmit = new EventEmitter<UserRegisterInfo>();` line in the code snippet is
+  creating an output property named `onsubmit` of type `EventEmitter<UserRegisterInfo>`. This output
+  property allows the `RegisterFormComponent` to emit events containing `UserRegisterInfo` data to
+  its parent component or any component that uses this form. */
   @Output() onsubmit = new EventEmitter<UserRegisterInfo>();
 
   /**

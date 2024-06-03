@@ -15,9 +15,21 @@ import { CategoryInfo } from 'src/app/core/interfaces/category-info';
 })
 export class CategoriesInfoComponent implements OnInit {
   isScreenSmall: boolean = false;
+
+  /**
+   * Represents the input property for passing category information to the component.
+   **/
   @Input() categories: CategoryInfo[] | null | undefined;
+
+  /**
+   * Represents the output property for emitting events when the trash icon is clicked for a category.
+   */
   @Output() onTrashClicked: EventEmitter<CategoryInfo> =
     new EventEmitter<CategoryInfo>();
+
+  /**
+   * Represents the output property for emitting events when the edit icon is clicked for a category.
+   */
   @Output() onEditClicked: EventEmitter<CategoryInfo> =
     new EventEmitter<CategoryInfo>();
 

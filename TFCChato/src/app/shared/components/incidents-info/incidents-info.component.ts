@@ -16,9 +16,18 @@ import { UsersService } from 'src/app/core/services/api/users.service';
 })
 export class IncidentsInfoComponent implements OnInit {
   isScreenSmall: boolean = false;
+
+  /**
+   * Represents the input property for passing incident information to the component.
+   */
   @Input() incident: incidentInfo | undefined;
+
+  /**
+   * Represents the output property for emitting events when an incident is clicked.
+   */
   @Output() onIncidentClicked: EventEmitter<string> =
     new EventEmitter<string>();
+
   formattedTime: string | undefined;
   formattedDay: string | undefined;
   userName: string | undefined;

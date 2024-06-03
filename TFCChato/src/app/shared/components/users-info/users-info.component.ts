@@ -21,7 +21,14 @@ export class UsersInfoComponent implements OnInit {
   users$: Observable<any[]> | null = null;
   isScreenSmall: boolean = false;
 
+  /**
+   * Represents the input property for passing user information to the component.
+   */
   @Input() users: UserInfo[] | null | undefined;
+
+  /**
+   * Represents the output property for emitting events when a user is clicked.
+   */
   @Output() onUserClicked: EventEmitter<string> = new EventEmitter<string>();
 
   /**
@@ -41,22 +48,21 @@ export class UsersInfoComponent implements OnInit {
     private router: Router,
     protected auth: AuthService,
     protected firebaseService: FirebaseService
-
   ) {
     this.checkScreenSize(window.innerWidth);
   }
 
   /**
- * Method executed when the component is initialized.
- * Retrieves and filters user data from Firebase and the authentication service.
- */
+   * Method executed when the component is initialized.
+   * Retrieves and filters user data from Firebase and the authentication service.
+   */
   ngOnInit() {
     this.users$ = combineLatest([
       this.firebaseService.users$,
-      this.auth.user$
+      this.auth.user$,
     ]).pipe(
       map(([users, currentUser]) =>
-        users.filter(user => user.uuid !== currentUser?.uuid)
+        users.filter((user) => user.uuid !== currentUser?.uuid)
       )
     );
   }

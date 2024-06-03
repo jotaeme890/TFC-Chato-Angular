@@ -51,7 +51,7 @@
 
 
 ### Tareas pendientes por hacer
-  - Página de ajustes completa (Con cambio de tema, idioma y modificación de perfil).
+  - Página de ajustes completa (Con idioma y modificación de perfil).
   - Añadir tabla de categorías en la página de análisis (con todo su CRUD correspondiente), y también las gráficas.
   - Añadir menú para el filtrado de las incidencias.
   - Autologin.

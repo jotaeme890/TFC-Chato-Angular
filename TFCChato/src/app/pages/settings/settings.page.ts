@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 import { UserInfo } from 'src/app/core/interfaces/user-info';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { CustomTranslateService } from 'src/app/core/services/translate/translate.service';
-import { ThemeService } from 'src/app/core/services/theme/theme.service';
 
 @Component({
   selector: 'app-settings',
@@ -41,8 +40,7 @@ export class SettingsPage implements OnInit {
     private media: MediaService,
     private _router: Router,
     protected auth: AuthService,
-    private translate: CustomTranslateService,
-    private themeService: ThemeService
+    private translate: CustomTranslateService
   ) {
     this.currentLang = this.translate.getCurrentLang();
   }
@@ -99,6 +97,14 @@ export class SettingsPage implements OnInit {
     }
   }
 
+  /**
+   * The function `setLanguage` sets the language for translation in a TypeScript application.
+   * 
+   * @param lang - The `lang` parameter in the `setLanguage` function is a string that represents the
+   * language code or identifier for the language to be set. This parameter is used to switch the
+   * language of the application to the specified language
+   * :type lang: string
+   */
   setLanguage(lang: string) {
     this.translate.use(lang);
     this.currentLang = lang;

@@ -5,7 +5,6 @@ import { AuthService } from './core/services/auth.service';
 import { filter } from 'rxjs';
 import { IonMenu, MenuController } from '@ionic/angular';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
-import { ThemeService } from './core/services/theme/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -34,8 +33,7 @@ export class AppComponent implements OnInit{
   constructor(
     protected auth: AuthService,
     private router: Router,
-    private localLang: LocalService,
-    private themeService: ThemeService
+    private localLang: LocalService
   ) {
     this.auth.isLogged$.subscribe((logged) => {
       if (this.initialAuthResolved) {
@@ -50,7 +48,6 @@ export class AppComponent implements OnInit{
     });
   }
   ngOnInit(): void {
-    this.setTheme()
   }
 
   /**
@@ -105,14 +102,5 @@ export class AppComponent implements OnInit{
   toAbout(menu: IonMenu) {
     this.router.navigate(['/about']);
     menu.close();
-  }
-
-  private setTheme() {
-    const themeCodes: string[] = [
-      "light",
-      "dark"
-    ];
-
-    this.themeService.switchTheme('light')
   }
 }

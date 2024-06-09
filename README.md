@@ -3,6 +3,8 @@
 ### Vídeo -> [Vídeo Youtube]
 ### Figma -> [Figma]
 
+py .\python.py "C:\Users\perma\Downloads\"
+
 </br>
 <details>
   <summary>DIARIO</summary>

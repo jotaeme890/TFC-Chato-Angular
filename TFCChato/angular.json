@@ -39,7 +39,8 @@
             "styles": [
               "node_modules/primeng/resources/primeng.min.css",
               "src/theme/variables.scss",
-              "src/global.scss"
+              "src/global.scss",
+              "@angular/material/prebuilt-themes/indigo-pink.css"
             ],
             "scripts": []
           },

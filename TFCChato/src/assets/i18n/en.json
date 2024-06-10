@@ -3,7 +3,7 @@
         "name": "Name",
         "surname": "Surname",
         "email": "Email",
-        "username": "Username",
+        "username": "User",
         "password": "Password",
         "repPassword": "Repeat the Password",
         "logIn": "Log In",

@@ -28,6 +28,7 @@
     },
     "dialog": {
         "delete": "¿Seguro que quiere borrar esta categoría?",
+        "resolved": "¿Seguro que quiere resolver esta incidencia?",
         "no": "Cancelar",
         "yes": "Aceptar"
     },
@@ -64,7 +65,8 @@
     },
     "filter": {
         "apply": "Aplicar filtros",
-        "reset": "Borrar filtros"
+        "reset": "Borrar filtros",
+        "filter": "Filtros"
     },
     "incidents": {
         "unresolved": "Sin resolver",
@@ -73,5 +75,17 @@
         "user": "Usuario",
         "resolved": "Marcar como resuelta",
         "anonymous": "Anónimo"
+    },
+    "settings": {
+        "theme": "Tema",
+        "profile": "Perfil",
+        "language": "Idioma"
+    },
+    "language": {
+        "spanish": "Español",
+        "english": "Inglés"
+    },
+    "about": {
+        "about": "Tu solución para solucionar los problemas de tus empleados"
     }
 }

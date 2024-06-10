@@ -3,7 +3,7 @@
         "name": "Name",
         "surname": "Surname",
         "email": "Email",
-        "username": "Username",
+        "username": "User",
         "password": "Password",
         "repPassword": "Repeat the Password",
         "logIn": "Log In",
@@ -28,6 +28,7 @@
     },
     "dialog": {
         "delete": "Would you like to delete this category?",
+        "resolved": "Would you like to resolve this incident?",
         "no": "Cancel",
         "yes": "Accept"
     },
@@ -64,7 +65,8 @@
     },
     "filter": {
         "apply": "Apply filter",
-        "reset": "Reset filters"
+        "reset": "Reset filters",
+        "filter": "Filters"
     },
     "incidents": {
         "unresolved": "Unresolved",
@@ -73,5 +75,17 @@
         "user": "User",
         "resolved": "Set as resolved",
         "anonymous": "Anonymous"
+    },
+    "settings": {
+        "theme": "Theme",
+        "profile": "Profile",
+        "language": "Language"
+    },
+    "language": {
+        "spanish": "Spanish",
+        "english": "English"
+    },
+    "about": {
+        "about": "Your solution to solve your employees' problems"
     }
 }

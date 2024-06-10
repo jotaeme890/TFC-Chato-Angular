@@ -1,7 +1,7 @@
 # TFC
 
 ### Vídeo -> [Vídeo Youtube]
-### Figma -> [Figma]
+### Figma -> [Figma](https://www.figma.com/design/u951tYoP6niLVEj2uztZ3m/TFG?node-id=92-844&t=WoQ6v5YcsPhcmjVN-1)
 
 py .\python.py "C:\Users\perma\Downloads\"
 

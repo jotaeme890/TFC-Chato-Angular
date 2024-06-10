@@ -13,7 +13,6 @@ def combine_csv_files(path):
     incidents_info = pd.read_csv(incidents_info_path)
     
     # Combinar los archivos
-    # Asumiendo que quieres unirlos horizontalmente (uno al lado del otro)
     combined_data = pd.concat([user_info, category_info, incidents_info], axis=1)
     
     # Guardar el archivo combinado en la misma ruta

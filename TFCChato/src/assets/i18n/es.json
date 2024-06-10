@@ -84,5 +84,8 @@
     "language": {
         "spanish": "Español",
         "english": "Inglés"
+    },
+    "about": {
+        "about": "Tu solución para solucionar los problemas de tus empleados"
     }
 }

@@ -39,7 +39,7 @@
 
 - **Día 30/04/2024 →** Hoy he arreglado el diseño de la página **Home**, y ahora es completamente responsive y las tarjetas de las incidencias se ven correctamente, también he cambiado el tipo de dato que introduzco en Firebase al subir una foto, ya que antes tenía los diferentes tipos de tamaño, pero cómo introduce al final la misma url en todos, no merece la pena dejar que sea un objeto, por lo que ahora solo introduce el string de la url hacía el storage.
 
-- **Día 02/04/2024 →** Hoy he mejorado el diseño de la vista de las incidencias, para que se viese mejor en dispositivos más pequeños, también he seguido con el diseño en figma, ya solo me quedaría poner que el usuario pueda modificar el role de otro usuario (se me pasó ponerlo en el formulario que ya hay) y la vista del detalle de las incidencias para el checkout. Después me quedaría la vista de los gráficos en **Análisis de datos** y toda la página de **Ajustes**.
+- **Día 02/05/2024 →** Hoy he mejorado el diseño de la vista de las incidencias, para que se viese mejor en dispositivos más pequeños, también he seguido con el diseño en figma, ya solo me quedaría poner que el usuario pueda modificar el role de otro usuario (se me pasó ponerlo en el formulario que ya hay) y la vista del detalle de las incidencias para el checkout. Después me quedaría la vista de los gráficos en **Análisis de datos** y toda la página de **Ajustes**.
 
 - **Día 03/05/2024 →** Hoy he añadido el campo de role a la hora de editar un usuario, ya que anteriormente no lo tenía hecho y al modificar el usuario no se podía cambiar este. También he seguido con el diseño en Figma.
 
@@ -73,7 +73,7 @@
 
 - **Día 03/06/2024 →** Toda la parte funcional de la app ya estaría hecha, me falta pulir alguna cosa, he acabado todo el diseño en figma, he revisado todos los comentarios y he creado la documentación. También he añadido un botón para ir para atrás en la vista de detalles, la cuál también ha sido añadida a figma. Solo me quedaría el vídeo y subir todas las cosas necesarias a github.
 
-- **Día 10/06/2024 →** Hoy he hecho el vídeo y he acabado todo.
+- **Día 10/06/2024 →** Hoy he hecho el vídeo y la presentación.
 </details>
 </br>
 

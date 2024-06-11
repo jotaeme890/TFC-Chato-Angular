@@ -234,13 +234,24 @@ import { IonicModule } from &#x27;@ionic/angular&#x27;;
 import { AboutPageRoutingModule } from &#x27;./about-routing.module&#x27;;
 
 import { AboutPage } from &#x27;./about.page&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { TranslateModule, TranslateLoader } from &#x27;@ngx-translate/core&#x27;;
+import { createTranslateLoader } from &#x27;src/app/core/translate/translate&#x27;;
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AboutPageRoutingModule
+    AboutPageRoutingModule,
+    // Translate
+    TranslateModule.forChild({
+      loader: {
+      provide: TranslateLoader,
+      useFactory: (createTranslateLoader),
+      deps: [HttpClient]
+      }
+    }),
   ],
   declarations: [AboutPage]
 })

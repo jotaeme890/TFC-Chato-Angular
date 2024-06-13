@@ -1,5 +1,5 @@
 # Checkpoint
-
+(Para ver lo subido para el 14 de Junio, cambie a la rama definitive-tfc)
 ### Vídeo -> [Vídeo Youtube](https://youtu.be/LxI69-CrHsg)
 ### Figma -> [Figma](https://www.figma.com/file/u951tYoP6niLVEj2uztZ3m/TFG?type=design&node-id=0%3A1&mode=design&t=7GrEAooEo8Kb70O4-1)
 

@@ -1,4 +1,7 @@
-# TFC
+# Chato
+
+- Javier Miguel Martín Gallardo, se enfocará en la parte de Angular e Ionic.
+- Adrián Perogil Fernández, hará la parte de Android.
 
 ### Aplicación desplegada -> [Página](https://tfcchato.netlify.app)
 ### Vídeo -> [Vídeo Youtube](https://youtu.be/A_GvOMzDPWI)

@@ -5,7 +5,9 @@
 ### Figma -> [Figma](https://www.figma.com/design/u951tYoP6niLVEj2uztZ3m/TFG?node-id=92-844&t=WoQ6v5YcsPhcmjVN-1)
 ### Presentación -> [Presentación](https://github.com/jotaeme890/TFC-Chato-Angular/blob/definitive-tfc/Presentaci%C3%B3n.pdf)
 
-### Documentación -> Podrás ver la documentación accediendo al fichero index de la siguiente ruta:```TFCChato > documentation > index.html```
+### Documentación
+Podrás ver la documentación accediendo al fichero index de la siguiente ruta:```TFCChato > documentation > index.html```
+
 
 <details>
   <summary>DIARIO</summary>

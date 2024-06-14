@@ -9,8 +9,9 @@
 ### Presentación
 - [Presentación](https://github.com/jotaeme890/TFC-Chato-Angular/blob/definitive-tfc/Presentaci%C3%B3n.pdf)
 ### Documentación
-- Podrás ver la documentación accediendo al fichero index de la siguiente ruta:```TFCChato > documentation > index.html```
-
+- Podrás ver la documentación accediendo al fichero index de la siguiente ruta: ```TFCChato > documentation > index.html```
+### Código fuente
+- El código fuente se encuentra en la carpeta: ```TFCChato```
 
 <details>
   <summary>DIARIO</summary>

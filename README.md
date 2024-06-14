@@ -3,6 +3,9 @@
 - Javier Miguel Martín Gallardo, se enfocará en la parte de Angular e Ionic.
 - Adrián Perogil Fernández, hará la parte de Android.
 
+
+Nuestro proyecto se basará en una aplicación enfocada en las incidencias de una empresa, en la cuál estará implicado un administrador y un usuario, siendo este último quien podrá subir las incidencias para que el administrador las pueda solucionar.
+
 ### Aplicación desplegada -> [Página](https://tfcchato.netlify.app)
 ### Vídeo -> [Vídeo Youtube](https://youtu.be/A_GvOMzDPWI)
 ### Figma -> [Figma](https://www.figma.com/design/u951tYoP6niLVEj2uztZ3m/TFG?node-id=92-844&t=WoQ6v5YcsPhcmjVN-1)

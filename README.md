@@ -86,7 +86,6 @@
 
 - **Día 10/06/2024 →** Hoy he hecho el vídeo y la presentación.
 </details>
-</br>
 
 ### Webgrafía usada
   - [Cabecera de la tabla](https://ionicframework.com/docs/api/list-header)
